@@ -1,6 +1,104 @@
 @import 'variables.scss';
 
+
+
+// Pour base.html.twig :
+:root {
+    font-family: $text-font;
+}
+
+html, body {
+    height: 100%;
+}
+
 body {
-    background-color: $wild-color;
     color: $light-color;
+    background-image: url(../images/background-blue.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed ;
+    background-size: cover;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 135px;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+header {
+    width: 100%;
+    height:135px;
+    background-image: url(../images/background-blue.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed ;
+    left:0;
+    position : fixed;
+    top:0;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 2.8vmin;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.actu, .design, .passages, .contact{
+    align-self: flex-start;
+    padding-top: 1.7%;
+    margin: 0 auto;
+    min-width: fit-content;
+}
+
+.logo-navbar {
+    width: 10vmin;
+    margin: 0 1%;
+}
+
+.logo-navbar img {
+    width: 100%;
+}
+
+.separator {
+    align-self: flex-start;
+    padding-top: 1.5%;
+}
+
+p, h1 {
+    text-align: center;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.185);
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+.footer a{
+    text-decoration: none;
+    color: $light-color;
+}
+
+@media screen and (max-width:800px) {
+    .separator img{
+        height: 25px;
+        padding : 5%;
+    }
+
+    header {
+        height: 100px;
+    }
+
+    body {
+    margin-top: 100px;
+    }
 }
