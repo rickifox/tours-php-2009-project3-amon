@@ -59,6 +59,11 @@ header {
 .logo-navbar {
     width: 10vmin;
     margin: 0 1%;
+    transition: all 1.5s;
+}
+
+.logo-navbar:hover {
+    transform: scale(1.15);
 }
 
 .logo-navbar img {
@@ -99,6 +104,6 @@ p, h1 {
     }
 
     body {
-    margin-top: 100px;
+        margin-top: 100px;
     }
 }
