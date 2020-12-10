@@ -118,11 +118,17 @@ p, h1 {
         margin-top: 100px;
     }
 
+    .navbar {
+        font-size: 1.4vh;
+    }
+
     .navbar_left {
         flex-direction: column;
+        height: 8vh;
     }
     .navbar_right {
-        flex-direction: column-reverse
+        flex-direction: column-reverse;
+        height: 8vh;
     }
 
     .logo-navbar {
