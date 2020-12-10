@@ -1,10 +1,8 @@
-@import 'variables.scss';
-
-
-
-// Pour base.html.twig :
+/*Pour base.html.twig*/
 :root {
-    font-family: $text-font;
+    --main-font: Quicksand, arial;
+    --main-color: #ffffff;
+    --secondary-color: #ff6c71;
 }
 
 html, body {
@@ -12,7 +10,7 @@ html, body {
 }
 
 body {
-    color: $light-color;
+    color: var(--main-color);
     background-image: url(../images/background-blue.png);
     background-repeat: no-repeat;
     background-attachment: fixed ;
@@ -47,18 +45,33 @@ header {
     font-size: 2.8vmin;
     padding-top: 15px;
     text-align: center;
+    justify-content: space-around;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+.navbar_left {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar_right {
+    width: 40%;
+    display: flex;
+    align-items: center;
 }
 
 .actu, .design, .passages, .contact{
-    align-self: flex-start;
-    padding-top: 1.7%;
-    margin: 0 auto;
-    min-width: fit-content;
+    padding: 1.7%;
+    width: 100%;
 }
 
 .logo-navbar {
     width: 10vmin;
-    margin: 0 1%;
     transition: all 1.5s;
 }
 
@@ -71,7 +84,6 @@ header {
 }
 
 .separator {
-    align-self: flex-start;
     padding-top: 1.5%;
 }
 
@@ -88,9 +100,9 @@ p, h1 {
     flex-shrink: 0;
 }
 
-.footer a{
+.footer a {
     text-decoration: none;
-    color: $light-color;
+    color: var(--main-color);
 }
 
 @media screen and (max-width:800px) {

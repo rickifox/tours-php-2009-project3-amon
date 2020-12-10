@@ -1,0 +1,20 @@
+/*Special code for contact.html.twig*/
+
+.image {
+    text-align: center;
+    margin-top: 2%;
+}
+.contact_infos {
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.contact_infos a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+.img-only {
+    visibility: hidden;
+}

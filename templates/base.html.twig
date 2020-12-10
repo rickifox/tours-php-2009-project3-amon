@@ -11,28 +11,32 @@
 <body>
     <header>
         <div class="navbar">
-            <div class="actu">
-                Actualités
-            </div>
-            <div class="separator">
-                <img src="{{asset('build/images/vertical-line.png') }}" alt="">
-            </div>
-            <div class="design">
-                Design métallique
+            <div class="navbar_left">
+                <div class="actu">
+                    Actualités
+                </div>
+                <div class="separator">
+                    <img src="{{asset('build/images/vertical-line.png') }}" alt="">
+                </div>
+                <div class="design">
+                <a href="{{asset('gallerie-design-metallique') }}">Design métallique</a> 
+                </div>
             </div>
             <div class="logo-navbar">
                 <div class="img-only">
                     <a href="{{path('home') }}"><img src="{{ asset('build/images/logo-navbar.png') }}" alt="Le logo de la société Amon" width="100%" title="Aller à l'accueil"></a> 
                 </div>
             </div>
-            <div class="passages">
-                Passages secrets
-            </div>
-            <div class="separator">
-                <img src="{{asset('build/images/vertical-line.png') }}" alt="">
-            </div>
-            <div class="contact">
-                Contact
+            <div class="navbar_right">
+                <div class="passages">
+                    <a href="{{asset('gallerie-passages-secrets') }}">Passages secrets</a>
+                </div>
+                <div class="separator">
+                    <img src="{{asset('build/images/vertical-line.png') }}" alt="">
+                </div>
+                <div class="contact">
+                    <a href="{{asset('home/contact') }}">Contact</a>
+                </div>
             </div>
         </div>
     </header>
