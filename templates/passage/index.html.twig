@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Passages Secrets{% endblock %}
+
+{% block body %}
+
+    <h1 class="secretPassageTitle">Les Passages Secrets</h1>
+    <section class="library">
+        <div class="libraryText">
+            <h1 class="libraryTitle">La bibliothèque blindée</h1>
+            <p>Duis consectetur eiusmod dolor magna aute cillum. Duis nisi magna ipsum nulla aute proident cillum.
+                Aliqua incididunt sit excepteur nostrud tempor aliqua dolor esse consectetur consequat culpa exercitation
+                duis. Velit ea consequat ut sint nostrud elit sunt. Velit enim nostrud reprehenderit ad quis culpa
+                consectetur aliqua minim.</p>
+        </div>
+        <div>
+            <img class="imagesPassage" src="{{ asset('build/images/1.JPG') }}" alt="Photo bibliothèque">
+        </div>
+        <div>
+            <img class="imagesPassage secret" src="{{ asset('build/images/2.JPG') }}" alt="Photo bibliothèque">
+        </div>
+        <a href="#"><div class="passageMiniature">
+            <p class="locationTitle" >Galerie</p>
+                <img class="imagesMiniature" src="{{ asset('build/images/1.JPG') }}" alt="Photo bibliothèque">
+                <img class="imagesMiniature" src="{{ asset('build/images/2.JPG') }}" alt="Photo bibliothèque">
+                <img class="imagesMiniature" src="{{ asset('build/images/1.JPG') }}" alt="Photo bibliothèque">
+        </div></a>
+    </section>
+    <section class="miror">
+        <div class="libraryText2">
+            <h1 class="libraryTitle">Le miroir secret</h1>
+            <p>Duis consectetur eiusmod dolor magna aute cillum. Duis nisi magna ipsum nulla aute proident cillum.
+                Aliqua incididunt sit excepteur nostrud tempor aliqua dolor esse consectetur consequat culpa exercitation
+                duis. Velit ea consequat ut sint nostrud elit sunt. Velit enim nostrud reprehenderit ad quis culpa
+                consectetur aliqua minim.</p>
+        </div>
+        <div>
+            <img class="imagesPassage2" src="{{ asset('build/images/1.JPG') }}" alt="Photo bibliothèque">
+        </div>
+        <div>
+            <img class="imagesPassage2 secret2" src="{{ asset('build/images/2.JPG') }}" alt="Photo bibliothèque">
+        </div>
+        <a href="#"><div class="passageMiniature2">
+            <p class="locationTitle" >Galerie</p>
+                <img class="imagesMiniature" src="{{ asset('build/images/1.JPG') }}" alt="Photo bibliothèque">
+                <img class="imagesMiniature" src="{{ asset('build/images/2.JPG') }}" alt="Photo bibliothèque">
+                <img class="imagesMiniature" src="{{ asset('build/images/1.JPG') }}" alt="Photo bibliothèque">
+        </div></a>
+    </section>
+    <section class="tailor-made">
+        <div class="libraryText">
+            <h1 class="libraryTitle">Pièces sur mesure</h1>
+            <p>Duis consectetur eiusmod dolor magna aute cillum. Duis nisi magna ipsum nulla aute proident cillum.
+                Aliqua incididunt sit excepteur nostrud tempor aliqua dolor esse consectetur consequat culpa exercitation
+                duis. Velit ea consequat ut sint nostrud elit sunt. Velit enim nostrud reprehenderit ad quis culpa
+                consectetur aliqua minim.</p>
+        </div>
+        <div>
+            <img class="imagesPassage" src="{{ asset('build/images/1.JPG') }}" alt="Photo bibliothèque">
+        </div>
+        <div>
+            <img class="imagesPassage secret" src="{{ asset('build/images/2.JPG') }}" alt="Photo bibliothèque">
+        </div>
+        <a href="#"><div class="passageMiniature">
+            <p class="locationTitle" >Galerie</p>
+                <img class="imagesMiniature" src="{{ asset('build/images/1.JPG') }}" alt="Photo bibliothèque">
+                <img class="imagesMiniature" src="{{ asset('build/images/2.JPG') }}" alt="Photo bibliothèque">
+                <img class="imagesMiniature" src="{{ asset('build/images/1.JPG') }}" alt="Photo bibliothèque">
+        </div></a>
+    </section>
+    
+{% endblock %}
