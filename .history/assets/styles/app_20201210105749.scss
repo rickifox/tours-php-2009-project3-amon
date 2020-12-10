@@ -1,7 +1,7 @@
 @import 'variables.scss';
 
 body {
-    background-image: url("../images/Wall2.png");
+    background-image: url(../images/Wall2.png);
     background-attachment: fixed;
     background-size: cover;
     color: $light-color;
@@ -43,7 +43,6 @@ body {
     font-size: 1.5vw;
     text-align: justify;
 }
-
 // Secret passage images
 .images-passage {
     position: absolute;
@@ -57,7 +56,6 @@ body {
     margin-top: 13%;
     margin-left: 5%;
 }
-
 // Secret passage images of miror
 .images-passage2 {
     position: absolute;
@@ -71,7 +69,6 @@ body {
     margin-top: 13%;
     margin-left: 75%;
 }
-
  // Gallery of secret passage images
 .passage-miniature {
     z-index: 2;
@@ -106,7 +103,6 @@ body {
 .images-miniature {
     width: 100%;
 }
-
 .passage-miniature:hover, .passage-miniature2:hover{
     -ms-transform: scale(1.2); // IE 9
     -webkit-transform: scale(1.2); // Safari 3-8
@@ -122,7 +118,6 @@ body {
     color: $light-color;
     font-size: 3vw;
 }
-
  // Miror and tailor-made section
 .miror, .tailor-made {
     position: relative;
