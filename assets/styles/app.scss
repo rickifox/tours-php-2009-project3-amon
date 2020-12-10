@@ -1,6 +1,135 @@
 @import 'variables.scss';
 
 body {
-    background-color: $wild-color;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/Wall.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* ---------- Section Home ---------- */
+
+*  {
+    scroll-behavior: smooth;
     color: $light-color;
 }
+
+/* Home Menu */
+.container_home-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 850px;
+    width: 100%;
+}
+
+#home-logo {
+    width: 26em;
+    height: 34em;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    text-decoration: none;
+    color: $light-color;
+    font-family: $main-font;
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.right {
+    transition: transform 1s;
+    -webkit-transition: 1s;
+}
+
+.right:hover {
+    background-color: $gold-color;
+    transition: all 1s;
+    transform: translateX(10%);
+}
+
+.left {
+    transition: transform 1s;
+    -webkit-transition: 1s;
+}
+
+.left:hover {
+    background-color: $gold-color;
+    transition: all 1s;
+    transform: translateX(-10%);
+}
+
+.bottom {
+    transition: transform 1s;
+    -webkit-transition: 1s;
+}
+
+.bottom:hover {
+    background-color: $gold-color;
+    transition: all 1s;
+    transform: translateY(30%);
+}
+
+.up{
+    transition: transform 1s;
+    -webkit-transition: 1s;
+    text-align: center;
+    width: 2%;
+    border-radius: 360%;
+}
+
+.up:hover {
+    background-color: $gold-color;
+    transition: all 1s;
+    transform: translateY(-30%);
+}
+
+.container_button-bottom {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container_button-up {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* End of Home Menu */
+
+/* Home Description */
+
+.container_home-description {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 850px;
+    width: 100%;
+}
+
+.description {
+    width: 40%;
+    height: 40%;
+}
+
+.image-desc {
+    width: 100%;
+    background-color: rgb(94, 94, 94);
+    height: 400px;
+    margin-top: 1rem;
+    border-radius: 20px;
+}
+
+/* End of Home Description */
+
+/* ---------- End of Section Home ---------- */

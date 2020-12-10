@@ -1,8 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{{ website }} - Home{% endblock %}
 
 {% block body %}
-    <h1>Welcome on your project 3</h1>
-    <img src="https://media.giphy.com/media/hS58Kb2OOCMPS/giphy.gif" alt="Dewey dancing">
+    <section id='home'>
+        <div class='container_home-menu' id="menu">
+            <img id='home-logo' src="{{ asset('build/images/logo.svg')}}" alt="logo">
+            <div class="buttons">
+                <a class="button left" href=""><img src="{{ asset('build/images/ArrowL.png')}}" alt="left"> Design métallique</a>
+                <a class="button right" href="">Passages secrets <img src="{{ asset('build/images/ArrowR.png')}}" alt="right"></a>
+            </div>
+            <div class="container_button-bottom">
+                <a class="button bottom" href="#societe">La société <img src="{{ asset('build/images/ArrowD.png')}}" alt="down"></a>
+            </div>
+        </div>
+    </section>
+    <section id='description'>
+        <div class='container_home-description'>
+            <div class="description">
+                <h2 class='title-desc' id="societe">Description</h2>
+                <span class='text-desc'>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Quisque sodales sit amet orci quis gravida. Vestibulum congue elementum turpis,
+                    ut facilisis arcu ultrices sed. Nulla suscipit tortor ac semper bibendum.
+                    Cras tempus, libero eget placerat placerat, lorem urna mollis ipsum, sed ultrices ante lorem a massa.
+                    Nam pretium mauris at enim
+                </span>
+                <div class='image-desc'></div>
+            </div>
+            <div class="description">
+                <div class='image-desc'></div>
+                <h2 class='title-desc'>Description</h2>
+                <span class='text-desc'>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Quisque sodales sit amet orci quis gravida. Vestibulum congue elementum turpis,
+                    ut facilisis arcu ultrices sed. Nulla suscipit tortor ac semper bibendum.
+                    Cras tempus, libero eget placerat placerat, lorem urna mollis ipsum, sed ultrices ante lorem a massa.
+                    Nam pretium mauris at enim
+                </span>
+            </div>
+        </div>
+        <div class="container_button-up">
+            <a class="button up" href="#menu"><img src="{{ asset('build/images/ArrowU.png')}}" alt="up"></a>
+        </div>
+    </section>
 {% endblock %}
