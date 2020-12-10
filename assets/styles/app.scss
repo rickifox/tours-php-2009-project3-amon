@@ -8,7 +8,7 @@ body {
 }
 
 //  Principal Title of the secret passage page
-.secretPassageTitle {
+.secret-passage-title {
     color: $light-color;
     font-size: 3vw;
     text-align: center;
@@ -24,7 +24,7 @@ body {
     margin-right: 10%;
 }
 
-.libraryText {
+.library-text {
     position: absolute;
     padding-left: 45%;
     padding-right: 5%;
@@ -32,11 +32,11 @@ body {
     text-align: justify;
 }
 
-.libraryTitle {
+.library-title {
     text-align: center;
 }
 
-.libraryText2 {
+.library-text2 {
     position: absolute;
     padding-left: 5%;
     padding-right: 45%;
@@ -44,7 +44,7 @@ body {
     text-align: justify;
 }
 // Secret passage images
-.imagesPassage {
+.images-passage {
     position: absolute;
     margin-left: 20%;
     width: 20%;
@@ -57,7 +57,7 @@ body {
     margin-left: 5%;
 }
 // Secret passage images of miror
-.imagesPassage2 {
+.images-passage2 {
     position: absolute;
     margin-left: 60%;
     width: 20%;
@@ -70,7 +70,7 @@ body {
     margin-left: 75%;
 }
  // Gallery of secret passage images
-.passageMiniature {
+.passage-miniature {
     z-index: 2;
     display: grid;
     grid-gap: 1%;
@@ -85,7 +85,7 @@ body {
     transition: transform .5s;
 }
 
-.passageMiniature2 {
+.passage-miniature2 {
     z-index: 2;
     display: grid;
     grid-gap: 1%;
@@ -100,16 +100,16 @@ body {
     transition: transform .5s;
 }
 
-.imagesMiniature {
+.images-miniature {
     width: 100%;
 }
-.passageMiniature:hover, .passageMiniature2:hover{
+.passage-miniature:hover, .passage-miniature2:hover{
     -ms-transform: scale(1.2); // IE 9
     -webkit-transform: scale(1.2); // Safari 3-8
     transform: scale(1.2); 
 }
 
-.locationTitle {
+.galery-title {
     position: absolute;
     z-index: 3;
     justify-self: center;
