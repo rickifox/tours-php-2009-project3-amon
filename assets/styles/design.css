@@ -120,6 +120,12 @@ main {
   .right-column .accordion {
     transform: skew(-5deg);
   }
+  .accordion .card:hover {
+    flex-grow: 1;
+  }
+  .accordion .card img {
+    filter: grayscale(0%);
+  }
   .fourth-card {
     display: none;
   }
@@ -148,6 +154,12 @@ main {
   }
   .accordion .card:not(:last-child) {
     margin-right: 0em;
+  }
+  .accordion .card:hover {
+    flex-grow: 1;
+  }
+  .accordion .card img {
+    filter: grayscale(0%);
   }
   .second-card {
     display: none;
