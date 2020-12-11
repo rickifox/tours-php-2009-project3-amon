@@ -1,8 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    {{ parent() }}
-    {{ encore_entry_link_tags('passage') }}
+        {{ encore_entry_link_tags('passage') }}
 {% endblock %}
 
 {% block title %}Passages Secrets{% endblock %}
@@ -31,7 +30,7 @@
                 <img class="images-miniature" src="{{ asset('build/images/1.JPG') }}" alt="Photo bibliothèque">
         </div></a>
     </section>
-    <section class="miror">
+    <section class="mirror">
         <div class="library-text2">
             <h1 class="library-title">Le miroir secret</h1>
             <p>Duis consectetur eiusmod dolor magna aute cillum. Duis nisi magna ipsum nulla aute proident cillum.
@@ -74,4 +73,8 @@
         </div></a>
     </section>
     
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('passage') }}
 {% endblock %}

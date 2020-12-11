@@ -62,7 +62,7 @@ body {
     margin-left: 5%;
 }
 
-/* Secret passage images of miror */
+/* Secret passage images of mirror */
 .images-passage2 {
     position: absolute;
     margin-left: 60%;
@@ -127,8 +127,8 @@ body {
     color: var(--main-color);
 }
 
-/* Miror and tailor-made section */
-.miror, .tailor-made {
+/* Mirror and tailor-made section */
+.mirror, .tailor-made {
     position: relative;
     padding-top: 50%;
 }
