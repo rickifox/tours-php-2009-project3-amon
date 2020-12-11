@@ -5,24 +5,26 @@
     {{ encore_entry_link_tags('home') }}
 {% endblock %}
 
-{% block title %}{{ website }} - Home{% endblock %}
+{% block title %}AMON - Home{% endblock %}
 
 {% block body %}
     <section id='home'>
         <div class='container_home-menu' id="menu">
             <img id='home-logo' src="{{ asset('build/images/logo.svg')}}" alt="logo">
-            <div class="buttons">
-                <a class="button left" href=""><img class="arrow" src="{{ asset('build/images/ArrowL.png')}}" alt="left"> Design métallique</a>
-                <a class="button right" href="">Passages secrets <img class="arrow" src="{{ asset('build/images/ArrowR.png')}}" alt="right"></a>
-            </div>
+            <nav>
+                <ul class="buttons">
+                    <li class="button left"><a href=""><img class="arrow" src="{{ asset('build/images/ArrowL.png')}}" alt="left"> Design métallique</a></li>
+                    <li class="button right"><a href="">Passages secrets <img class="arrow" src="{{ asset('build/images/ArrowR.png')}}" alt="right"></a></li>
+                </ul>
+            </nav>
             <div class="container_button-bottom">
                 <a class="button bottom" href="#societe">La société <img class="arrow" src="{{ asset('build/images/ArrowD.png')}}" alt="down"></a>
             </div>
         </div>
     </section>
     <h1 class="section-title">La Société</h1>
-    <div class='container_home-description'>
-        <div class="description">
+    <section class='container_home-description'>
+        <article class="description">
             <h2 class='title-desc' id="societe">Description</h2>
             <span class='text-desc'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -32,8 +34,8 @@
                 Nam pretium mauris at enim
             </span>
             <div class='image-desc'></div>
-        </div>
-        <div class="description">
+        </article>
+        <article class="description">
             <div class='image-desc'></div>
             <h2 class='title-desc'>Description</h2>
             <span class='text-desc'>
@@ -43,8 +45,8 @@
                 Cras tempus, libero eget placerat placerat, lorem urna mollis ipsum, sed ultrices ante lorem a massa.
                 Nam pretium mauris at enim
             </span>
-        </div>
-    </div>
+        </article>
+    </section>
     <div class="container_button-up">
         <a class="button up" href="#menu"><img class="arrow" src="{{ asset('build/images/ArrowU.png')}}" alt="up"></a>
     </div>

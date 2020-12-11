@@ -29,6 +29,25 @@ body {
     width: 100%;
 }
 
+nav {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 #home-logo {
     width: 26em;
     height: 34em;
@@ -86,11 +105,9 @@ body {
     -webkit-transition: 1s;
     text-align: center;
     width: 2%;
-    border-radius: 360%;
 }
 
 .up:hover {
-    background-color: var(--button-color);
     transition: all 1s;
     transform: translateY(-30%);
 }
