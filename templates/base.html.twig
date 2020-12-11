@@ -10,35 +10,35 @@
 </head>
 <body>
     <header>
-        <div class="navbar">
-            <div class="navbar_left">
-                <div class="actu">
+        <nav class="navbar">
+            <ul class="navbar_left">
+                <li class="actu">
                     Actualités
-                </div>
-                <div class="separator">
+                </li>
+                <li class="separator">
                     <img src="{{asset('build/images/vertical-line.png') }}" alt="">
-                </div>
-                <div class="design">
+                </li>
+                <li class="design">
                 <a href="{{asset('gallerie-design-metallique') }}">Design métallique</a> 
-                </div>
-            </div>
-            <div class="logo-navbar">
+                </li>
+            </ul>
+            <li class="logo-navbar">
                 <div class="img-only">
                     <a href="{{path('home') }}"><img src="{{ asset('build/images/logo-navbar.png') }}" alt="Le logo de la société Amon" width="100%" title="Aller à l'accueil"></a> 
                 </div>
-            </div>
-            <div class="navbar_right">
-                <div class="passages">
+            </li>
+            <ul class="navbar_right">
+                <li class="passages">
                     <a href="{{asset('gallerie-passages-secrets') }}">Passages secrets</a>
-                </div>
-                <div class="separator">
+                </li>
+                <li class="separator">
                     <img src="{{asset('build/images/vertical-line.png') }}" alt="">
-                </div>
-                <div class="contact">
+                </li>
+                <li class="contact">
                     <a href="{{asset('home/contact') }}">Contact</a>
-                </div>
-            </div>
-        </div>
+                </li>
+            </ul>
+        </nav>
     </header>
     <div class="content">
         {% block body %}{% endblock %}

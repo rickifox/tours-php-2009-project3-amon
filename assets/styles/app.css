@@ -58,6 +58,8 @@ header {
     align-items: center;
     justify-content: space-evenly;
     height: 10vh;
+    list-style: none;
+    padding: 0;
 }
 
 .navbar_right {
@@ -66,11 +68,14 @@ header {
     align-items: center;
     justify-content: space-evenly;
     height: 10vh;
+    list-style: none;
+    padding: 0;
 }
 
 .logo-navbar {
     width: 12vmin;
     transition: all 1.5s;
+    list-style: none;
 }
 
 .logo-navbar:hover {
