@@ -36,7 +36,6 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('contact', './assets/js/contact.js')
-    
     .addEntry('passage', './assets/js/passage.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-        {{ encore_entry_link_tags('passage') }}
+    {{ parent() }}
+    {{ encore_entry_link_tags('passage') }}
 {% endblock %}
 
 {% block title %}Passages Secrets{% endblock %}
@@ -76,5 +77,6 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     {{ encore_entry_script_tags('passage') }}
 {% endblock %}
