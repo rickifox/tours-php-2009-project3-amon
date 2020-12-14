@@ -2,8 +2,12 @@
 
 .image {
     text-align: center;
-    margin-top: 2%;
 }
+
+.image img {
+    width: 30vh;
+}
+
 .contact_infos {
     text-align: center;
     font-size: 1.25rem;
@@ -17,4 +21,12 @@
 
 .img-only {
     visibility: hidden;
+}
+
+.logos {
+    text-align: center;
+}
+
+.logos img {
+    margin: 2% 4%;
 }
