@@ -91,10 +91,6 @@ header {
     padding-top: 1.5%;
 }
 
-p, h1 {
-    text-align: center;
-}
-
 .footer {
     display: flex;
     flex-direction: row;
