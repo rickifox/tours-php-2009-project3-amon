@@ -13,9 +13,7 @@ class GalleryController extends AbstractController
      */
     public function metallicDesignGallery(): Response
     {
-        return $this->render('gallery/metallic_design.html.twig', [
-            'controller_name' => 'MetallicDesignGalleryController',
-        ]);
+        return $this->render('gallery/metallic_design.html.twig');
     }
 
         /**
@@ -23,8 +21,6 @@ class GalleryController extends AbstractController
      */
     public function secretPassagesGallery(): Response
     {
-        return $this->render('gallery/secret_passages.html.twig', [
-            'controller_name' => 'SecretPassagesGalleryController',
-        ]);
+        return $this->render('gallery/secret_passages.html.twig');
     }
 }
