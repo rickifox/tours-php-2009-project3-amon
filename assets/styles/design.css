@@ -1,25 +1,16 @@
-body {
-    margin: 0;
-    min-height: 100vh;
-    background: #000;
-    background-image: url('../images/Wall2.png');
-    background-size: cover;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:#ffffff;
-  }
-
 main {
   display:flex;
   flex-flow: row wrap;
   justify-content: space-around;
 }
 
-.intro {
-  width:100%;
+/* Principal Title of the secret passage page */
+.design-title {
+  color: var(--main-color);
+  font-size: 3vw;
+  padding-top: 1%;
   text-align: center;
+  text-decoration: underline;
 }
 
 .left-column, .right-column {

@@ -1,18 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-        {{ encore_entry_link_tags('design') }}
+  {{ parent() }}
+  {{ encore_entry_link_tags('design') }}
 {% endblock %}
 
 {% block title %}Design Métallique{% endblock %}
 
 {% block body %}
+<h1 class="design-title">Dessin Industriel</h1>
+<div class="intro">
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium fugiat voluptate odit illum.
+  Provident natus voluptatibus odio rem incidunt dolore velit ea nostrum a neque. Dolore necessitatibus fuga cum praesentium.</p>
+</div>
 <main>
-    <div class="intro">
-      <h1>Dessin Industriel</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium fugiat voluptate odit illum.
-        Provident natus voluptatibus odio rem incidunt dolore velit ea nostrum a neque. Dolore necessitatibus fuga cum praesentium.</p>
-    </div>
     <div class="left-column">
 
       <!-- first accordion-->
@@ -191,5 +192,6 @@
 {% endblock %}
 
 {% block javascripts %}
-    {{ encore_entry_script_tags('design') }}
+  {{ parent() }}
+  {{ encore_entry_script_tags('design') }}
 {% endblock %}

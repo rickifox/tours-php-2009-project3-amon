@@ -6,7 +6,6 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
-        {{ encore_entry_link_tags('design') }}
     {% endblock %}
 </head>
 <body>
@@ -20,7 +19,7 @@
                     <img src="{{asset('build/images/vertical-line.png') }}" alt="">
                 </li>
                 <li class="design">
-                <a href="{{asset('gallerie-design-metallique') }}">Design métallique</a> 
+                <a href="{{path('design_index') }}">Design métallique</a> 
                 </li>
             </ul>
             <div class="logo-navbar">
@@ -49,7 +48,6 @@
 
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
-    {{ encore_entry_script_tags('design') }}
 {% endblock %}
 </body>
 </html>
