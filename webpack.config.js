@@ -34,7 +34,8 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    
+
+    .addEntry('design', './assets/js/design.js')
     .addEntry('passage', './assets/js/passage.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
