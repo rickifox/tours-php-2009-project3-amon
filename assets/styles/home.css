@@ -4,12 +4,16 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-image: url("../images/Wall.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    display: block;
+}
+
+/*----------- Disparition et Affichage Navbar -------*/
+header {
+    display: none;
+}
+
+.content {
+    margin:0;
 }
 
 /* ---------- Section Home ---------- */

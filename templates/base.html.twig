@@ -6,12 +6,10 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
-        {{ encore_entry_link_tags('home') }}
-        {{ encore_entry_link_tags('design') }}
     {% endblock %}
 </head>
 <body>
-    <header>
+    <header id="header">
         <nav class="navbar">
             <ul class="navbar_left">
                 <li class="actu">
@@ -29,7 +27,7 @@
             </div>
             <ul class="navbar_right">
                 <li class="passages">
-                    <a href="{{asset('passage') }}">Passages secrets</a>
+                    <a href="{{path('passage_index') }}">Passages secrets</a>
                 </li>
                 <li class="separator">
                     <img src="{{asset('build/images/vertical-line.png') }}" alt="">
@@ -50,8 +48,6 @@
 
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
-    {{ encore_entry_script_tags('home') }}
-    {{ encore_entry_script_tags('design') }}
 {% endblock %}
 </body>
 </html>
