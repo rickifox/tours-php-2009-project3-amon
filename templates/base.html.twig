@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.ico') }}" />
     <title>{% block title %}Welcome!{% endblock %}</title>
-
     {% block stylesheets %}
+        {{ encore_entry_link_tags('home') }}
         {{ encore_entry_link_tags('design') }}
     {% endblock %}
 </head>
@@ -14,6 +14,7 @@
 {% block body %}{% endblock %}
 
 {% block javascripts %}
+    {{ encore_entry_script_tags('home') }}
     {{ encore_entry_script_tags('design') }}
 {% endblock %}
 </body>
