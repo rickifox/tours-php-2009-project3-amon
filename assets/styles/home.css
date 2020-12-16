@@ -9,7 +9,12 @@ body {
 
 /*----------- Disparition et Affichage Navbar -------*/
 header {
-    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+header.fade {
+    opacity: 1;
 }
 
 .content {
@@ -95,7 +100,7 @@ a {
 
 .bottom {
     transition: transform 1s;
-    -webkit-transition: 1s;
+    -webkit-transition: 0.5s;
 }
 
 .bottom:hover {
