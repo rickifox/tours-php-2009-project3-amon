@@ -36,6 +36,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('contact', './assets/js/contact.js')
+    .addEntry('home', './assets/js/home.js')
     .addEntry('design', './assets/js/design.js')
     .addEntry('passage', './assets/js/passage.js')
 
