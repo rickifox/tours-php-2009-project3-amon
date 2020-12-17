@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MetallicGallery!{% endblock %}
+
+{% block body %}
+ this is metallic gallery <br>
+ {% for image in images %}
+ {{ image.nom }} <br>
+ {{ image.categorie }}<br>
+ <img src="{{ image.url }}" alt="{{ image.nom }} poster"><br>
+ 
+ {% endfor %}
+
+
+{% endblock %}
