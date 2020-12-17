@@ -38,7 +38,7 @@ class Image
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $texte_alternatif;
+    private string $texteAlternatif;
 
     /**
      * @ORM\ManyToMany(targetEntity=Article::class, mappedBy="image")
@@ -93,12 +93,12 @@ class Image
 
     public function getTexteAlternatif(): string
     {
-        return $this->texte_alternatif;
+        return $this->texteAlternatif;
     }
 
-    public function setTexteAlternatif(string $texte_alternatif): self
+    public function setTexteAlternatif(string $texteAlternatif): self
     {
-        $this->texte_alternatif = $texte_alternatif;
+        $this->texteAlternatif = $texteAlternatif;
 
         return $this;
     }
