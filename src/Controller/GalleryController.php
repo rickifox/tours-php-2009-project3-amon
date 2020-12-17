@@ -21,14 +21,6 @@ class GalleryController extends AbstractController
     }
 
     /**
-     * @Route("/gallerie-design-metallique/{id}", name="gallerie-design-metallique2")
-     */
-    public function metallicDesignGalleryDONOTUSE(Image $image): Response
-    {
-        return $this->render('gallery/metallic_design.html.twig', ['image' => $image]);
-    }
-
-        /**
      * @Route("/gallerie-passages-secrets", name="gallerie-passages-secrets")
      */
     public function secretPassagesGallery(): Response

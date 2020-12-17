@@ -4,6 +4,8 @@
 
 {% block body %}
  this is metallic gallery <br>
+ <a href="{{path('form') }}">Go to form</a><br>
+
  {% for image in images %}
  {{ image.nom }} <br>
  {{ image.categorie }}<br>
