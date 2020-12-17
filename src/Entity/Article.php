@@ -43,7 +43,7 @@ class Article
     /**
      * @ORM\ManyToMany(targetEntity=Image::class, inversedBy="articles")
      */
-    private collection $image;
+    private Collection $image;
 
     public function __construct()
     {
