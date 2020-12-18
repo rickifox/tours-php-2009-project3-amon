@@ -4,12 +4,21 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-image: url("../images/Wall.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    display: block;
+}
+
+/*----------- Disparition et Affichage Navbar -------*/
+header {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+header.fade {
+    opacity: 1;
+}
+
+.content {
+    margin:0;
 }
 
 /* ---------- Section Home ---------- */
@@ -91,7 +100,7 @@ a {
 
 .bottom {
     transition: transform 1s;
-    -webkit-transition: 1s;
+    -webkit-transition: 0.5s;
 }
 
 .bottom:hover {

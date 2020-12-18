@@ -13,12 +13,12 @@
             <img id='home-logo' src="{{ asset('build/images/logo.svg')}}" alt="logo">
             <nav>
                 <ul class="buttons">
-                    <li class="button left"><a href=""><img class="arrow" src="{{ asset('build/images/ArrowL.png')}}" alt="left"> Design métallique</a></li>
-                    <li class="button right"><a href="">Passages secrets <img class="arrow" src="{{ asset('build/images/ArrowR.png')}}" alt="right"></a></li>
+                    <li class="button left"><a href="{{path ('design_index') }}"><img class="arrow" src="{{ asset('build/images/ArrowL.png')}}" alt="left"> Design métallique</a></li>
+                    <li class="button right"><a href="{{path ('passage_index') }}">Passages secrets <img class="arrow" src="{{ asset('build/images/ArrowR.png')}}" alt="right"></a></li>
                 </ul>
             </nav>
             <div class="container_button-bottom">
-                <a class="button bottom" href="#societe">La société <img class="arrow" src="{{ asset('build/images/ArrowD.png')}}" alt="down"></a>
+                <a class="button bottom" href="#societe" id="button-down">La société <img class="arrow" src="{{ asset('build/images/ArrowD.png')}}" alt="down"></a>
             </div>
         </div>
     </section>
@@ -48,7 +48,7 @@
         </article>
     </section>
     <div class="container_button-up">
-        <a class="button up" href="#menu"><img class="arrow" src="{{ asset('build/images/ArrowU.png')}}" alt="up"></a>
+        <a class="button up" href="#menu" id="button-up"><img class="arrow" src="{{ asset('build/images/ArrowU.png')}}" alt="up"></a>
     </div>
 {% endblock %}
 

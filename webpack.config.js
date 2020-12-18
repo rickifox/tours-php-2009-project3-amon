@@ -34,6 +34,8 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
+    .addEntry('app', './assets/js/app.js')
+    .addEntry('contact', './assets/js/contact.js')
     .addEntry('home', './assets/js/home.js')
     .addEntry('design', './assets/js/design.js')
     .addEntry('passage', './assets/js/passage.js')
@@ -75,7 +77,7 @@ Encore
 //.enableIntegrityHashes(Encore.isProduction())
 
 // uncomment if you're having problems with a jQuery plugin
-//.autoProvidejQuery()
+.autoProvidejQuery()
 
 // uncomment if you use API Platform Admin (composer req api-admin)
 //.enableReactPreset()
