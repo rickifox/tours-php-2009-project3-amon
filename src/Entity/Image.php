@@ -59,7 +59,7 @@ class Image
     /**
      * @ORM\Column(type="datetime")
      */
-    private $updatedAt;
+    private datetime $updatedAt;
 
     public function __construct()
     {
@@ -146,8 +146,7 @@ class Image
         return $this;
     }
 
-    public function setUrlFile(File $image = null):Image
-
+    public function setUrlFile(File $image): self
     {
         $this->urlFile = $image;
         if ($image) {
@@ -157,7 +156,6 @@ class Image
     }
 
     public function getUrlFile(): ?File
-
     {
         return $this->urlFile;
     }
@@ -167,7 +165,7 @@ class Image
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(\DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
