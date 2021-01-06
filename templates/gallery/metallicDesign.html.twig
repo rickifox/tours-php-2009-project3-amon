@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
 {{ parent() }}
-{{ encore_entry_link_tags('gallery') }}
 {% endblock %}
 {% block title %}Hello MetallicGallery!{% endblock %}
 
@@ -38,7 +37,7 @@
  {% for image in images %}
  {{ image.nom }} <br>
  {{ image.categorie }}<br>
- <img src="{{ image.url }}" alt="{{ image.nom }} poster"><br>
+ <img src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster"><br>
  
  {% endfor %}
 
@@ -47,6 +46,5 @@
 
 {% block javascripts %}
     {{ parent() }}
-    {{ encore_entry_script_tags('gallery') }}
 {% endblock %}
 

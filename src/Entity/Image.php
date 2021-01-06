@@ -7,9 +7,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Article;
+use DateTime;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ImageRepository::class)
+ * @Vich\Uploadable
  */
 class Image
 {
@@ -27,8 +31,15 @@ class Image
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @var string
      */
-    private string $url;
+    private $url;
+
+    /**
+     * @Vich\UploadableField(mapping="url_file", fileNameProperty="url")
+     * @var File
+     */
+    private $urlFile;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -44,6 +55,11 @@ class Image
      * @ORM\ManyToMany(targetEntity=Article::class, mappedBy="image")
      */
     private collection $articles;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
 
     public function __construct()
     {
@@ -126,6 +142,34 @@ class Image
         if ($this->articles->removeElement($article)) {
             $article->removeImage($this);
         }
+
+        return $this;
+    }
+
+    public function setUrlFile(File $image = null):Image
+
+    {
+        $this->urlFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getUrlFile(): ?File
+
+    {
+        return $this->urlFile;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
