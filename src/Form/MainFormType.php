@@ -17,7 +17,7 @@ class MainFormType extends AbstractType
         $builder
             ->add('nom', TextType::class)
             ->add('urlFile', VichFileType::class, [
-                'required' => false,
+                'required' => true,
                 'allow_delete' => true,
                 'download_uri' => true,
                 'label' => 'Selectionner une photo'])
