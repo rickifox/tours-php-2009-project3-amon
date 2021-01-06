@@ -8,9 +8,11 @@ main {
 .design-title {
   color: var(--main-color);
   font-size: 3vw;
-  padding-top: 1%;
+  margin-top: 0px;
+  margin-bottom: 7%;
+  padding-top: 5%;
   text-align: center;
-  text-decoration: underline;
+  text-decoration: rgba(255, 217, 0, 0.664) underline;
 }
 
 .left-column, .right-column {

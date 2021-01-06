@@ -2,6 +2,7 @@
 
 .image {
     text-align: center;
+    padding-top: 4%;
 }
 
 .image img {
@@ -29,4 +30,13 @@
 
 .logos img {
     margin: 2% 4%;
+}
+
+.logo-reseau {
+    transition: all 1s;
+    list-style: none;
+}
+
+.logo-reseau:hover {
+    transform: scale(1.25);
 }
