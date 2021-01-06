@@ -149,9 +149,7 @@ class Image
     public function setUrlFile(File $image): self
     {
         $this->urlFile = $image;
-        if ($image) {
-            $this->updatedAt = new DateTime('now');
-        }
+        $this->updatedAt = new DateTime('now');
         return $this;
     }
 
