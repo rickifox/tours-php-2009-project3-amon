@@ -27,7 +27,7 @@ class GalleryController extends AbstractController
         $images = $imageRepository->findBy([
             'categorie' => $categorie
         ]);
-        return $this->render('gallery/metallicDesign.html.twig', ['images' => $images]);
+        return $this->render('gallery/gallery.html.twig', ['images' => $images]);
     }
 
     /**

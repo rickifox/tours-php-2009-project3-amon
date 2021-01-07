@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {{ encore_entry_link_tags('gallery') }}
+{% endblock %}
+
+{% block title %}Gallerie {{ image.categorie ?? "" }}{% endblock %}
+
+{% block body %}
+
+<button id="categories-pop" onclick="openNav()">&#9776; Catégories 》</button>
+
+<nav id="mySidenav" class="sidenav">
+    <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+    <ul id="sn-linklist">
+        <li class="sn-link"><a href="">Catégorie 1</a></li>
+        <li class="sn-link"><a href="{{path('gallery_metallicDesign_category', {'categorie': 'chats'}) }}">Catégorie 2</a></li>
+        <li class="sn-link"><a href="{{path('gallery_metallicDesign_category', {'categorie': 'chiens'}) }}">Catégorie 3</a></li>
+        <li class="sn-link"><a href="{{path('gallery_metallicDesign') }}">Catégorie 4</a></li>
+        <li class="sn-link"><a href="#">Catégorie 5</a></li>
+        <li class="sn-link"><a href="#">Catégorie 6</a></li>
+        <li class="sn-link"><a href="#">Catégorie 7</a></li>
+        <li class="sn-link"><a href="#">Catégorie 8</a></li>
+        <li class="sn-link"><a href="#">Catégorie 9</a></li>
+        <li class="sn-link"><a href="#">Catégorie 10</a></li>
+        <li class="sn-link"><a href="#" id="all-categories">Tout</a></li>
+        <li class="sn-link"><a href="{{ path('form') }}" id="form-redirect">Formulaire</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h1 id="gallery-title">La Catégorie</h1>
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+</main>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+/* Set the width of the side navigation to auto */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "auto";
+  };
+  
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  };
+  </script>
+{% endblock %}
