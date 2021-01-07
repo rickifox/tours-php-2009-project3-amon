@@ -1,6 +1,7 @@
 /*Pour base.html.twig*/
+
 :root {
-    --main-font: Quicksand, arial;
+    --main-font: 'Quicksand';
     --main-color: #ffffff;
     --secondary-color: #ff6c71;
 }
@@ -20,6 +21,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    font-family: var(--main-font);
 }
 
 .content {
@@ -29,10 +31,11 @@ body {
 
 header {
     width: 100%;
-    height:15vh;
+    height:17vh;
     background-image: url(../images/background-blue.png);
     background-repeat: no-repeat;
-    background-attachment: fixed ;
+    background-attachment: fixed;
+    margin: 0;
     left:0;
     position : fixed;
     top:0;
@@ -43,7 +46,10 @@ header {
     width: 100%;
     display: flex;
     font-size: 2.8vmin;
+    background-color:rgba(0, 0, 0, 0.247);
+    align-items: center;
     padding-top: 15px;
+    padding-bottom: 15px;
     text-align: center;
     justify-content: space-around;
 }
