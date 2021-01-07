@@ -42,6 +42,7 @@ class Article
 
     /**
      * @ORM\ManyToMany(targetEntity=Image::class, inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
      */
     private Collection $image;
 

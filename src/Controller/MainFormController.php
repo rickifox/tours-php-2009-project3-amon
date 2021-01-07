@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Entity\Image;
-use App\Form\MainFormType;
+use App\Form\ArticleFormType;
+use App\Form\ImageFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -19,15 +21,26 @@ class MainFormController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $image = new Image();
-        $form = $this->createForm(MainFormType::class, $image);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        $imageForm = $this->createForm(ImageFormType::class, $image);
+        $article = new Article();
+        $articleForm = $this->createForm(ArticleFormType::class, $article);
+
+        $imageForm->handleRequest($request);
+        if ($imageForm->isSubmitted() && $imageForm->isValid()) {
             $entityManager->persist($image);
             $entityManager->flush();
             return $this->redirectToRoute('form');
         }
+
+        $articleForm->handleRequest($request);
+        if ($articleForm->isSubmitted() && $articleForm->isValid()) {
+            $entityManager->persist($article);
+            $entityManager->flush();
+            return $this->redirectToRoute('form');
+        }
         return $this->render('form/index.html.twig', [
-            "form" => $form->createView(),
+            "imageForm" => $imageForm->createView(),
+            "articleForm" => $articleForm->createView()
         ]);
     }
 }
