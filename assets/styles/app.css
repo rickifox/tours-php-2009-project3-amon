@@ -1,6 +1,7 @@
 /*Pour base.html.twig*/
+
 :root {
-    --main-font: Quicksand, arial;
+    --main-font: 'Quicksand';
     --main-color: #ffffff;
     --secondary-color: #ff6c71;
 }
@@ -20,6 +21,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    font-family: var(--main-font);
 }
 
 .content {

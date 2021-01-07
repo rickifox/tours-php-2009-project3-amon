@@ -10,7 +10,7 @@ use App\Repository\ImageRepository;
 
 class GalleryController extends AbstractController
 {
-        /**
+    /**
      * @Route("/gallerie-design-metallique/", name="gallery_metallicDesign")
      */
     public function showImages(ImageRepository $imageRepository): Response

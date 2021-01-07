@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class MainFormType extends AbstractType
 {
@@ -14,8 +16,18 @@ class MainFormType extends AbstractType
     {
         $builder
             ->add('nom', TextType::class)
-            ->add('url', TextType::class)
-            ->add('categorie', TextType::class)
+            ->add('urlFile', VichFileType::class, [
+                'required' => true,
+                'allow_delete' => true,
+                'download_uri' => true,
+                'label' => 'Selectionner une photo'])
+            ->add('categorie', ChoiceType::class, [
+                'choices' => [
+                    'Chats' => 'Chats',
+                    'Chiens' => 'Chiens',
+                    'Oiseaux' => 'Oiseaux'
+                ]
+            ])
             ->add('texte_alternatif', TextType::class)
         ;
     }
