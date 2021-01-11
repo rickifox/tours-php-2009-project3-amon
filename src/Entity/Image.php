@@ -53,6 +53,7 @@ class Image
 
     /**
      * @ORM\ManyToMany(targetEntity=Article::class, mappedBy="image")
+     * @ORM\JoinColumn(nullable=false)
      */
     private collection $articles;
 
