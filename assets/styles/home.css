@@ -38,6 +38,10 @@ header.fade {
     width: 100%;
 }
 
+.login-button a{
+    color: black
+}
+
 nav {
     width: 80%;
     display: flex;

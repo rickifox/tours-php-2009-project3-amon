@@ -16,7 +16,7 @@ class GalleryController extends AbstractController
     public function showImages(ImageRepository $imageRepository): Response
     {
         $images = $imageRepository->findAll();
-        return $this->render('gallery/metallicDesign.html.twig', ['images' => $images]);
+        return $this->render('gallery/gallery.html.twig', ['images' => $images]);
     }
 
     /**
