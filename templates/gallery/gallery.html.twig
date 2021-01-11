@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {{ encore_entry_link_tags('gallery') }}
+{% endblock %}
+
+{% block title %}Gallerie {{ image.categorie ?? "" }}{% endblock %}
+
+{% block body %}
+
+<button id="categories-pop" >≡<span id="media-hidden"> Catégories</span></button>
+
+<nav id="mySidenav" class="sidenav">
+    <ul id="sn-linklist">
+        <a href="#" class="sn-link" id="closebtn">&times;</a>
+        <li class="sn-button"><a href="" class="sn-link">Catégorie 1</a></li>
+        <li class="sn-button"><a href="{{path('gallery_metallicDesign_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 2</a></li>
+        <li class="sn-button"><a href="{{path('gallery_metallicDesign_category', {'categorie': 'chiens'}) }}" class="sn-link">Catégorie 3</a></li>
+        <li class="sn-button"><a href="{{path('gallery_metallicDesign_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 4</a></li>
+        <li class="sn-button"><a href="{{path('gallery_metallicDesign_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 5</a></li>
+        <li class="sn-button"><a href="{{path('gallery_metallicDesign_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 6</a></li>
+        <li class="sn-button"><a href="{{path('gallery_metallicDesign_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 7</a></li>
+        <li class="sn-button"><a href="{{path('gallery_metallicDesign_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 8</a></li>
+        <li class="sn-button"><a href="{{path('gallery_metallicDesign_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 9</a></li>
+        <li class="sn-button"><a href="{{path('gallery_metallicDesign_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 10</a></li>
+        <li class="sn-button"><a href="{{path('gallery_metallicDesign_category', {'categorie': 'chats'}) }}" class="sn-link" id="all-categories">Toutes</a></li>
+        <li class="sn-button"><a href="{{ path('form') }}" class="sn-link" id="form-redirect">Formulaire</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h1 id="gallery-title">La Catégorie</h1>
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+    <img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster">
+</main>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('gallery') }}
+    </script>
+{% endblock %}
