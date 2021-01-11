@@ -13,13 +13,13 @@
         <nav class="navbar">
             <ul class="navbar_left">
                 <li class="actu">
-                    Actualités
+                   <a class="hyperlink" href="{{path('home') }}">Actualités</a>
                 </li>
                 <li class="separator">
                     <img src="{{asset('build/images/vertical-line.png') }}" alt="">
                 </li>
                 <li class="design">
-                <a href="{{path('design_index') }}">Design métallique</a> 
+                    <a class="hyperlink" href="{{path('design_index') }}">Design métallique</a> 
                 </li>
             </ul>
             <div class="logo-navbar">
@@ -27,13 +27,13 @@
             </div>
             <ul class="navbar_right">
                 <li class="passages">
-                    <a href="{{path('passage_index') }}">Passages secrets</a>
+                    <a class="hyperlink" href="{{path('passage_index') }}">Passages secrets</a>
                 </li>
                 <li class="separator">
                     <img src="{{asset('build/images/vertical-line.png') }}" alt="">
                 </li>
                 <li class="contact">
-                    <a href="{{asset('home/contact') }}">Contact</a>
+                    <a class="hyperlink" href="{{asset('home/contact') }}">Contact</a>
                 </li>
             </ul>
         </nav>
