@@ -5,8 +5,7 @@
 // any CSS you import will output into a single css file (gallery.css in this case)
 import '../styles/gallery.css';
 
-/* 
- * Set the width of the side navigation to 14rem (category button width) 
+/* Set the width of the side navigation to 14rem (category button width) 
  * on click or toggle it back to 0 
  */
 function toggleSideNav() {
