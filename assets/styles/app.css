@@ -51,14 +51,22 @@ header {
     background-color:rgba(0, 0, 0, 0.247);
     align-items: center;
     padding-top: 15px;
-    padding-bottom: 15px;
     text-align: center;
     justify-content: space-around;
 }
 
-.navbar a {
-    text-decoration: none;
+.hyperlink {
     color: var(--main-color);
+    padding: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.hyperlink:hover {
+    border-bottom: 1px solid whitesmoke;
+    border-top: 1px solid whitesmoke;
 }
 
 .navbar_left {
