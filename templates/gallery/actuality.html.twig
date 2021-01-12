@@ -11,7 +11,8 @@
     {% for article in articles %}
     {{ article.titre }} <br>
     {{ article.description }}<br>
-        {% for image in images %}
+    
+        {% for image in article.image %}
         <img src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster"><br><br>
         {% endfor %}
     {{ include('form/_deleteArticle.html.twig') }}
