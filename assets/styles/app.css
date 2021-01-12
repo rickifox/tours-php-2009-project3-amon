@@ -113,7 +113,6 @@ a {
     justify-content: space-around;
     background-color: rgba(0, 0, 0, 0.185);
     margin-top: auto;
-    flex-shrink: 0;
 }
 
 .footer a {
@@ -121,6 +120,11 @@ a {
     color: var(--main-color);
 }
 
+.login-button img {
+    width: 50%;
+    position: relative;
+}
+ 
 @media screen and (max-width:800px) {
     .separator img{
         height: 25px;
