@@ -6,35 +6,47 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Image;
+use App\Repository\ArticleRepository;
 use App\Repository\ImageRepository;
+use Symfony\Component\BrowserKit\Response as BrowserKitResponse;
 
 class GalleryController extends AbstractController
 {
     /**
-     * @Route("/gallerie-design-metallique/", name="gallery_metallicDesign")
+     * @Route("/design-galerie/", name="design_gallery")
      */
     public function showImages(ImageRepository $imageRepository): Response
     {
         $images = $imageRepository->findAll();
-        return $this->render('gallery/metallicDesign.html.twig', ['images' => $images]);
+        return $this->render('gallery/design.html.twig', ['images' => $images]);
     }
 
     /**
-     * @Route("/gallerie-design-metallique/{categorie}", name="gallery_metallicDesign_category")
+     * @Route("/design-galerie/{categorie}", name="design_gallery_category")
      */
     public function showImagesByCategorie(string $categorie, ImageRepository $imageRepository): Response
     {
         $images = $imageRepository->findBy([
             'categorie' => $categorie
         ]);
-        return $this->render('gallery/gallery.html.twig', ['images' => $images]);
+        return $this->render('gallery/design.html.twig', ['images' => $images]);
     }
 
     /**
-     * @Route("/gallerie-passages-secrets", name="gallerie-passages-secrets")
+     * @Route("/passage-galerie", name="passage_gallery")
      */
     public function secretPassagesGallery(): Response
     {
-        return $this->render('gallery/secret_passages.html.twig');
+        return $this->render('gallery/passages.html.twig');
+    }
+
+    /**
+     * @Route("/actualites", name="actuality")
+     */
+    public function showArticles(ArticleRepository $articleRepository, ImageRepository $imageRepository): Response
+    {
+        $images = $imageRepository->findAll();
+        $articles = $articleRepository->findAll();
+        return $this->render('gallery/actuality.html.twig', ['articles' => $articles, 'images' => $images]);
     }
 }
