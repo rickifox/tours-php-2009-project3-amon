@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block body %}
+
     <h1 id="gallery-title">Les Actualités</h1>
     {% for article in articles %}
     {{ article.titre }} <br>
@@ -13,5 +14,7 @@
         {% for image in images %}
         <img src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster"><br><br>
         {% endfor %}
+    {{ include('form/_deleteArticle.html.twig') }}
     {% endfor %}
+
 {% endblock %}

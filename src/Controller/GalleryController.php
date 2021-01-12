@@ -5,10 +5,13 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Image;
+use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use App\Repository\ImageRepository;
-use Symfony\Component\BrowserKit\Response as BrowserKitResponse;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 class GalleryController extends AbstractController
 {
@@ -48,5 +51,17 @@ class GalleryController extends AbstractController
         $images = $imageRepository->findAll();
         $articles = $articleRepository->findAll();
         return $this->render('gallery/actuality.html.twig', ['articles' => $articles, 'images' => $images]);
+    }
+
+    /**
+     * @Route("/actualites/{id}/delete", name="actuality_delete", methods="DELETE")
+     */
+    public function deleteArticle(Request $request, Article $article, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($article);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute('actuality');
     }
 }
