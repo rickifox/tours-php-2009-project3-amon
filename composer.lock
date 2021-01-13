@@ -7364,6 +7364,10 @@
                 "file uploads",
                 "upload"
             ],
+            "support": {
+                "issues": "https://github.com/dustin10/VichUploaderBundle/issues",
+                "source": "https://github.com/dustin10/VichUploaderBundle/tree/1.16.0"
+            },
             "time": "2020-12-04T10:49:15+00:00"
         },
         {
