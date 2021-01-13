@@ -46,11 +46,10 @@ class GalleryController extends AbstractController
     /**
      * @Route("/actualites", name="actuality")
      */
-    public function showArticles(ArticleRepository $articleRepository, ImageRepository $imageRepository): Response
+    public function showArticles(ArticleRepository $articleRepository): Response
     {
-        $images = $imageRepository->findAll();
         $articles = $articleRepository->findAll();
-        return $this->render('gallery/actuality.html.twig', ['articles' => $articles, 'images' => $images]);
+        return $this->render('gallery/actuality.html.twig', ['articles' => $articles]);
     }
 
     /**
