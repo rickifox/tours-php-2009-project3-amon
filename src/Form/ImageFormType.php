@@ -40,6 +40,9 @@ class ImageFormType extends AbstractType
                 ]
             ])
             ->add('texte_alternatif', TextType::class)
+            ->add('otherImages', null, [
+                'mapped' => false
+            ])
         ;
     }
 

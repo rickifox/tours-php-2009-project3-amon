@@ -25,11 +25,23 @@ class MainFormController extends AbstractController
         $article = new Article();
         $articleForm = $this->createForm(ArticleFormType::class, $article);
 
+        $images = '';
+
         $imageForm->handleRequest($request);
         if ($imageForm->isSubmitted() && $imageForm->isValid()) {
+            $images = $imageForm->get('otherImages')->getData();
             $entityManager->persist($image);
             $entityManager->flush();
-            return $this->redirectToRoute('form');
+            if (!empty($images)) {
+                $images = $images . ', ' . $image->getId();
+            } else {
+                $images = $image->getId();
+            }
+            return $this->render('form/index.html.twig', [
+                "imageForm" => $imageForm->createView(),
+                "articleForm" => $articleForm->createView(),
+                "images" => $images,
+            ]);
         }
 
         $articleForm->handleRequest($request);
@@ -40,7 +52,8 @@ class MainFormController extends AbstractController
         }
         return $this->render('form/index.html.twig', [
             "imageForm" => $imageForm->createView(),
-            "articleForm" => $articleForm->createView()
+            "articleForm" => $articleForm->createView(),
+            "images" => $images,
         ]);
     }
 }
