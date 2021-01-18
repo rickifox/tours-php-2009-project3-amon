@@ -7,6 +7,10 @@
 Ajout d'une image dans une catégorie
 {{ form_start(imageForm) }}
 
+{{ form_label(imageForm.otherImages) }}
+{{ form_errors(imageForm.otherImages) }}
+{{ form_widget(imageForm.otherImages, {'attr': {'value': images } }) }}
+
 {{ form_widget(imageForm) }}
 
 <input type='submit' value='Add image'>
@@ -16,6 +20,10 @@ Ajout d'une image dans une catégorie
 <br><br><br><br>
 Ajout d'un article, avec choix d'images multiples.
 {{ form_start(articleForm) }}
+
+{{ form_label(articleForm.otherImages) }}
+{{ form_errors(articleForm.otherImages) }}
+{{ form_widget(articleForm.otherImages, {'attr': {'value': images } }) }}
 
 {{ form_widget(articleForm) }}
 

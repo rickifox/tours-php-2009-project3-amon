@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\Image;
 use App\Form\ArticleFormType;
 use App\Form\ImageFormType;
+use App\Repository\ImageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -18,8 +19,11 @@ class MainFormController extends AbstractController
     /**
      * @Route("/form/", name="form")
      */
-    public function index(Request $request, EntityManagerInterface $entityManager): Response
-    {
+    public function index(
+        Request $request,
+        EntityManagerInterface $entityManager,
+        ImageRepository $imageRepository
+    ): Response {
         $image = new Image();
         $imageForm = $this->createForm(ImageFormType::class, $image);
         $article = new Article();
@@ -27,20 +31,43 @@ class MainFormController extends AbstractController
 
         $imageForm->handleRequest($request);
         if ($imageForm->isSubmitted() && $imageForm->isValid()) {
+            $images = $imageForm->get('otherImages')->getData();
             $entityManager->persist($image);
             $entityManager->flush();
-            return $this->redirectToRoute('form');
+            if (!empty($images)) {
+                $images = $images . ', ' . $image->getId();
+            } else {
+                $images = $image->getId();
+            }
+            return $this->render('form/index.html.twig', [
+                "imageForm" => $imageForm->createView(),
+                "articleForm" => $articleForm->createView(),
+                "images" => $images,
+            ]);
         }
 
         $articleForm->handleRequest($request);
         if ($articleForm->isSubmitted() && $articleForm->isValid()) {
-            $entityManager->persist($article);
-            $entityManager->flush();
-            return $this->redirectToRoute('form');
+            $images = $articleForm->get('otherImages')->getData();
+            if (!empty($images)) {
+                $imagesArray = explode(', ', $images);
+                foreach ($imagesArray as $savedImageId) {
+                    $savedImage = $imageRepository->find($savedImageId);
+                    if (!empty($savedImage)) {
+                        $article->addImage($savedImage);
+                    }
+                }
+                $entityManager->persist($article);
+                $entityManager->flush();
+                return $this->redirectToRoute('form');
+            }
         }
+
+        $images = '';
         return $this->render('form/index.html.twig', [
             "imageForm" => $imageForm->createView(),
-            "articleForm" => $articleForm->createView()
+            "articleForm" => $articleForm->createView(),
+            "images" => $images,
         ]);
     }
 }
