@@ -21,6 +21,10 @@ Ajout d'une image dans une catégorie
 Ajout d'un article, avec choix d'images multiples.
 {{ form_start(articleForm) }}
 
+{{ form_label(articleForm.otherImages) }}
+{{ form_errors(articleForm.otherImages) }}
+{{ form_widget(articleForm.otherImages, {'attr': {'value': images } }) }}
+
 {{ form_widget(articleForm) }}
 
 <input type='submit' value='Add image'>

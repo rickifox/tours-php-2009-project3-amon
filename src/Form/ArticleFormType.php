@@ -25,7 +25,9 @@ class ArticleFormType extends AbstractType
                     'Galerie' => 'Galerie',
                 ]
             ])
-            ->add('image', null, ['choice_label' => 'nom'])
+            ->add('otherImages', null, [
+                'mapped' => false
+            ])
         ;
     }
 
