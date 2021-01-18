@@ -31,7 +31,7 @@ class Image
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @var string
+     * @var null|string
      */
     private $url;
 
