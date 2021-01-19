@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 <form method="post" action="{{path('design_gallery_delete', {'id': image.id}) }}" onsubmit="return confirm('Voulez vous supprimer cette image ?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
     <button class="btn">Supprimer</button>
 </form>
+=======
+<form method="post" action="{{ path('design-gallery_delete', {'id': image.id}) }}" onsubmit="return confirm('Voulez vous supprimer cet article ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
+    <button class="btn">Supprimer</button>
+</form>
+>>>>>>> a8238930a0dee2fb4d735acf0d5c1f64fb52a99f
