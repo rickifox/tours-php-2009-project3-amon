@@ -44,15 +44,6 @@ class GalleryController extends AbstractController
     }
 
     /**
-     * @Route("/actualites", name="actuality")
-     */
-    public function showArticles(ArticleRepository $articleRepository): Response
-    {
-        $articles = $articleRepository->findAll();
-        return $this->render('gallery/actuality.html.twig', ['articles' => $articles]);
-    }
-
-    /**
      * @Route("/actualites/{id}/delete", name="actuality_delete", methods="DELETE")
      */
     public function deleteArticle(Request $request, Article $article, EntityManagerInterface $entityManager): Response
