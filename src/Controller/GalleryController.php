@@ -22,8 +22,12 @@ class GalleryController extends AbstractController
     {
         $images = $imageRepository->findBy(
             ['categorie' => ['chats', 'chiens', 'oiseaux', '4', '5', '6', '7', '8', '9', '10']],
+            ['id' => 'DESC'],
         );
-        return $this->render('gallery/design.html.twig', ['images' => $images, 'categorie' => 'Toutes les catégories']);
+        return $this->render(
+            'gallery/design.html.twig',
+            ['images' => $images, 'categorie' => 'Toutes les catégories'],
+        );
     }
 
     /**
@@ -31,10 +35,11 @@ class GalleryController extends AbstractController
      */
     public function showImagesByCategorie(string $categorie, ImageRepository $imageRepository): Response
     {
-        $images = $imageRepository->findBy([
-            'categorie' => $categorie
-        ]);
-        return $this->render('gallery/design.html.twig', ['images' => $images, 'categorie' => $categorie]);
+        $images = $imageRepository->findBy(
+            ['categorie' => $categorie],
+            ['id' => 'DESC']
+        );
+            return $this->render('gallery/design.html.twig', ['images' => $images, 'categorie' => $categorie]);
     }
 
     /**
