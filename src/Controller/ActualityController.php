@@ -20,7 +20,7 @@ class ActualityController extends AbstractController
     }
 
     /**
-     * @return App\Entity\Articles[]
+     * @return object[]
      */
     public function showCarouselArticles(ArticleRepository $articleRepository): array
     {
