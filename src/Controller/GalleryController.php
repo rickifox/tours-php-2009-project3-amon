@@ -20,8 +20,10 @@ class GalleryController extends AbstractController
      */
     public function showImages(ImageRepository $imageRepository): Response
     {
-        $images = $imageRepository->findAll();
-        return $this->render('gallery/design.html.twig', ['images' => $images]);
+        $images = $imageRepository->findBy(
+            ['categorie' => ['chats', 'chiens', 'oiseaux', '4', '5', '6', '7', '8', '9', '10']],
+        );
+        return $this->render('gallery/design.html.twig', ['images' => $images, 'categorie' => 'Toutes les catégories']);
     }
 
     /**
@@ -32,15 +34,56 @@ class GalleryController extends AbstractController
         $images = $imageRepository->findBy([
             'categorie' => $categorie
         ]);
-        return $this->render('gallery/design.html.twig', ['images' => $images]);
+        return $this->render('gallery/design.html.twig', ['images' => $images, 'categorie' => $categorie]);
+    }
+
+    /**
+     * @Route("/design-galerie/{id}/delete", name="design_gallery_delete", methods="DELETE")
+     */
+    public function deleteImage(Request $request, Image $image, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $image->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($image);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute('design_gallery_category', array('categorie' => $image->getCategorie()));
     }
 
     /**
      * @Route("/passage-galerie", name="passage_gallery")
      */
-    public function secretPassagesGallery(): Response
+    public function passageImages(ImageRepository $imageRepository): Response
     {
-        return $this->render('gallery/passages.html.twig');
+        $images = $imageRepository->findBy(
+            ['categorie' => ['miroirs', 'bibliotheques', 'sur-mesure']]
+        );
+        return $this->render(
+            'gallery/passage.html.twig',
+            ['images' => $images, 'categorie' => 'Tous les passages secrets']
+        );
+    }
+
+    /**
+     * @Route("/passage-galerie/{categorie}", name="passage_gallery_category")
+     */
+    public function passageImagesByCategorie(string $categorie, ImageRepository $imageRepository): Response
+    {
+        $images = $imageRepository->findBy([
+            'categorie' => $categorie
+        ]);
+        return $this->render('gallery/passage.html.twig', ['images' => $images, 'categorie' => $categorie]);
+    }
+
+    /**
+     * @Route("/passage-galerie/{id}/delete", name="passage_gallery_delete", methods="DELETE")
+     */
+    public function deletePassageImage(Request $request, Image $image, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $image->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($image);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute('passage_gallery_category', array('categorie' => $image->getCategorie()));
     }
 
     /**
@@ -53,17 +96,5 @@ class GalleryController extends AbstractController
             $entityManager->flush();
         }
         return $this->redirectToRoute('actuality');
-    }
-
-        /**
-     * @Route("/design-galerie/{id}/delete", name="design-gallery_delete", methods="DELETE")
-     */
-    public function deleteImage(Request $request, Image $image, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $image->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($image);
-            $entityManager->flush();
-        }
-        return $this->redirectToRoute('design_gallery_category', array('categorie' => $image->getCategorie()));
     }
 }
