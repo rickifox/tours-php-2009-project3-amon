@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class ImageFormType extends AbstractType
 {
@@ -43,8 +44,9 @@ class ImageFormType extends AbstractType
                 ]
             ])
             ->add('texte_alternatif', TextType::class)
-            ->add('otherImages', null, [
-                'mapped' => false
+            ->add('otherImages', HiddenType::class, [
+                'mapped' => false,
+                'label' => false,
             ])
         ;
     }

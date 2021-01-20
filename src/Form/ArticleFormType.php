@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class ArticleFormType extends AbstractType
 {
@@ -17,7 +18,9 @@ class ArticleFormType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class)
-            ->add('date', DateType::class)
+            ->add('date', DateType::class, [
+                'widget' => 'single_text',
+            ])
             ->add('description', TextareaType::class)
             ->add('section', ChoiceType::class, [
                 'choices' => [
@@ -25,8 +28,9 @@ class ArticleFormType extends AbstractType
                     'Galerie' => 'Galerie',
                 ]
             ])
-            ->add('otherImages', null, [
-                'mapped' => false
+            ->add('otherImages', HiddenType::class, [
+                'mapped' => false,
+                'label' => false,
             ])
         ;
     }
