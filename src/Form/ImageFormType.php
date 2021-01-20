@@ -13,7 +13,6 @@ use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-
 class ImageFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
