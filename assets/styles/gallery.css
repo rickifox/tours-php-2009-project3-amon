@@ -31,6 +31,20 @@ main {
     height: auto;
     margin: 0; 
 }
+.button-container{
+    position: absolute;
+    z-index: 1;
+    margin-top: 18%;
+    margin-left: 24%;
+    width: 100%;
+}
+.delete-button{
+    background-image: url("../images/poubelle.png");
+    background-size: cover;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+}
 
 /* The side navigation menu button */
 #categories-pop {

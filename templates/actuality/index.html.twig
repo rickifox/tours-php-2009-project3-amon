@@ -8,14 +8,22 @@
 {% block body %}
 
     <h1 id="gallery-title">Les Actualités</h1>
-    {% for article in articles %}
-    {{ article.titre }} <br>
-    {{ article.description }}<br>
-    
-        {% for image in article.image %}
-        <img src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster"><br><br>
-        {% endfor %}
-    {{ include('form/_deleteArticle.html.twig') }}
-    {% endfor %}
+{% for article in articles %}
+	{{ article.titre }}
+	<br>
+	{{ article.description }}<br>
+	{% for image in article.image %}
+		<div class="image-container">
+			<img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster"><br><br>
+			<div class="button-container">
+				{% if app.user %}
+					{{ include('form/_deleteArticle.html.twig') }}
+				{% endif %}
+			</div>
+		</div>
+	{% endfor %}
+
+{% endfor %}
+
 
 {% endblock %}
