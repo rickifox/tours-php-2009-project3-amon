@@ -17,7 +17,7 @@
         <li class="sn-button"><a href="" class="sn-link">Catégorie 1</a></li>
         <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 2</a></li>
         <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'chiens'}) }}" class="sn-link">Catégorie 3</a></li>
-        <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 4</a></li>
+        <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'oiseaux'}) }}" class="sn-link">Catégorie 4</a></li>
         <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 5</a></li>
         <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 6</a></li>
         <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'chats'}) }}" class="sn-link">Catégorie 7</a></li>
@@ -32,9 +32,10 @@
 <main>
     <h1 id="gallery-title">La Catégorie</h1>
     {% for image in images %}
-    <div class="image-container">
-    <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
-    </div>
+        <div class="image-container">
+        <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
+        </div>
+        {{ include('form/_deleteImage.html.twig') }}
     {% endfor %}
     
     <div class="image-container"><img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster"></div>

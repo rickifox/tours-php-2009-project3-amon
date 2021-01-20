@@ -63,4 +63,16 @@ class GalleryController extends AbstractController
         }
         return $this->redirectToRoute('actuality');
     }
+
+        /**
+     * @Route("/design-galerie/{id}/delete", name="design-gallery_delete", methods="DELETE")
+     */
+    public function deleteImage(Request $request, Image $image, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $image->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($image);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute('design_gallery_category', array('categorie' => $image->getCategorie()));
+    }
 }
