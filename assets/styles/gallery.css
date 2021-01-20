@@ -17,11 +17,19 @@ main {
     width: 100%;
 }
 
-.gallery-img {
+.image-container{
+    display: flex;
+    align-items: center;
     width: 27.5%;
     margin:2.5% 0;
     border: 2px solid;
     border-image: url("../images/silver-textured-background.jpeg") 2;
+    background-color: rgba(0, 0, 0, 0.247);
+}
+.gallery-img {
+    width: 100%;
+    height: auto;
+    margin: 0; 
 }
 
 /* The side navigation menu button */
