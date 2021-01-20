@@ -36,7 +36,10 @@ class ImageFormType extends AbstractType
                 'choices' => [
                     'Chats' => 'Chats',
                     'Chiens' => 'Chiens',
-                    'Oiseaux' => 'Oiseaux'
+                    'Oiseaux' => 'Oiseaux',
+                    'Miroirs' => 'Miroirs',
+                    'Bibliotheques' => 'Bibliotheques',
+                    'Sur-mesure' => 'Sur-mesure'
                 ]
             ])
             ->add('texte_alternatif', TextType::class)
