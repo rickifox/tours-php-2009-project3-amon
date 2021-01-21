@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {{ encore_entry_link_tags('gallery') }}
+{% endblock %}
+
+{% block title %}Edit Article{% endblock %}
+
+
+{% block body %}
+
+<h1>Edit Article</h1>
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+{% for image in article.image %}
+<div class="image-container">
+    <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
+    <div class="button-container">
+        {% if app.user %}
+            {{ include('form/_deleteImage.html.twig') }}
+        {% endif %}
+    </div>
+</div>
+
+{% endfor %}
+
+    <a href="{{ path('actuality') }}">back to list</a>
+
+{% endblock %}

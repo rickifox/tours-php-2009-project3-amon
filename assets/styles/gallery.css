@@ -45,7 +45,27 @@ main {
     height: 3vw;
     border-radius: 50%;
 }
-
+.article-button-container{
+    position: absolute;
+    z-index: 1;
+    margin-top: 1%;
+    margin-left: 1%;
+    width: 100%;
+}
+.delete-article-button{
+    background-image: url("../images/poubelle.png");
+    background-size: cover;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+}
+.edit-article-button{
+    background-image: url("../images/edit-logo.png");
+    background-size: cover;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+}
 /* The side navigation menu button */
 #categories-pop {
     width: 14rem;
