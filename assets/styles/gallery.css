@@ -197,13 +197,13 @@ main {
     }
 }
 @media screen and (min-width:500px) and (max-width: 900px) {
-    .gallery-img {
+    .image-container {
         width: 45.5%;
         margin:2.5% 0;
     }
 }
 @media screen and (min-width:200px) and (max-width: 500px) {
-    .gallery-img {
+    .image-container {
         width: 90%;
         margin:5%;
     }
