@@ -33,9 +33,12 @@
     <h1 id="gallery-title">{{ categorie|capitalize }}</h1>
     {% for image in images %}
         <div class="image-container">
-        <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
+            <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
+            <div class="button-container">
+                {{ include('form/_deleteImage.html.twig') }}
+               
+            </div>
         </div>
-        {{ include('form/_deleteImage.html.twig') }}
     {% endfor %}
     
     <div class="image-container"><img class="gallery-img" src="https://picsum.photos/300/200" alt="random poster"></div>

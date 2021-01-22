@@ -24,10 +24,12 @@
 <main>
     <h1 id="gallery-title">{{ categorie|capitalize }}</h1>
     {% for image in images %}
-    {{ image.nom }} <br>
-    {{ image.categorie }}<br>
-    <img src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster"><br>
-    {{ include('form/_deletePassageImage.html.twig') }}
+        <div class="image-container">
+            <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster"><br>
+            <div class="button-container">
+                {{ include('form/_deletePassageImage.html.twig') }}
+            </div>
+        </div>
     {% endfor %}
 </main>
 
