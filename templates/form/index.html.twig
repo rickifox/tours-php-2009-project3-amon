@@ -33,7 +33,7 @@ onclick="return confirm('Attention vous ne pourrez plus ajouter ou supprimer d\'
 <hr>
 <br>
 
-<a href="{{path('design_gallery') }}">Retourner à la gallerie Design métallique</a>
+<a href="{{path('design_gallery') }}">Retourner à la galerie Design métallique</a>
 {% for image in images %}
     <div class="image-container">
     <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
