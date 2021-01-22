@@ -64,7 +64,6 @@ main {
     grid-template-columns: 45% 45%;
     grid-gap: 5%;
 }
-
 .article-date{
     margin-left: 3%;
     padding-left: 1%;
@@ -72,8 +71,6 @@ main {
     border: 2px solid;
     border-image: url("../images/silver-textured-background.jpeg") 2;
 }
-
-
 .image-grid{
     display:flex;
     text-align: center;

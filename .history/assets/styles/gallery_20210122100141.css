@@ -73,6 +73,9 @@ main {
     border-image: url("../images/silver-textured-background.jpeg") 2;
 }
 
+.article-text{
+    font-size: 3vw;
+}
 
 .image-grid{
     display:flex;
