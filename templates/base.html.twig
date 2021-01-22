@@ -37,9 +37,9 @@
                 </li>
             </ul>
             {% if app.user %}
-            <div class="mb-3">
-                Connecté en tant que : {{ app.user.username }}, <br><a href="{{ path('app_logout') }}">Se déconnecter</a>
-            </div>
+                <div class="mb-3">
+                    Connecté en tant que : {{ app.user.username }}, <br><a href="{{ path('app_logout') }}">Se déconnecter</a>
+                </div>
         {% endif %}
         </nav>
     </header>
