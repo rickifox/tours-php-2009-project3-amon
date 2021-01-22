@@ -54,10 +54,10 @@ class ActualityController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-        
+
             return $this->redirectToRoute('actuality');
         }
-        
+
         return $this->render('actuality/edit.html.twig', [
             'article' => $article,
             'form' => $form->createView(),
