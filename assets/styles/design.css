@@ -129,7 +129,7 @@ main {
   -webkit-transition: opacity 2s;
 }
 .carousel_title {
-  text-align: right;
+  text-align: center;
   z-index: 5;
   position: absolute;
   display: block;
@@ -308,6 +308,11 @@ main {
   .right-column .accordion {
     transform: skew(-5deg);
   }
+
+  .container {
+    width: 80%;
+    margin: 50px auto;
+  }
 }
 
 @media screen and (min-width: 500px) and (max-width: 700px) {
@@ -331,6 +336,11 @@ main {
   }
   .fourth-card {
     display: none;
+  }
+
+  .container {
+    width: 95%;
+    margin: 50px auto;
   }
 }
 
@@ -379,5 +389,10 @@ main {
   }
   .carousel_title {
     font-size: 1.4vh;
+  }
+
+  .container {
+    width: 95%;
+    margin: 50px auto;
   }
 }

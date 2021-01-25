@@ -121,38 +121,61 @@ main {
     width: 14rem;
     color: var(--light-color);
     margin: 0;
-    padding: 0.2rem;
     font-size: 2rem;
     cursor:pointer;
     position: fixed;
-    background-image: url("../images/gold-texture.jpeg");
-    background-size: cover;
-    border: 3px solid;
-    border-image: url("../images/silver-textured-background.jpeg") 3;
+    border: 0px;
+    padding: 0.2rem;
 }
+
+#categories-pop::after {
+    content: "";
+    background:  url("../images/silver-textured-background.jpeg");
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; 
+}
+
 /* The side navigation menu */
 .sidenav {
     height: auto; /* 100% Full-height - header total height - button total height */
     width: 0px; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
-    margin-top: calc(2rem + 0.4rem + 6px); /* Stay at the top, under the button (category-pop's font-size + padding + border) */
+    margin-top: calc(2rem + 0.4rem + 4px); /* Stay at the top, under the button (category-pop's font-size + padding + border) */
     left: 0;
-    background: url("../images/background-blue.png"); /* button gold*/
-    background-repeat: no-repeat;
-    background-size: cover;
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.3s; /* 2 second transition effect to slide in the sidenav */
-  }
+    background-color: rgba(0, 0, 0, 0.247);
+
+}
+
+.sidenav::after {
+    content: "";
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; 
+    background:  url("../images/silver-textured-background.jpeg");
+
+}
 
   /* Position and style the close button (top right corner) */
 #closebtn {
     position: absolute;
-    top: 0px;
-    right: 0px;
-    font-size: 36px;
+    top: 15px;
+    right: 10px;
+    font-size: 50px;
     margin-left: 50px;
-  }
+    line-height: 0;
+}
 
 #sn-linklist {
     display: flex;
@@ -160,22 +183,20 @@ main {
     align-items: center;
     margin: 0;
     padding: 0;
-    padding-top: 38px; /* Place content 38px from the top, to leave some space to the closing "x"*/
-    border: 4px solid;
-    border-image: url("../images/silver-textured-background.jpeg") 4;
+    padding-top: 28px; /* Place content 38px from the top, to leave some space to the closing "x"*/
 }
 
 .sn-button {
     list-style-type: none;
-    width: 90%;
-    margin: 2.5%;
-    padding: 2.5%;
-    background-image: url("../images/silver-textured-background.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: grayscale(300%);
+    width: 100%;
+    margin: 2.5% 0;
+    padding: 2.5% 0;
     box-sizing: border-box;
     text-align: center;
+}
+
+.sn-button:hover {
+    background:  url("../images/silver-textured-background.jpeg");
 }
 
 .sn-link {
