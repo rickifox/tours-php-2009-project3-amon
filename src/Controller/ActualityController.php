@@ -22,7 +22,7 @@ class ActualityController extends AbstractController
     {
         $articles = $articleRepository->findBy(
             ["section" => 'Actualites'],
-            ['id' => 'DESC'],
+            ['date' => 'DESC'],
         );
         return $this->render('actuality/index.html.twig', ['articles' => $articles]);
     }
@@ -46,14 +46,12 @@ class ActualityController extends AbstractController
      * Editing an article, but can not delete image for now, or it goes out of the db too.
      * @Route("/actualites/{id}/edit", name="actuality_edit")
      */
-    public function editArticles(Request $request, Article $article): Response
+    public function editArticles(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
-        /*$article->getImage()->removeElement($image);
-        $image->getArticles()->removeElement($article);*/
         $form = $this->createForm(ArticleFormType::class, $article);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager->flush();
 
             return $this->redirectToRoute('actuality');
         }
