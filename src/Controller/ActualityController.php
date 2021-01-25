@@ -35,7 +35,7 @@ class ActualityController extends AbstractController
     {
         $articles = $articleRepository->findby(
             ['section' => 'Actualites'],
-            ['id' => 'DESC'],
+            ['date' => 'DESC'],
             3,
             0,
         );
