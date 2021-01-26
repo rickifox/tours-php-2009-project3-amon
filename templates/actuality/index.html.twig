@@ -8,43 +8,41 @@
 {% block title %}Actualités{% endblock %}
 
 {% block body %}
-
-<h1 id="gallery-title">Les Actualités</h1>
-{% for article in articles %}
-<div class="article-date">
-	<p> {{ article.date|date("d/m/Y") }}</p>
-</div>
-<div class="article-container">
-	<div class="article-content">
-		<div class="image-grid">
-			{% for image in article.image %}
-			<div class="article-image">
-				<a href="{{ vich_uploader_asset(image, 'urlFile') }}">
-              		<img class="actuality-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
-              	</a>
-			</div>
-			{% endfor %}
-			<div class="article-button-container">
-				{% if app.user %}
+<section class="actualityContainer">
+	<h1 id="gallery-title">Les Actualités</h1>
+	{% for article in articles %}
+		<div class="article-button-container">
+			{% if app.user %}
 				<form method="post" action="{{ path('actuality_edit', {'id': article.id}) }}">
 					<input type="hidden" name="_method" value="EDIT">
 					<input type="hidden" name="_token" value="{{ csrf_token('edit' ~ article.id) }}">
 					<button class="edit-article-button"></button>
 				</form>
 				{{ include('form/_deleteArticle.html.twig') }}
-				{% endif %}
+			{% endif %}
+		</div>
+		<div class="article-date">
+			<p class="date">{{ article.date|date("d/m/Y") }}</p>
+		</div>
+		<div class="article-container">
+			<div class="article-content">
+				<div class="image-grid">
+					{% for image in article.image %}
+						<div class="article-image">
+							<a href="{{ vich_uploader_asset(image, 'urlFile') }}">
+              				<img class="actuality-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
+              				</a>
+						</div>
+					{% endfor %}
+				</div>
+				<div class="article-text">
+					<h1 class="article-title">{{ article.titre|capitalize }}</h1>
+					<p class="article-description">{{ article.description }}</p>
+				</div>
 			</div>
 		</div>
-		<div class="article-text">
-			<h1 class="article-title">{{ article.titre|capitalize }}</h1>
-			<p class="article-text">{{ article.description }}</p>
-
-		
-		</div>
-	</div>
-</div>
-{% endfor %}
-
+	{% endfor %}
+</section>
 {% endblock %}
 	
 {% block javascripts %}
