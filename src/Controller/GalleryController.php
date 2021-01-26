@@ -21,7 +21,7 @@ class GalleryController extends AbstractController
     public function showImages(ImageRepository $imageRepository): Response
     {
         $images = $imageRepository->findBy(
-            ['categorie' => ['chats', 'chiens', 'oiseaux', '4', '5', '6', '7', '8', '9', '10']],
+            ['categorie' => ['aménagement extérieur', 'brise-vue pare-soleil', 'décoration', 'escalier', 'garde-corps', 'passages secrets', 'trappes vitrées', 'verrière']],
             ['id' => 'DESC'],
         );
         return $this->render(

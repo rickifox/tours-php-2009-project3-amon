@@ -9,7 +9,7 @@
 
 {% block body %}
 
-<h1 id="gallery-title">Les Actualités</h1>
+<div id="gallery-title"><h1>Les Actualités</h1></div>
 {% for article in articles %}
 <div class="article-date">
 	<p> {{ article.date|date("d/m/Y") }}</p>
