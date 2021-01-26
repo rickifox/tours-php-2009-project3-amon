@@ -19,14 +19,13 @@ import '../styles/actuality.css';
 
 class Lightbox{
 
-    static init() {
-        const links = Array.from(document.querySelectorAll('a[href$=".png"], a[href$=".jpeg"], a[href$=".gif"], a[href$=".jpg"]'))
-        const images = links.map(link => link.getAttribute('href'))    
-        
-        links.forEach(link => link.addEventListener('click', e => 
+    static init(){
+        const links = Array.from(document.querySelectorAll('a[href$=".png"], a[href$=".jpeg"], a[href$=".gif"], a[href$=".jpg"]'));
+        const images = links.map(link => link.getAttribute('href'));
+        links.forEach(link => link.addEventListener('click', e =>
                 {
-                    e.preventDefault()
-                    new Lightbox(e.currentTarget.getAttribute('href'), images)
+                    e.preventDefault();
+                    new Lightbox(e.currentTarget.getAttribute('href'), images);
                 }))
     }
 
@@ -34,73 +33,58 @@ class Lightbox{
      * @param {string} url Image URL
      * @param {string[]} images Path of images in lightbox
      */
-    constructor (url, images) {
-        this.element = this.buildDOM(url)
-        this.images = images
-        document.body.appendChild(this.element)
-        
+    constructor (url, images){
+        this.element = this.buildDOM(url);
+        this.images = images;
+        document.body.appendChild(this.element);
     }
 
     /**
      * 
-     * @param {string} url Image URL 
+     * @param {string} url Image URL
      */
-    loadImage (url) {
-        this.url = null
-        const image = new Image()
-        const container = this.element.querySelector('.lightbox__container')
-        const loader = document.createElement('div')
-        loader.classList.add('lightbox__loader')
-        container.innerHTML = ''
-        container.appendChild(loader)
-        image.onload = () => {
-            container.removeChild(loader)
-            container.appendChild(image)
-            this.url = url
+    loadImage(url){
+        this.url = null;
+        const image = new Image();
+        const container = this.element.querySelector('.lightbox__container');
+        const loader = document.createElement('div');
+        loader.classList.add('lightbox__loader');
+        container.innerHTML = '';
+        container.appendChild(loader);
+        image.onload = ()=>{
+            container.removeChild(loader);
+            container.appendChild(image);
+            this.url = url;
         }
-        image.src = url
-    } 
+        image.src = url;
+    }
     
     /**
      * Close the lightbox
-     * @param {MouseEvent} e 
+     * @param {MouseEvent} e
      */
     close (e) {
-        e.preventDefault()
-        this.element.classList.add('fadeOut')
-        window.setTimeout(() => {
-            this.element.remove()
-        }, 500)
+        e.preventDefault();
+        this.element.classList.add('fadeOut');
+        window.setTimeout(()=>{
+            this.element.remove();
+        }, 500);
     }
 
     /**
      * @param {string} url URL de l'image
      * @return {HTMLElement}
      */
-    buildDOM (url) {
-        const dom = document.createElement('div')
-        dom.classList.add('lightbox')
+    buildDOM (url){
+        const dom = document.createElement('div');
+        dom.classList.add('lightbox');
         dom.innerHTML = `<button class="lightbox__close"></button>
         <div class="lightbox__container">
             <img src="${url}" alt"">
-        </div>`
-        dom.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
-        return dom
+        </div>`;
+        dom.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this));
+        return dom;
     }
-
-    
-
 }
-
-/**
- * <div class="lightbox">
-          <button class="lightbox__close">Fermer</button>
-          <button class="lightbox__next">Suivant</button>
-          <button class="lightbox__prev">Précédent</button>
-          <div class="lightbox__container">
-            <img src="">
-          </div>
-        </div>
- */
 
 Lightbox.init()
