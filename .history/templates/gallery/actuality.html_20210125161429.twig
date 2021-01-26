@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
   {{ parent() }}
-  {{ encore_entry_link_tags('actuality') }}
+  {{ encore_entry_link_tags('gallery') }}
 {% endblock %}
 
 {% block body %}
@@ -16,8 +16,7 @@
       <div class="article-content">
       
         <div class="image-grid">
-        
-
+          
           {% for image in article.image %}
             <div class="article-image">
               <a href="{{ vich_uploader_asset(image, 'urlFile') }}">
@@ -26,23 +25,10 @@
             </div>
           {% endfor %}
         </div>
-
         <div class="article-text">
           <h1 class="article-title">{{ article.titre|capitalize }}</h1>
           <p class="article-text">{{ article.description }}</p>
         </div>
-
-        {#<div class="lightbox">
-          <button class="lightbox__close">Fermer</button>
-          <button class="lightbox__next">Suivant</button>
-          <button class="lightbox__prev">Précédent</button>
-          <div class="lightbox__container">
-            <img src="">
-          </div>
-        </div>#}
-
-
-
       </div>
     {{ include('form/_deleteArticle.html.twig') }}
     </div>
@@ -50,9 +36,4 @@
 
     </div>
 
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    {{ encore_entry_script_tags('actuality') }}
 {% endblock %}

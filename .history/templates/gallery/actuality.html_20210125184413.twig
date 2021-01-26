@@ -16,12 +16,14 @@
       <div class="article-content">
       
         <div class="image-grid">
-        
+          
+          <a href="https://picsum.photos/id/1/200/300">
+          <img src="https://picsum.photos/id/1/200/300"></a>
 
           {% for image in article.image %}
             <div class="article-image">
-              <a href="{{ vich_uploader_asset(image, 'urlFile') }}">
-              <img class="actuality-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
+              <a href="{{ vich_uploader_asset(image, 'url') }}">
+              <img class="actuality-img" src="{{ vich_uploader_asset(image, 'url') }}" alt="{{ image.nom }} poster">
               </a>
             </div>
           {% endfor %}

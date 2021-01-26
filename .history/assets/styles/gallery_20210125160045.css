@@ -61,8 +61,8 @@ main {
 }
 .article-content{
     display: grid;
-    grid-template-columns: 48% 48%;
-    grid-gap: 4%;
+    grid-template-columns: 45% 45%;
+    grid-gap: 5%;
 }
 
 .article-date{
@@ -84,17 +84,12 @@ main {
 .article-image{
     display: flex;
     align-items: center;
-    width: 20%;
-    height: auto;
+    width: 25%;
     border: 2px solid;
     border-image: url("../images/silver-textured-background.jpeg") 2;
     background-color: rgba(0, 0, 0, 0.247);
     margin: 2%;
-}
-.actuality-img{
-    width: 100%;
-    margin: 0;
-    height: auto;
+    max-height: 30%;
 }
 .article-image:hover img{
     -webkit-transform: scale(1.6);

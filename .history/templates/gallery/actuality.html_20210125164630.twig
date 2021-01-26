@@ -16,8 +16,7 @@
       <div class="article-content">
       
         <div class="image-grid">
-        
-
+          
           {% for image in article.image %}
             <div class="article-image">
               <a href="{{ vich_uploader_asset(image, 'urlFile') }}">
@@ -32,14 +31,14 @@
           <p class="article-text">{{ article.description }}</p>
         </div>
 
-        {#<div class="lightbox">
+        <div class="lightbox">
           <button class="lightbox__close">Fermer</button>
           <button class="lightbox__next">Suivant</button>
           <button class="lightbox__prev">Précédent</button>
           <div class="lightbox__container">
             <img src="">
           </div>
-        </div>#}
+        </div>
 
 
 
