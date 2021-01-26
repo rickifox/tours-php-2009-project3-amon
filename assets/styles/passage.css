@@ -16,7 +16,7 @@ body {
     margin-bottom: 7%;
     padding-top: 5%;
     text-align: center;
-    text-decoration: rgba(255, 217, 0, 0.664) underline;
+    text-decoration: var(--main-color) underline;
 }
 
 /* Library section */
