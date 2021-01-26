@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-  {{ parent() }}
-  {{ encore_entry_link_tags('gallery') }}
+{{ parent() }}
+{{ encore_entry_link_tags('gallery') }}
 {% endblock %}
 
 {% block title %}{{ categorie|capitalize }}{% endblock %}
@@ -24,12 +24,14 @@
 <main>
     <h1 id="gallery-title">{{ categorie|capitalize }}</h1>
     {% for image in images %}
-        <div class="image-container">
-            <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster"><br>
-            <div class="button-container">
-                {{ include('form/_deletePassageImage.html.twig') }}
-            </div>
+    <div class="image-container">
+        <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
+        <div class="button-container">
+            {% if app.user %}
+            {{ include('form/_deletePassageImage.html.twig') }}
+            {% endif %}
         </div>
+    </div>
     {% endfor %}
 </main>
 
