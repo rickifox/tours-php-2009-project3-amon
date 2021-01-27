@@ -8,8 +8,8 @@ body {
     display: block;
 }
 
-/* Principal Title of the secret passage page */
-.secret-passage-title {
+/* -- Principal Title of the secret passage page -- */
+.passage-title {
     color: var(--main-color);
     font-size: 3vw;
     margin-top: 0px;
@@ -19,104 +19,82 @@ body {
     text-decoration: var(--main-color) underline;
 }
 
-/* Library section */
-/* Library text */
-.library {
-    height: 30%;
-    margin-right: 10%;
-    position: relative;
-    width: 100%;
+/* -- Sections Library, Mirror, Tailor-Made -- */
+.library, .tailor-made{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: repeat(150px, auto);
+    margin: 0 5% 8% 5%;
+}
+.mirror {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: repeat(150px, auto);
+    margin: 0 5% 8% 5%;
 }
 
-.library-text {
-    font-size: 1.5vw;
-    position: absolute;
-    padding-left: 45%;
-    padding-right: 5%;
+/* -- Sections texts -- */
+.passage-subtitle{
+    margin-bottom: 2%;
+    font-size: 2vw;
+}
+.passage-description{
+    font-size: 1.6vw;
     text-align: justify;
 }
 
-.library-title {
-    text-align: center;
-}
-
-.library-text2 {
-    font-size: 1.5vw;
-    position: absolute;
-    padding-left: 5%;
-    padding-right: 45%;
-    text-align: justify;
-}
-
-/* Secret passage images */
+/* -- Sections images -- */
 .images-passage {
-    position: absolute;
-    margin-left: 20%;
-    width: 20%;
+    width: 17vw;
+    height: 12vw;
+    margin-left: 35%;
     box-shadow: var(--shadow-color);
 }
-
 .secret {
-    z-index: 1;
-    margin-top: 13%;
+    width: 17vw;
+    height: 12vw;
     margin-left: 5%;
-}
-
-/* Secret passage images of mirror */
-.images-passage2 {
-    position: absolute;
-    margin-left: 60%;
-    width: 20%;
+    margin-top: -10%;
     box-shadow: var(--shadow-color);
-}
-
-.secret2 {
     z-index: 1;
-    margin-top: 13%;
-    margin-left: 75%;
 }
-
-/* Gallery of secret passage images */
 .passage-miniature {
+    margin-top: -15%;
+    margin-left: 45%;
     z-index: 2;
     display: grid;
     grid-gap: 1%;
     grid-template-columns: repeat(3, 1fr);
     background-color: var(--main-color);
-    width: 50%;
-    position: absolute;
-    margin-top: 24%;
-    margin-left: 23%;
+    position: relative;
     padding: 1%;
     box-shadow: var(--shadow-color);
     transition: transform .5s;
+    width: 50vw;
+    height: 12vw;
 }
-
-.passage-miniature2 {
-    z-index: 2;
-    display: grid;
-    grid-gap: 1%;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: var(--main-color);
-    width: 50%;
-    position: absolute;
-    margin-top: 25%;
-    margin-left: 24%;
-    padding: 1%;
-    box-shadow: var(--shadow-color);
-    transition: transform .5s;
-}
-
 .images-miniature {
     width: 100%;
+    height: 100%;
+}
+
+.mirror-image{
+    margin-left: 20%;
+}
+.secret2 {
+    margin-top: -10%;
+    margin-left: 50%;
+}
+.miniature2 {
+   margin-top: -10%;
 }
 
 .passage-miniature:hover, .passage-miniature2:hover {
-    -ms-transform: scale(1.2); /* IE 9 */
-    -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2); 
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
 }
-
+/* Title in miniature */
 .galery-title {
     font-size: 3vw;
     position: absolute;
@@ -125,41 +103,48 @@ body {
     align-self: center;
     text-decoration: none;
     color: var(--main-color);
+    text-shadow: 1px 1px 5px black;
 }
 
-/* Mirror and tailor-made section */
-.mirror, .tailor-made {
-    position: relative;
-    padding-top: 50%;
-}
+/* -- Responsive -- */
+@media screen and (min-width: 250px) and (max-width: 900px) {
 
-.tailor-made {
-    margin-bottom: 50%;
-}
-
-@media screen and (min-width: 250px) and (max-width: 1200px) {
-
-    .secret-passage-title {
-        font-size: 2.5em;
+    .library, .mirror, .tailor-made{
+        display: block;
+        margin: 8% 8% 10% 8%;
     }
-    .images-passage, .images-passage2 {
+    .passage-title {
+        font-size: 1.5em;
+    }
+    .images-passage, .images-passage1 {
         display: none;
     }
-    .library-text, .library-text2 {
-        font-size: 1.5em;
-        padding-right: 9vw;
-        padding-left: 9vw;
+    .passage-subtitle {
+        font-size: 1.3em;
     }
-    .passage-miniature, .passage-miniature2 {
-        width: 80%;
+    .passage-description {
+        font-size: 1em;
+    }
+    .galery-title {
+        font-size: 2em;
+    }
+    .passage-miniature {
+        width: 65vw;
+        height: 15vw;
         margin-left: 9%;
-        margin-top: 25%;
+        margin-top: 5%;
     }
-    .mirror {
-        margin-top: 15%;
-        margin-bottom: 10%;
+    .passage-miniature:hover {
+        -ms-transform: scale(1); /* IE 9 */
+        -webkit-transform: scale(1); /* Safari 3-8 */
+        transform: scale(1);
     }
-    .tailor-made {
-        padding-bottom: 20%;
+}
+
+@media screen and (max-width: 500px) {
+    .passage-miniature {
+        width: 80vw;
+        height: 20vw;
+        margin-left: 0;
     }
 }
