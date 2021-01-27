@@ -22,7 +22,7 @@ class ImageFormType extends AbstractType
                 'required' => true,
                 'constraints' => [
                     new File([
-                        'maxSize' => '1M',
+                        'maxSize' => '2M',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/gif',
@@ -35,11 +35,15 @@ class ImageFormType extends AbstractType
                 'label' => 'Selectionner une photo'])
             ->add('categorie', ChoiceType::class, [
                 'choices' => [
-                    'Chats' => 'Chats',
-                    'Chiens' => 'Chiens',
-                    'Oiseaux' => 'Oiseaux',
+                    'Amenagement extérieur' => 'Amenagement extérieur',
+                    'Brise-vue Pare-soleil' => 'Brise-vue Pare-soleil',
+                    'Décoration' => 'Décoration',
+                    'Escaliers' => 'Escaliers',
+                    'Garde-corps' => 'Garde-corps',
+                    'Trappes vitrées' => 'Trappes vitrées',
+                    'Verrière' => 'Verrières',
+                    'Bibliothèques' => 'Bibliothèques',
                     'Miroirs' => 'Miroirs',
-                    'Bibliotheques' => 'Bibliotheques',
                     'Sur-mesure' => 'Sur-mesure'
                 ]
             ])

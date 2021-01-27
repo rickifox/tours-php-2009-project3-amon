@@ -125,6 +125,7 @@ body {
     align-self: center;
     text-decoration: none;
     color: var(--main-color);
+    text-shadow: 1px 1px 5px black;
 }
 
 /* Mirror and tailor-made section */
