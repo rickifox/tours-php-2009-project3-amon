@@ -17,9 +17,9 @@ import '../styles/actuality.css';
  * @property {strin} url Currently displayed image
  */
 
-class Lightbox{
+class Lightbox {
 
-    static init(){
+    static init() {
         const links = Array.from(document.querySelectorAll('a[href$=".png"], a[href$=".jpeg"], a[href$=".gif"], a[href$=".jpg"]'));
         const images = links.map(link => link.getAttribute('href'));
         links.forEach(link => link.addEventListener('click', e =>
