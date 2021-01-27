@@ -10,7 +10,7 @@ main {
 }
 
 #gallery-title {
-    font-size: 3vw;
+    font-size: 3vh;
     padding-top: 1%;
     text-align: center;
     text-decoration: underline;
@@ -32,7 +32,6 @@ main {
     height: auto;
     margin: 0; 
 }
-
 .button-container{
     position: absolute;
     z-index: 1;
@@ -41,98 +40,76 @@ main {
     width: 100%;
 }
 .delete-button{
-    background-image: url("");
+    background-image: url("../images/poubelle.png");
     background-size: cover;
     width: 3vw;
     height: 3vw;
-    border-radius: 100%;
+    border-radius: 50%;
 }
-
-/* Actuality page */
-.article-container{
-    background-color: rgba(0, 0, 0, 0.322);
-    margin: 3%;
-    margin-top: 0;
-    padding: 1%;
-    padding-top: 2%;
-    text-align: center;
-    border: 2px solid;
-    border-image: url("../images/silver-textured-background.jpeg") 2;
-}
-.article-content{
-    display: grid;
-    grid-template-columns: 45% 45%;
-    grid-gap: 5%;
-}
-
-.article-date{
-    margin-left: 3%;
-    padding-left: 1%;
-    margin-right: 90%;
-    border: 2px solid;
-    border-image: url("../images/silver-textured-background.jpeg") 2;
-}
-
-
-.image-grid{
-    display:flex;
-    text-align: center;
-    justify-content: start;
-    flex-wrap: wrap;
-}
-
-.article-image{
-    display: flex;
-    align-items: center;
-    width: 25%;
-    border: 2px solid;
-    border-image: url("../images/silver-textured-background.jpeg") 2;
-    background-color: rgba(0, 0, 0, 0.247);
-    margin: 2%;
-}
-.article-image:hover img{
-    -webkit-transform: scale(1.6);
-	transform: scale(1.6);
-}
-
 
 /* The side navigation menu button */
 #categories-pop {
     width: 14rem;
     color: var(--light-color);
     margin: 0;
-    padding: 0.2rem;
     font-size: 2rem;
     cursor:pointer;
     position: fixed;
-    background-image: url("../images/gold-texture.jpeg");
-    background-size: cover;
-    border: 3px solid;
-    border-image: url("../images/silver-textured-background.jpeg") 3;
+    border: 0px;
+    padding: 0.2rem;
 }
+
+#categories-pop::after {
+    content: "";
+    background:  url("../images/silver-textured-background.jpeg");
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; 
+}
+
 /* The side navigation menu */
 .sidenav {
     height: auto; /* 100% Full-height - header total height - button total height */
     width: 0px; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
-    margin-top: calc(2rem + 0.4rem + 6px); /* Stay at the top, under the button (category-pop's font-size + padding + border) */
+    margin-top: calc(2rem + 0.4rem + 4px); /* Stay at the top, under the button (category-pop's font-size + padding + border) */
     left: 0;
-    background: url("../images/background-blue.png"); /* button gold*/
-    background-repeat: no-repeat;
-    background-size: cover;
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.3s; /* 2 second transition effect to slide in the sidenav */
-  }
+    background-color: rgba(0, 0, 0, 0.247);
+    border-right: 2px solid rgb(243, 233, 233);
+    border-bottom:  2px solid rgb(243, 233, 233);
+    border-image: url("../images/silver-textured-background.jpeg") 2;
+    margin-left: -2px;
+}
+
+.sidenav::after {
+    content: "";
+    opacity: 0.9;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; 
+    background:  url("../images/background-blue-90deg.png");
+
+}
 
   /* Position and style the close button (top right corner) */
 #closebtn {
     position: absolute;
-    top: 0px;
-    right: 0px;
-    font-size: 36px;
+    top: 15px;
+    right: 10px;
+    font-size: 50px;
     margin-left: 50px;
-  }
+    line-height: 0;
+}
 
 #sn-linklist {
     display: flex;
@@ -140,22 +117,20 @@ main {
     align-items: center;
     margin: 0;
     padding: 0;
-    padding-top: 38px; /* Place content 38px from the top, to leave some space to the closing "x"*/
-    border: 4px solid;
-    border-image: url("../images/silver-textured-background.jpeg") 4;
+    padding-top: 28px; /* Place content 38px from the top, to leave some space to the closing "x"*/
 }
 
 .sn-button {
     list-style-type: none;
-    width: 90%;
-    margin: 2.5%;
-    padding: 2.5%;
-    background-image: url("../images/silver-textured-background.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: grayscale(300%);
+    width: 100%;
+    margin: 2.5% 0;
+    padding: 2.5% 0;
     box-sizing: border-box;
     text-align: center;
+}
+
+.sn-button:hover {
+    background:  url("../images/silver-textured-background.jpeg");
 }
 
 .sn-link {
@@ -173,17 +148,18 @@ main {
         
     }
     .sidenav {
-        margin-top: calc(2rem + 0.4rem + 6px);
+        margin-top: -2px; /*So the burger border-top is melted in the navbar border*/
+        border-top:  2px solid rgb(243, 233, 233);
     }
 }
 @media screen and (min-width:500px) and (max-width: 900px) {
-    .gallery-img {
+    .image-container {
         width: 45.5%;
         margin:2.5% 0;
     }
 }
 @media screen and (min-width:200px) and (max-width: 500px) {
-    .gallery-img {
+    .image-container {
         width: 90%;
         margin:5%;
     }

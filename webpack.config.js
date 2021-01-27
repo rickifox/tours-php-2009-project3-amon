@@ -41,6 +41,7 @@ Encore
     .addEntry('passage', './assets/js/passage.js')
     .addEntry('gallery', './assets/js/gallery.js')
     .addEntry('form', './assets/js/form.js')
+    .addEntry('actuality', './assets/js/actuality.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
