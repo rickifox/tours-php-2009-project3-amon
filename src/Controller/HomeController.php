@@ -23,4 +23,12 @@ class HomeController extends AbstractController
     {
         return $this->render('home/contact.html.twig');
     }
+
+    /**
+     * @Route("home/mentions-legales", name="legal_notice")
+     */
+    public function legalNotice(): Response
+    {
+        return $this->render('home/legalNotice.html.twig');
+    }
 }

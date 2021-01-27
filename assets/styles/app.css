@@ -31,7 +31,6 @@ body {
 
 header {
     width: 100%;
-    height:17vh;
     background-image: url("../images/background-blue.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -124,20 +123,23 @@ a {
     width: 50%;
     position: relative;
 }
- 
+
 @media screen and (max-width:800px) {
-    .separator img{
-        height: 25px;
-        padding : 5%;
-        transform: rotate(90deg);
-    }
 
-    header {
-        height: 100px;
-    }
-
+.navbar {
+    width: 100%;
+    padding: 0;
+}
+.separator img{
+    height: 25px;
+    padding : 5%;
+    transform: rotate(90deg);
+}
+.hyperlink:hover {
+    border: none;
+}
     .navbar {
-        font-size: 1.4vh;
+        font-size: 2vh;
     }
 
     .navbar_left {
@@ -153,4 +155,26 @@ a {
         width: 9vh;
         transition: all 1.5s;
     }
+
+    .content {
+        margin-top: 11vh;
+    }
 }
+
+    /* ---- Section Legal Notice ---- */
+    #legalNotice{
+        margin: 3% 5% 5% 5%;
+        text-align: justify;
+    }
+    .legalNoticeTitle{
+        text-align: center;
+        padding-bottom: 1%;
+        font-size: 2em;
+    }
+    .legalNoticeSubText{
+        text-align: center;
+        padding-bottom: 1%;
+    }
+    .tabulationList{
+        margin-left: 2%;
+    }
