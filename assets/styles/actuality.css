@@ -18,8 +18,8 @@
 }
 .article-content{
     display: grid;
-    grid-template-columns: 54% 46%;
-    padding-right: 2%;
+    grid-template-columns: 48% 48%;
+    grid-gap: 4%;
 }
 .article-title{
     margin-bottom: 5%;
@@ -44,6 +44,7 @@
     color: #000;
 }
 .image-grid{
+    justify-content: center;
     display:flex;
     flex-wrap: wrap;
     height: 50%;
@@ -51,11 +52,11 @@
 .article-image{
     display: flex;
     align-items: center;
-    width: 20%;
-    border: 2px solid;
+    width: 10vw;
+    border: 1px solid;
     border-image: url("../images/silver-textured-background.jpeg") 2;
-    background-color: rgba(0, 0, 0, 0.979);
-    margin: 2% 0 2% 2%;
+    background-color: rgba(0, 0, 0, 0.39);
+    margin: 1% 0 0 1%;
     padding-top: 0.4%; /*To compensate for the space created by the a href*/
 }
 .actuality-img{
@@ -146,7 +147,8 @@
         font-size: 2vw;
     }
     .article-image{
-        width: 22%;
+        width: 18vw;
+        margin: 0 1% 1% 1%;
     }
     .article-date{
         margin-right: 80%;

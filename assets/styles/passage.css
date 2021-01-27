@@ -45,20 +45,22 @@ body {
 
 /* -- Sections images -- */
 .images-passage {
-    width: 45%;
-    margin-left: 40%;
+    width: 17vw;
+    height: 12vw;
+    margin-left: 35%;
     box-shadow: var(--shadow-color);
 }
 .secret {
-    width: 45%;
-    margin-left: 15%;
+    width: 17vw;
+    height: 12vw;
+    margin-left: 5%;
     margin-top: -10%;
     box-shadow: var(--shadow-color);
     z-index: 1;
 }
 .passage-miniature {
     margin-top: -15%;
-    margin-left: 50%;
+    margin-left: 45%;
     z-index: 2;
     display: grid;
     grid-gap: 1%;
@@ -68,27 +70,29 @@ body {
     padding: 1%;
     box-shadow: var(--shadow-color);
     transition: transform .5s;
-    width: 120%;
+    width: 50vw;
+    height: 12vw;
 }
 .images-miniature {
     width: 100%;
+    height: 100%;
 }
 
 .mirror-image{
-    margin-left: 15%;
+    margin-left: 20%;
 }
 .secret2 {
     margin-top: -10%;
+    margin-left: 50%;
 }
 .miniature2 {
    margin-top: -10%;
-   width: 80%;
 }
 
 .passage-miniature:hover, .passage-miniature2:hover {
-    -ms-transform: scale(1.2); /* IE 9 */
-    -webkit-transform: scale(1.2); /* Safari 3-8 */
-    transform: scale(1.2); 
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
 }
 /* Title in miniature */
 .galery-title {
@@ -99,6 +103,7 @@ body {
     align-self: center;
     text-decoration: none;
     color: var(--main-color);
+    text-shadow: 1px 1px 5px black;
 }
 
 /* -- Responsive -- */
@@ -124,7 +129,8 @@ body {
         font-size: 2em;
     }
     .passage-miniature {
-        width: 80%;
+        width: 65vw;
+        height: 15vw;
         margin-left: 9%;
         margin-top: 5%;
     }
@@ -137,7 +143,8 @@ body {
 
 @media screen and (max-width: 500px) {
     .passage-miniature {
-        width: 100%;
+        width: 80vw;
+        height: 20vw;
         margin-left: 0;
     }
 }

@@ -104,6 +104,12 @@ a {
 
 .separator {
     padding-top: 1.5%;
+    list-style: none;
+}
+
+.deconnection-link {
+    text-decoration: underline;
+    color: var(--main-color);
 }
 
 .footer {
@@ -124,43 +130,46 @@ a {
     position: relative;
 }
 
+/* Form button only if user log on*/
+.form-button:link, .form-button :visited, .form-button:hover, .form-button:active {
+    color: var(--main-color);
+}
+
 @media screen and (max-width:800px) {
-
-.navbar {
-    width: 100%;
-    padding: 0;
-}
-.separator img{
-    height: 25px;
-    padding : 5%;
-    transform: rotate(90deg);
-}
-.hyperlink:hover {
-    border: none;
-}
     .navbar {
-        font-size: 2vh;
+        width: 100%;
+        padding: 0;
     }
+    .separator img{
+        height: 25px;
+        padding : 5%;
+        transform: rotate(90deg);
+    }
+    .hyperlink:hover {
+        border: none;
+    }
+        .navbar {
+            font-size: 2vh;
+        }
 
-    .navbar_left {
-        flex-direction: column;
-        height: 8vh;
-    }
-    .navbar_right {
-        flex-direction: column-reverse;
-        height: 8vh;
-    }
+        .navbar_left {
+            flex-direction: column;
+            height: 8vh;
+        }
+        .navbar_right {
+            flex-direction: column-reverse;
+            height: 8vh;
+        }
 
-    .logo-navbar {
-        width: 9vh;
-        transition: all 1.5s;
-    }
+        .logo-navbar {
+            width: 9vh;
+            transition: all 1.5s;
+        }
 
     .content {
-        margin-top: 11vh;
+        margin-top: 12vh;
     }
 }
-
     /* ---- Section Legal Notice ---- */
     #legalNotice{
         margin: 3% 5% 5% 5%;
