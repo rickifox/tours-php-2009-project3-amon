@@ -14,16 +14,14 @@
 
 {{ form_start(form) }}
 {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn">{{ button_label|default('Enregistrer les modifications') }}</button>
 {{ form_end(form) }}
 
 {% for image in article.image %}
 <div class="image-container">
     <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
     <div class="button-container">
-        {% if app.user %}
             {{ include('form/_deleteImage.html.twig') }}
-        {% endif %}
     </div>
 </div>
 

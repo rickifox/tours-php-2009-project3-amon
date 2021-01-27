@@ -13,6 +13,9 @@
     <header id="header">
         <nav class="navbar">
             <ul class="navbar_left">
+                {% if app.user %}
+                <li class="hyperlink form-button"><a href="{{ path('form') }}" id="form-redirect">Formulaire</a></li>
+                {% endif %}
                 <li class="actu">
                     <a class="hyperlink" href="{{path('actuality') }}">Actualités</a>
                 </li>
@@ -39,7 +42,7 @@
             </ul>
             {% if app.user %}
                 <div class="mb-3">
-                    Connecté en tant que : {{ app.user.username }}, <br><a href="{{ path('app_logout') }}">Se déconnecter</a>
+                    Connecté en tant que : {{ app.user.username }}, <br><a class="deconnection-link" href="{{ path('app_logout') }}">Se déconnecter</a>
                 </div>
         {% endif %}
         </nav>
