@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Service\IdsListGenerator;
+use App\Service\ImageListGenerator;
 use App\Service\ImageValidatorNAdder;
 
 class ArticleFormController extends AbstractController
@@ -25,7 +25,7 @@ class ArticleFormController extends AbstractController
         Request $request,
         EntityManagerInterface $entityManager,
         ImageRepository $imageRepository,
-        IdsListGenerator $idsListGenerator,
+        ImageListGenerator $imageListGenerator,
         ImageValidatorNAdder $imageValidatorNAdder
     ): Response {
         $image = new Image();
@@ -39,11 +39,9 @@ class ArticleFormController extends AbstractController
             $imageIds = $imageForm->get('otherImages')->getData();
             $entityManager->persist($image);
             $entityManager->flush();
-            $imageIds = $idsListGenerator->setImageIdsList($imageIds, $image);
-            $imageIdsArr = explode(', ', $imageIds);
-            foreach ($imageIdsArr as $imageId) {
-                $images[] = $imageRepository->find($imageId);
-            }
+            $imagesAndIds = $imageListGenerator->addAndGetImagesAndIds($imageIds, $image, $imageRepository);
+            $imageIds = $imagesAndIds[1];
+            $images = $imagesAndIds[0];
         }
 
         $articleForm->handleRequest($request);
@@ -51,14 +49,9 @@ class ArticleFormController extends AbstractController
             $imageIds = $articleForm->get('otherImages')->getData();
             if (!empty($imageIds)) {
                 $imagesArray = explode(', ', $imageIds);
-                foreach ($imagesArray as $savedImageId) {
-                    $article = $imageValidatorNAdder->addImageIf($savedImageId, $article, $imageRepository);
-                }
-                $imageIdsArr = explode(', ', $imageIds);
-                foreach ($imageIdsArr as $imageId) {
-                    $images[] = $imageRepository->find($imageId);
-                }
-                $entityManager->persist($article);
+                $articleAndImages = $imageValidatorNAdder->addImageIf($imagesArray, $article, $imageRepository);
+                $images = $articleAndImages[1];
+                $entityManager->persist($articleAndImages[0]);
                 $entityManager->flush();
                 $article = new Article();
                 $articleForm = $this->createForm(ArticleFormType::class, $article);
@@ -85,7 +78,7 @@ class ArticleFormController extends AbstractController
         Request $request,
         EntityManagerInterface $entityManager,
         ImageRepository $imageRepository,
-        IdsListGenerator $idsListGenerator,
+        ImageListGenerator $imageListGenerator,
         ImageValidatorNAdder $imageValidatorNAdder
     ): Response {
         $image = new Image();
@@ -100,11 +93,9 @@ class ArticleFormController extends AbstractController
             $imageIds = $imageForm->get('otherImages')->getData();
             $entityManager->persist($image);
             $entityManager->flush();
-            $imageIds = $idsListGenerator->setImageIdsList($imageIds, $image);
-            $imageIdsArr = explode(', ', $imageIds);
-            foreach ($imageIdsArr as $imageId) {
-                $images[] = $imageRepository->find($imageId);
-            }
+            $imagesAndIds = $imageListGenerator->addAndGetImagesAndIds($imageIds, $image, $imageRepository);
+            $imageIds = $imagesAndIds[1];
+            $images = $imagesAndIds[0];
         }
 
         $articleForm->handleRequest($request);
@@ -112,14 +103,9 @@ class ArticleFormController extends AbstractController
             $imageIds = $articleForm->get('otherImages')->getData();
             if (!empty($imageIds)) {
                 $imagesArray = explode(', ', $imageIds);
-                foreach ($imagesArray as $savedImageId) {
-                    $article = $imageValidatorNAdder->addImageIf($savedImageId, $article, $imageRepository);
-                }
-                $imageIdsArr = explode(', ', $imageIds);
-                foreach ($imageIdsArr as $imageId) {
-                    $images[] = $imageRepository->find($imageId);
-                }
-                $entityManager->persist($article);
+                $articleAndImages = $imageValidatorNAdder->addImageIf($imagesArray, $article, $imageRepository);
+                $images = $articleAndImages[1];
+                $entityManager->persist($articleAndImages[0]);
                 $entityManager->flush();
                 $imageIds = '';
                 $images = [];

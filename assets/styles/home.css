@@ -153,8 +153,7 @@ a {
 
 .image-desc {
     width: 100%;
-    background-color: rgb(94, 94, 94);
-    height: 400px;
+    height: auto;
     margin-top: 1rem;
     border-radius: 20px;
 }

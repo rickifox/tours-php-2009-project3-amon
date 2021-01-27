@@ -8,12 +8,23 @@ use App\Repository\ImageRepository;
 
 class ImageValidatorNAdder
 {
-    public function addImageIf(string $savedImageId, Article $article, ImageRepository $imageRepository): Article
+    /**
+     * @return mixed[]
+     * @param string[] $imagesArray
+     */
+    public function addImageIf(array $imagesArray, Article $article, ImageRepository $imageRepository): array
     {
-        $savedImage = $imageRepository->find($savedImageId);
-        if (!empty($savedImage)) {
-            $article->addImage($savedImage);
+        $images = [];
+        $articleAndImages = [];
+        foreach ($imagesArray as $savedImageId) {
+            $savedImage = $imageRepository->find($savedImageId);
+            if (!empty($savedImage)) {
+                $images[] = $savedImage;
+                $article->addImage($savedImage);
+                $articleAndImages[0] = $article;
+            }
         }
-        return $article;
+        $articleAndImages[1] = $images;
+        return $articleAndImages;
     }
 }

@@ -6,7 +6,7 @@
 
 <h1> Création d'article</h1>
 <h2> Étape 2/2 </h2>
-<p> Rédiger votre article </p>
+<p> Rédigez votre article </p>
 
 {{ form_start(articleForm) }}
 
@@ -16,19 +16,19 @@
 
 {{ form_widget(articleForm) }}
 
-<input type='submit' value='Ajouter cet article et concerver les images'
-onclick="return confirm('Cet article sera ajouter avant de gegénérer un nouveau formulaire avec LES MÊMES images.\n Est-ce se que vous souhaitez faire ?');">
+<input type='submit' value='Ajouter cet article et conserver les images'
+onclick="return confirm('Cet article sera ajouté avant de générer un nouveau formulaire avec LES MÊMES images.\n Est-ce ce que vous souhaitez faire ?');">
 <p> OU </p>
 <input type='submit' formaction='/article_form_redirect_to_image_form/'
 value='Ajouter cet article puis en créer un nouveau'
-onclick="return confirm('Cet article sera ajouter avant de vous ramener aux choix d'image Afin d'en faire un nouveau. Est-ce se que vous souhaitez faire?');">
+onclick="return confirm('Cet article sera ajouté avant de vous ramener au choix d\'images afin d\'en faire un nouveau. Est-ce ce que vous souhaitez faire?');">
 
 {#                      Bouton de fin avec redirection vers le layout de l'article
 <p> OU </p>
 <input type='submit' formaction='/form/'
 value='Ajouter cet article puis '
-onclick="return confirm('Cet article sera ajouter avant de
-vous ramener aux choix d'image Afin d'en faire un nouveau. Est-ce se que vous souhaitez faire?')">
+onclick="return confirm('Cet article sera ajouter avant de vous ramener aux choix d\'image Afin d\'en faire un nouveau.
+Est-ce ce que vous souhaitez faire?')">
 #}
 
 {{ form_end(articleForm) }}
