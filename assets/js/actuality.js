@@ -21,7 +21,7 @@ class Lightbox {
         const links = Array.from(document.querySelectorAll('a[href$=".png"], a[href$=".jpeg"], a[href$=".gif"], a[href$=".jpg"]'));
         const images = links.map((link) => link.getAttribute('href'));
         links.forEach((link) => link.addEventListener('click', (e) => {
-            e.preventDefault(); let lightbox = new Lightbox(e.currentTarget.getAttribute('href'), images);
+            e.preventDefault(); const lightbox = new Lightbox(e.currentTarget.getAttribute('href'), images);
         }));
     }
 
