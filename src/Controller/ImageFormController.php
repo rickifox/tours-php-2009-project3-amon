@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Service\ImageListGenerator;
+use App\Service\ImagesHandler;
 
 class ImageFormController extends AbstractController
 {
@@ -22,7 +22,7 @@ class ImageFormController extends AbstractController
         Request $request,
         EntityManagerInterface $entityManager,
         ImageRepository $imageRepository,
-        ImageListGenerator $imageListGenerator
+        ImagesHandler $imagesHandler
     ): Response {
         $image = new Image();
         $imageForm = $this->createForm(ImageFormType::class, $image);
@@ -32,7 +32,7 @@ class ImageFormController extends AbstractController
             $imageIds = $imageForm->get('otherImages')->getData();
             $entityManager->persist($image);
             $entityManager->flush();
-            $imagesAndIds = $imageListGenerator->addAndGetImagesAndIds($imageIds, $image, $imageRepository);
+            $imagesAndIds = $imagesHandler->addAndGetImagesAndIds($imageIds, $image, $imageRepository);
             $image = new Image();
             $imageForm = $this->createForm(ImageFormType::class, $image);
             return $this->render('form/index.html.twig', [

@@ -13,8 +13,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Service\ImageListGenerator;
-use App\Service\ImageValidatorNAdder;
+use App\Service\ImagesHandler;
 
 class ArticleFormController extends AbstractController
 {
@@ -25,8 +24,7 @@ class ArticleFormController extends AbstractController
         Request $request,
         EntityManagerInterface $entityManager,
         ImageRepository $imageRepository,
-        ImageListGenerator $imageListGenerator,
-        ImageValidatorNAdder $imageValidatorNAdder
+        ImagesHandler $imagesHandler
     ): Response {
         $image = new Image();
         $imageForm = $this->createForm(ImageFormType::class, $image);
@@ -39,7 +37,7 @@ class ArticleFormController extends AbstractController
             $imageIds = $imageForm->get('otherImages')->getData();
             $entityManager->persist($image);
             $entityManager->flush();
-            $imagesAndIds = $imageListGenerator->addAndGetImagesAndIds($imageIds, $image, $imageRepository);
+            $imagesAndIds = $imagesHandler->addAndGetImagesAndIds($imageIds, $image, $imageRepository);
             $imageIds = $imagesAndIds[1];
             $images = $imagesAndIds[0];
         }
@@ -49,7 +47,7 @@ class ArticleFormController extends AbstractController
             $imageIds = $articleForm->get('otherImages')->getData();
             if (!empty($imageIds)) {
                 $imagesArray = explode(', ', $imageIds);
-                $articleAndImages = $imageValidatorNAdder->addImageIf($imagesArray, $article, $imageRepository);
+                $articleAndImages = $imagesHandler->addImageIf($imagesArray, $article, $imageRepository);
                 $images = $articleAndImages[1];
                 $entityManager->persist($articleAndImages[0]);
                 $entityManager->flush();
@@ -78,8 +76,7 @@ class ArticleFormController extends AbstractController
         Request $request,
         EntityManagerInterface $entityManager,
         ImageRepository $imageRepository,
-        ImageListGenerator $imageListGenerator,
-        ImageValidatorNAdder $imageValidatorNAdder
+        ImagesHandler $imagesHandler
     ): Response {
         $image = new Image();
         $imageForm = $this->createForm(ImageFormType::class, $image);
@@ -93,7 +90,7 @@ class ArticleFormController extends AbstractController
             $imageIds = $imageForm->get('otherImages')->getData();
             $entityManager->persist($image);
             $entityManager->flush();
-            $imagesAndIds = $imageListGenerator->addAndGetImagesAndIds($imageIds, $image, $imageRepository);
+            $imagesAndIds = $imagesHandler->addAndGetImagesAndIds($imageIds, $image, $imageRepository);
             $imageIds = $imagesAndIds[1];
             $images = $imagesAndIds[0];
         }
@@ -103,7 +100,7 @@ class ArticleFormController extends AbstractController
             $imageIds = $articleForm->get('otherImages')->getData();
             if (!empty($imageIds)) {
                 $imagesArray = explode(', ', $imageIds);
-                $articleAndImages = $imageValidatorNAdder->addImageIf($imagesArray, $article, $imageRepository);
+                $articleAndImages = $imagesHandler->addImageIf($imagesArray, $article, $imageRepository);
                 $images = $articleAndImages[1];
                 $entityManager->persist($articleAndImages[0]);
                 $entityManager->flush();
