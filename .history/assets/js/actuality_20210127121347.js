@@ -25,7 +25,7 @@ class Lightbox{
         links.forEach(link => link.addEventListener('click', e =>
                 {
                     e.preventDefault();
-                    const lightbox = new Lightbox(e.currentTarget.getAttribute('href'), images);
+                    Set Lightbox(e.currentTarget.getAttribute('href'), images);
                 }))
     }
 
