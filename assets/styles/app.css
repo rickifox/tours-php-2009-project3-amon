@@ -170,3 +170,20 @@ a {
         margin-top: 12vh;
     }
 }
+    /* ---- Section Legal Notice ---- */
+    #legalNotice{
+        margin: 3% 5% 5% 5%;
+        text-align: justify;
+    }
+    .legalNoticeTitle{
+        text-align: center;
+        padding-bottom: 1%;
+        font-size: 2em;
+    }
+    .legalNoticeSubText{
+        text-align: center;
+        padding-bottom: 1%;
+    }
+    .tabulationList{
+        margin-left: 2%;
+    }
