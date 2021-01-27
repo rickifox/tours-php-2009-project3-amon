@@ -20,8 +20,7 @@ class Lightbox {
     static init() {
         const links = Array.from(document.querySelectorAll('a[href$=".png"], a[href$=".jpeg"], a[href$=".gif"], a[href$=".jpg"]'));
         const images = links.map((link) => link.getAttribute('href'));
-        links.forEach((link) => link.addEventListener('click', (e) =>
-        {
+        links.forEach((link) => link.addEventListener('click', (e) => {
             e.preventDefault(); let lightbox = new Lightbox(e.currentTarget.getAttribute('href'), images);
         }));
     }
@@ -54,7 +53,7 @@ class Lightbox {
         };
         image.src = url;
     }
-    
+
     /**
      * Close the lightbox
      * @param {MouseEvent} e
