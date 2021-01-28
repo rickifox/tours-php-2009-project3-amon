@@ -2,7 +2,7 @@
 
 /* -- Articles -- */
 #gallery-title {
-    font-size: 3vw;
+    font-size: 2.5vw;
     text-align: center;
     text-decoration: underline;
     width: 100%;
@@ -25,7 +25,7 @@
     margin-bottom: 5%;
 }
 .article-description{
-    font-size: 1.3em;
+    font-size: 1.1vw;
     text-align: justify;
 }
 .article-date{
@@ -137,14 +137,17 @@
 /* -- Responsive -- */
 @media screen and (min-width:200px) and (max-width: 900px) {
     #gallery-title{
-        font-size: 3vw;
+        font-size: 1.5em;
     }
     .article-content{
         display: block;
         padding: 2%;
     }
-    .article-text{
-        font-size: 2vw;
+    .article-title{
+        font-size: 1.2em;
+    }
+    .article-description{
+        font-size: 1.1em;
     }
     .article-image{
         width: 18vw;

@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello Form!{% endblock %}
+{% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
 {% block body %}
 <br><br><br><br>
@@ -11,7 +14,7 @@ Ajout d'une image dans une catégorie
 {{ form_errors(imageForm.otherImages) }}
 {{ form_widget(imageForm.otherImages, {'attr': {'value': images } }) }}
 
-{{ form_widget(imageForm) }}
+{{ form_widget(imageForm, {'attr': {'class': 'contenu-article'}}) }}
 
 <input type='submit' value='Ajouter une nouvelle image'>
 
@@ -32,4 +35,7 @@ Ajout d'un article, avec choix d'images multiples.
 {{ form_end(articleForm) }}
 
 <a href="{{path('design_gallery') }}">Go to gallery</a>
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
 {% endblock %}
