@@ -67,6 +67,16 @@ class Image
         $this->articles = new ArrayCollection();
     }
 
+    public function getArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'nom' => $this->nom,
+            'texteAltenatif' => $this->texteAlternatif,
+            'url' => $this->url
+        ];
+    }
+
     public function getId(): ?int
     {
         return $this->id;

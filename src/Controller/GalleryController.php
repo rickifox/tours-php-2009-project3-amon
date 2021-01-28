@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Image;
@@ -15,6 +16,22 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class GalleryController extends AbstractController
 {
+    /**
+     * @Route("/article/{image}", name="article_by_image_id")
+     */
+    public function showArticle(Image $image): Response
+    {
+        $articles = $image->getArticles();
+        foreach ($articles as $article) {
+            if ($article->getSection() === "Galerie") {
+                return new JsonResponse(['data' => json_encode(
+                    $article->getArray()
+                )]);
+            }
+        }
+        return new JsonResponse(['data' => json_encode($image)]);
+    }
+
     /**
      * @Route("/design-galerie/", name="design_gallery")
      */
