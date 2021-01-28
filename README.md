@@ -39,6 +39,12 @@ It's symfony website-skeleton project with some additional tools to validate cod
 1. Run `symfony server:start` to launch your local php web server
 2. Run `yarn run dev --watch` to launch your local server for assets
 
+### Create a admin user
+
+1. Got to www.youraddress.com/register
+2. Create a user with a name and a password (do not loose it!) 
+3. You are redirected to the home page and can not create another user (only one user is permitted)
+
 ### Testing
 
 1. Run `.vendor/bin/phpcs` to launch PHP code sniffer
