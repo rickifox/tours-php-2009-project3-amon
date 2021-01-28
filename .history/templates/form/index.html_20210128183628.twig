@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
+<<<<<<< HEAD
+{% block title %}Hello Form!{% endblock %}
+{% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+=======
 {% block title %}Création d'article - 1/2 -Amon Passage Secret{% endblock %}
 
 {% block stylesheets %}
   {{ parent() }}
   {{ encore_entry_link_tags('form') }}
 {% endblock %}
+>>>>>>> 180e2ad765b9761dbbc0a851fa17234563b8e201
 
 {% block body %}
 {% if app.user %}
@@ -29,6 +36,26 @@ onclick="return confirm('Attention vous ne pourrez plus ajouter ou supprimer d\'
 
 {{ form_end(imageForm) }}
 
+<<<<<<< HEAD
+<br><br><br><br>
+Ajout d'un article, avec choix d'images multiples.
+{{ form_start(articleForm) }}
+
+{{ form_label(articleForm.otherImages) }}
+{{ form_errors(articleForm.otherImages) }}
+{{ form_widget(articleForm.otherImages, {'attr': {'value': images } }) }}
+
+{{ form_widget(articleForm) }}
+
+<input type='submit' value='Créer un nouvel article'>
+
+{{ form_end(articleForm) }}
+
+<a href="{{path('design_gallery') }}">Go to gallery</a>
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+=======
 <br>
 <hr>
 <br>
@@ -47,4 +74,5 @@ onclick="return confirm('Attention vous ne pourrez plus ajouter ou supprimer d\'
     {{ parent() }}
     {{ encore_entry_script_tags('form') }} 
 {% endblock %}
+>>>>>>> 180e2ad765b9761dbbc0a851fa17234563b8e201
 {% endblock %}
