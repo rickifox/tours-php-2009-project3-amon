@@ -9,6 +9,7 @@
 
 
 {% block body %}
+{% if app.user%}
 
 <h1>Edit Article</h1>
 
@@ -28,5 +29,5 @@
 {% endfor %}
 
     <a href="{{ path('actuality') }}">Retour aux actualités</a>
-
+{% endif %}
 {% endblock %}

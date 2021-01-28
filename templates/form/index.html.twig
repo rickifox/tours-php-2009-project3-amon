@@ -1,25 +1,42 @@
 {% extends 'base.html.twig' %}
 
+<<<<<<< HEAD
 {% block title %}Hello Form!{% endblock %}
 {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
+=======
+{% block title %}Création d'article - 1/2 -Amon Passage Secret{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {{ encore_entry_link_tags('form') }}
+{% endblock %}
+>>>>>>> 180e2ad765b9761dbbc0a851fa17234563b8e201
 
 {% block body %}
-<br><br><br><br>
-Ajout d'une image dans une catégorie
-{{ form_start(imageForm) }}
+{% if app.user %}
+<h1> Création d'article</h1>
+<h2> Étape 1/2 </h2>
+<p> Veuillez sélectionner une ou des image(s) </p>
+
+{{ form_start(imageForm, {'attr': {'role': 'form'}}) }}
 
 {{ form_label(imageForm.otherImages) }}
 {{ form_errors(imageForm.otherImages) }}
-{{ form_widget(imageForm.otherImages, {'attr': {'value': images } }) }}
+{{ form_widget(imageForm.otherImages, {'attr': {'value': imageIds } }) }}
 
 {{ form_widget(imageForm, {'attr': {'class': 'contenu-article'}}) }}
 
-<input type='submit' value='Ajouter une nouvelle image'>
+<input type='submit' id='keep-on-adding' formaction='/form/' value='Ajouter une nouvelle image et revenir ici'>
+<p> OU </p>
+<input type='submit' id='go-to-article' formaction='/article_form/'
+value='Ajouter une nouvelle image et aller rédiger l&apos;article'
+onclick="return confirm('Attention vous ne pourrez plus ajouter ou supprimer d\'images pendant la rédaction d\'un article.\nVoulez-vous poursuivre ?');">
 
 {{ form_end(imageForm) }}
 
+<<<<<<< HEAD
 <br><br><br><br>
 Ajout d'un article, avec choix d'images multiples.
 {{ form_start(articleForm) }}
@@ -38,4 +55,24 @@ Ajout d'un article, avec choix d'images multiples.
 {% endblock %}
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
+=======
+<br>
+<hr>
+<br>
+<div class="link">
+  <a href="{{path('design_gallery') }}">Retourner à la galerie Design métallique</a> ou <a href="{{path('passage_gallery') }}">Retourner à la galerie Passages secrets</a>
+</div>
+<br><br>
+{% for image in images %}
+    <div class="image-container">
+    <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
+    </div>
+    {{ include('form/_deleteImage.html.twig') }}
+{% endfor %}
+{% endif %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('form') }} 
+{% endblock %}
+>>>>>>> 180e2ad765b9761dbbc0a851fa17234563b8e201
 {% endblock %}

@@ -10,8 +10,10 @@
 {% block body %}
     <section id='home'>
         <div class='container_home-menu' id="menu">
-            <img id='home-logo' src="{{ asset('build/images/logo.svg')}}" alt="logo">
-            <nav>
+            <div id='home-logo-container'>
+                <img id='home-logo' src="{{ asset('build/images/logo.svg')}}" alt="logo">
+            </div>
+            <nav class="home-buttons">
                 <ul class="buttons">
                     <li class="button left"><a href="{{path ('design_index') }}"><img class="arrow" src="{{ asset('build/images/ArrowL.png')}}" alt="left"> Design métallique</a></li>
                     <li class="button right"><a href="{{path ('passage_index') }}">Passages secrets <img class="arrow" src="{{ asset('build/images/ArrowR.png')}}" alt="right"></a></li>
@@ -22,7 +24,11 @@
             </div>
         </div>
     </section>
-    <h1 class="section-title">La Société</h1>
+    <div class="container_button-up" id="button-up">
+            <a class="button up" href="#menu" >
+                <img class="arrow" src="{{ asset('build/images/ArrowU.png')}}" alt="retourner en haut de la page">
+            </a>
+    </div>
     <section class='container_home-description'>
         <article class="description">
             <h2 class='title-desc' id="societe">L'entreprise</h2>
@@ -53,9 +59,6 @@
             </span>
         </article>
     </section>
-    <div class="container_button-up">
-        <a class="button up" href="#menu" id="button-up"><img class="arrow" src="{{ asset('build/images/ArrowU.png')}}" alt="up"></a>
-    </div>
 {% endblock %}
 
 {% block javascripts %}
