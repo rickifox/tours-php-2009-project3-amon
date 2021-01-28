@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ImageFormType extends AbstractType
 {
@@ -47,7 +48,9 @@ class ImageFormType extends AbstractType
                     'Sur-mesure' => 'Sur-mesure'
                 ]
             ])
-            ->add('texte_alternatif', TextType::class)
+            ->add('texte_alternatif', TextareaType::class, [
+                'label' => 'Description',
+            ])
             ->add('otherImages', HiddenType::class, [
                 'mapped' => false,
                 'label' => false,
