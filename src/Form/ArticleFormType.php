@@ -21,7 +21,9 @@ class ArticleFormType extends AbstractType
             ->add('date', DateType::class, [
                 'widget' => 'single_text',
             ])
-            ->add('description', TextareaType::class)
+            ->add('description', TextareaType::class, [
+                'label' => 'Contenu',
+            ])
             ->add('section', ChoiceType::class, [
                 'choices' => [
                     'Actualités' => 'Actualités',

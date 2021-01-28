@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'article - 2/2 -Amon Passage Secret{% endblock %}
+
+{% block body %}
+
+<h1> Création d'article</h1>
+<h2> Étape 2/2 </h2>
+<p> Rédigez votre article </p>
+
+{{ form_start(articleForm) }}
+
+{{ form_label(articleForm.otherImages) }}
+{{ form_errors(articleForm.otherImages) }}
+{{ form_widget(articleForm.otherImages, {'attr': {'value': imageIds } }) }}
+
+{{ form_widget(articleForm) }}
+
+<input type='submit' value='Ajouter cet article et conserver les images'
+onclick="return confirm('Cet article sera ajouté avant de générer un nouveau formulaire avec LES MÊMES images.\n Est-ce ce que vous souhaitez faire ?');">
+<p> OU </p>
+<input type='submit' formaction='/article_form_redirect_to_image_form/'
+value='Ajouter cet article' 
+onclick="return confirm('Cet article sera ajouté avant de vous ramener au choix d\'images afin d\'en faire un nouveau. Est-ce ce que vous souhaitez faire?');">
+
+{#                      Bouton de fin avec redirection vers le layout de l'article
+<p> OU </p>
+<input type='submit' formaction='/form/'
+value='Ajouter cet article puis '
+onclick="return confirm('Cet article sera ajouter avant de vous ramener aux choix d\'image Afin d\'en faire un nouveau.
+Est-ce ce que vous souhaitez faire?')">
+#}
+
+{{ form_end(articleForm) }}
+
+<a href="{{path('design_gallery') }}">Retour à Design Métallique</a>
+<br>
+<hr>
+<br>
+{% for image in images %}
+    <div class="image-container">
+    <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
+    </div>
+{% endfor %}
+
+{% endblock %}
