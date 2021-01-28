@@ -67,6 +67,9 @@ class Image
         $this->articles = new ArrayCollection();
     }
 
+    /**
+     * @return mixed[]
+     */
     public function getArray(): array
     {
         return [

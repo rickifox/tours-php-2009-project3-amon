@@ -51,10 +51,13 @@ class Article
         $this->image = new ArrayCollection();
     }
 
+    /**
+     * @return mixed[]
+     */
     public function getArray(): array
     {
         $images = [];
-        foreach($this->image as $img) {
+        foreach ($this->image as $img) {
             $images[] = $img->getArray();
         }
         return [
@@ -64,7 +67,6 @@ class Article
             'date' => $this->date,
             'images' => $images,
         ];
-
     }
 
     public function getId(): ?int
