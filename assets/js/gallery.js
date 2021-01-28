@@ -35,12 +35,12 @@ function overlayer() {
     const request = new Request('/article/', imageId, { method: 'GET' });
 
     fetch(request)
-        .then( response => response.json() )
-        .then( data => alert(data) )
-        .catch(() => alert('error'));
+        .then((response) => response.json());
+    // .then((data) => alert(data))
+    // .catch(() => alert('error'));
 }
 
-for (let i = 0; i < images.length; i+=1) {
+for (let i = 0; i < images.length; i += 1) {
     images[i].addEventListener('click', overlayer, false);
 }
 
