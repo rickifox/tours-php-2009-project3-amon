@@ -5,7 +5,7 @@
 // any CSS you import will output into a single css file (gallery.css in this case)
 import '../styles/gallery.css';
 
-/* 
+/*
  * Set the width of the side navigation to 14rem (category button width)
  * on click or toggle it back to 0
  */
@@ -27,20 +27,20 @@ document.getElementById('closebtn').addEventListener('click', toggleSideNav, fal
  * Article overlay on click maker
  */
 
-let images = document.getElementsByClassName("gallery-img");
+const images = document.getElementsByClassName('gallery-img');
 
 function overlayer() {
-    let imageId = this.id;
+    const imageId = this.id;
 
-    const request = new Request('/article/' + imageId, { method: 'GET'});
+    const request = new Request('/article/', imageId, { method: 'GET' });
 
     fetch(request)
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(() => alert('error'))
+        .then( response => response.json() )
+        .then( data => alert(data) )
+        .catch(() => alert('error'));
 }
 
-for (let i = 0; i < images.length; i++) {
+for (let i = 0; i < images.length; i+=1) {
     images[i].addEventListener('click', overlayer, false);
 }
 
