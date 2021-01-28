@@ -19,14 +19,23 @@
 .article-content{
     display: grid;
     grid-template-columns: 48% 48%;
-    grid-gap: 4%;
+    grid-gap: 2%;
+    align-items: center;
 }
 .article-title{
     margin-bottom: 5%;
 }
+
 .article-description{
+<<<<<<< HEAD
     font-size: 1.1vw;
     text-align: justify;
+=======
+    font-size: 1.3em;
+    text-align: left;
+    white-space: pre-wrap;
+    word-break: break-word;
+>>>>>>> 38c2254f77ac228027d49e5761be53eff739e6b2
 }
 .article-date{
     justify-content: center;
@@ -47,7 +56,6 @@
     justify-content: center;
     display:flex;
     flex-wrap: wrap;
-    height: 50%;
 }
 .article-image{
     display: flex;

@@ -20,23 +20,28 @@
         {{ form_widget(articleForm.otherImages, {'attr': {'value': imageIds } }) }}
 
         {{ form_widget(articleForm) }}
-
-        <input type='submit' value='Ajouter cet article et conserver les images'
-        onclick="return confirm('Cet article sera ajouté avant de générer un nouveau formulaire avec LES MÊMES images.\n Est-ce ce que vous souhaitez faire ?');">
-        <p> OU </p>
-        <input type='submit' formaction='/article_form_redirect_to_image_form/'
-        value='Ajouter cet article' 
-        onclick="return confirm('Cet article sera ajouté avant de vous ramener au choix d\'images afin d\'en faire un nouveau. Est-ce ce que vous souhaitez faire?');">
-
+        <p>Images prévues dans cet article :</p>
+        {% for image in images %}
+            <div class="image-container">
+            <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
+            </div>
+        {% endfor %}
+        <hr>
+        <br>
+        <div class="buttons">
+            <input type='submit' value='Ajouter cet article et conserver les images'
+            onclick="return confirm('Cet article sera ajouté avant de générer un nouveau formulaire avec LES MÊMES images.\n Est-ce ce que vous souhaitez faire ?');">
+            <p class="ou"> OU </p>
+            <input type='submit' formaction='/article_form_redirect_to_image_form/'
+            value='Ajouter cet article' 
+            onclick="return confirm('Cet article sera ajouté avant de vous ramener au choix d\'images afin d\'en faire un nouveau. Est-ce ce que vous souhaitez faire?');">
+        </div>
         {#                      Bouton de fin avec redirection vers le layout de l'article
         <p> OU </p>
         <input type='submit' formaction='/form/'
         value='Ajouter cet article puis '
         onclick="return confirm('Cet article sera ajouter avant de vous ramener aux choix d\'image Afin d\'en faire un nouveau. Est-ce ce que vous souhaitez faire?')">
         #}
-
-        {{ form_end(articleForm) }}
-
         <br>
         <hr>
         <br>
@@ -44,12 +49,9 @@
             <a href="{{path('design_gallery') }}">Retourner à la galerie Design métallique</a> ou <a href="{{path('passage_gallery') }}">Retourner à la galerie Passages secrets</a>
         </div>
         <br><br>
-
-        {% for image in images %}
-            <div class="image-container">
-            <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
-            </div>
-        {% endfor %}
+        {{ form_end(articleForm) }}
+        {% else %}
+        <p class="not_connected">Vous n'êtes pas connecté.</p>
     {% endif %}
 {% block javascripts %}
 {{ parent() }}

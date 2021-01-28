@@ -2,10 +2,10 @@
 
 {% block stylesheets %}
 {{ parent() }}
-{{ encore_entry_link_tags('gallery') }}
+{{ encore_entry_link_tags('form') }}
 {% endblock %}
 
-{% block title %}Edit Article{% endblock %}
+{% block title %}Editer un article{% endblock %}
 
 
 {% block body %}
@@ -15,6 +15,9 @@
 
 {{ form_start(form) }}
 {{ form_widget(form) }}
+<br>
+<hr>
+<br>
     <button class="btn">{{ button_label|default('Enregistrer les modifications') }}</button>
 {{ form_end(form) }}
 
@@ -29,5 +32,12 @@
 {% endfor %}
 
     <a href="{{ path('actuality') }}">Retour aux actualités</a>
+    {% else %}
+        <p class="not_connected">Vous n'êtes pas connecté.</p>
 {% endif %}
+
+{% block javascripts %}
+{{ parent() }}
+{{ encore_entry_script_tags('form') }} 
+{% endblock %}
 {% endblock %}
