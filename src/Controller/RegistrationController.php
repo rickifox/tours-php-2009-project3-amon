@@ -17,11 +17,15 @@ class RegistrationController extends AbstractController
      * @Route("/register", name="app_register")
      */
     public function register(
-        Request $request, UserPasswordEncoderInterface $passwordEncoder, UserRepository $userRepository): Response
-    {
+        Request $request,
+        UserPasswordEncoderInterface $passwordEncoder,
+        UserRepository $userRepository
+    ): Response {
         $user = new User();
+        $user->setRoles(['ROLE_ADMIN']);
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
+
         $existingUser = $userRepository->findAll();
         if ($existingUser != null) {
             return $this->redirectToRoute('home');

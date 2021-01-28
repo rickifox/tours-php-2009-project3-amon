@@ -3,7 +3,7 @@
  */
 
 // any CSS you import will output into a single css file (gallery.css in this case)
-import '../styles/gallery.css';
+import '../styles/form.css';
 
 /* Event listener to trigger the toggleSideNav function */
 
