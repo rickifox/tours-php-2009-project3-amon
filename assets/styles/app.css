@@ -26,7 +26,7 @@ body {
 
 .content {
     flex: 1 0 auto;
-    margin-top: 17vh;
+    margin-top: 12.9vh;
 }
 
 header {
@@ -49,7 +49,6 @@ header {
     font-size: 2.8vmin;
     background-color:rgba(0, 0, 0, 0.247);
     align-items: center;
-    padding-top: 15px;
     text-align: center;
     justify-content: space-around;
 }
@@ -76,6 +75,7 @@ a {
     height: 10vh;
     list-style: none;
     padding: 0;
+    margin-top: 0;
 }
 
 .navbar_right {
@@ -86,10 +86,11 @@ a {
     height: 10vh;
     list-style: none;
     padding: 0;
+    margin-top: 0;
 }
 
 .logo-navbar {
-    width: 12vmin;
+    width: 9vmin;
     transition: all 1.5s;
     list-style: none;
 }
@@ -154,11 +155,10 @@ a {
 
         .navbar_left {
             flex-direction: column;
-            height: 8vh;
         }
+
         .navbar_right {
             flex-direction: column-reverse;
-            height: 8vh;
         }
 
         .logo-navbar {
@@ -167,9 +167,25 @@ a {
         }
 
     .content {
+        margin-top: 11vh;
+    }
+
+    .hyperlink {
+        padding :0;
+    }
+
+    .footer {
+        font-size: small;
+    }
+    .content {
         margin-top: 12vh;
     }
+    /* Form button only if user log on*/
+    .form-button {
+        margin-top: 30px;
+    }
 }
+
     /* ---- Section Legal Notice ---- */
     #legalNotice{
         margin: 3% 5% 5% 5%;
