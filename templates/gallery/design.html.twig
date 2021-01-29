@@ -15,7 +15,7 @@
     <ul id="sn-linklist">
         <a href="#" class="sn-link" id="closebtn">&times;</a>
         <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'aménagement extérieur'}) }}" class="sn-link">Aménagement extérieur</a></li>
-        <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'brise-vue et pare-soleil'}) }}" class="sn-link">Brise-vue et <br> Pare-soleil</a></li>
+        <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'brise-vue et pare-soleil'}) }}" class="sn-link">Brise-vue et <br> pare-soleil</a></li>
         <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'décoration'}) }}" class="sn-link">Décoration</a></li>
         <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'escaliers'}) }}" class="sn-link">Escaliers</a></li>
         <li class="sn-button"><a href="{{path('design_gallery_category', {'categorie': 'garde-corps'}) }}" class="sn-link">Garde-corps</a></li>
@@ -29,7 +29,7 @@
     <h1 id="gallery-title">{{ categorie|capitalize }}</h1>
     {% for image in images %}
         <div class="image-container">
-            <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.nom }} poster">
+            <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.texteAlternatif }}">
             <div class="button-container">
                 {% if app.user %}
                     {{ include('form/_deleteImage.html.twig') }}

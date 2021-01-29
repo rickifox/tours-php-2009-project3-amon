@@ -26,7 +26,7 @@ body {
 
 .content {
     flex: 1 0 auto;
-    margin-top: 12.9vh;
+    margin-top: 15vh;
 }
 
 header {
@@ -76,6 +76,7 @@ a {
     list-style: none;
     padding: 0;
     margin-top: 0;
+    padding-top: 1em;
 }
 
 .navbar_right {
@@ -87,6 +88,7 @@ a {
     list-style: none;
     padding: 0;
     margin-top: 0;
+    padding-top: 1em;
 }
 
 .logo-navbar {
@@ -178,7 +180,7 @@ a {
         font-size: small;
     }
     .content {
-        margin-top: 12vh;
+        margin-top: 13vh;
     }
     /* Form button only if user log on*/
     .form-button {
