@@ -31,7 +31,7 @@ It's symfony website-skeleton project with some additional tools to validate cod
 2. Run `composer install`
 3. Run `yarn install`
 4. Run `yarn encore dev` to build assets
-5. Import the database `amon-db.sql` on your server/computer
+5. Import the database by running php/bin console do:mi:mi
 6. Modify `.env` to connect to the database
 
 ### Working
