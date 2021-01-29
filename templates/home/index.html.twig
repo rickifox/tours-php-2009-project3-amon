@@ -1,8 +1,67 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('home') }}
+{% endblock %}
+
+{% block title %}AMON - Home{% endblock %}
 
 {% block body %}
-    <h1>Welcome on your project 3</h1>
-    <img src="https://media.giphy.com/media/hS58Kb2OOCMPS/giphy.gif" alt="Dewey dancing">
+    <section id='home'>
+        <div class='container_home-menu' id="menu">
+            <div id='home-logo-container'>
+                <img id='home-logo' src="{{ asset('build/images/logo.svg')}}" alt="logo">
+            </div>
+            <nav class="home-buttons">
+                <ul class="buttons">
+                    <li class="button left"><a href="{{path ('design_index') }}"><img class="arrow" src="{{ asset('build/images/ArrowL.png')}}" alt="left"> Design métallique</a></li>
+                    <li class="button right"><a href="{{path ('passage_index') }}">Passages secrets <img class="arrow" src="{{ asset('build/images/ArrowR.png')}}" alt="right"></a></li>
+                </ul>
+            </nav>
+            <div class="container_button-bottom">
+                <a class="button bottom" href="#societe" id="button-down">La société <img class="arrow" src="{{ asset('build/images/ArrowD.png')}}" alt="down"></a>
+            </div>
+        </div>
+    </section>
+    <div class="container_button-up" id="button-up">
+            <a class="button up" href="#menu" >
+                <img class="arrow" src="{{ asset('build/images/ArrowU.png')}}" alt="retourner en haut de la page">
+            </a>
+    </div>
+    <section class='container_home-description'>
+        <article class="description">
+            <h2 class='title-desc' id="societe">L'entreprise</h2>
+            <div class='text-desc'>
+                La société AMON à Tours, dans le département de l'Indre-et-Loire, est spécialisée dans la conception 
+                et la réalisation d'ouvrage métallique. <br><br>
+
+                Nous travaillons au service des entreprises de métallerie pour la réalisation d'ouvrages divers en 
+                leur apportant notre savoir faire et nos capacités en bureau d'études. Nous sommes spécialisés dans 
+                les ouvrages uniques en terme de design afin d'apporter un soutien aux entreprises qui ne possèdent 
+                pas forcément les moyens techniques pour leurs réalisations. <br><br>
+
+                Les ouvrages les plus souvent dessinés sont des escaliers, des garde-corps, des verrières, des 
+                trappes vitrées motorisées ainsi que toutes les structures métalliques nécessitant un bureau d'étude.
+            </div>
+            <img class='image-desc' src="{{asset ('build/images/renaud-jorget-square.jpg') }}" alt="Photo de Renaud Jourget">
+        </article>
+        <article class="description">
+            <img class='image-desc' src="{{asset ('build/images/decoration/deco-8.jpg') }}" alt="Photo de Renaud Jourget">
+            <h2 class='title-desc'>Notre savoir-faire</h2>
+            <div class='text-desc'>
+                Fort de 15 années d'expérience en métallerie, nous réalisons des études et des réalisations sur mesure 
+                pour des projets de passages secrets divers, de la bibliothèque blindée à la simple porte dissimulée. <br><br> 
+
+                Nous apportons nos connaissances et savoir-faire afin de guider le client sur les possibilités de 
+                réalisations et un suivi pour la maîtrise d'oeuvre afin d'incorporer les projets en toute sérénité 
+                dans une maison neuve ou ancienne.
+            </div>
+        </article>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('home') }}
 {% endblock %}

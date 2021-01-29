@@ -1,0 +1,73 @@
+/*Special code for contact.html.twig*/
+.content {
+    margin: 17vh 5% 0 5%;
+    height: 80vh;
+}
+
+.image {
+    text-align: center;
+    padding-top: 2%;
+}
+
+.image img {
+    width: 27vh;
+}
+
+.contact_infos {
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.contact_infos a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+.logo-navbar {
+    visibility: hidden;
+}
+
+.logos {
+    text-align: center;
+}
+
+.logos img {
+    width: 10vh;
+    margin: 2% 4%;
+}
+
+.logo-reseau {
+    transition: all 1s;
+    list-style: none;
+}
+
+.logo-reseau:hover {
+    transform: scale(1.25);
+}
+
+.footer {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+}
+
+@media screen and (max-width: 500px) {
+
+    .image img {
+        width: 25vh;
+    }
+    
+    .contact_infos {
+        font-size: 1rem;
+        line-height: 1;
+    }
+
+    .contact_infos p {
+        margin: 2%;
+    }
+    .logos img {
+        width: 10vh;
+    }
+}
+

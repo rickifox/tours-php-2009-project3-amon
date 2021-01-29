@@ -2,8 +2,6 @@
 
 ![Wild Code School](https://wildcodeschool.fr/wp-content/uploads/2019/01/logo_pink_176x60.png)
 
-This starter kit is here to easily start a repository for your students.
-
 It's symfony website-skeleton project with some additional tools to validate code standards.
 
 * GrumPHP, as pre-commit hook, will run 2 tools when `git commit` is run :
@@ -20,7 +18,7 @@ It's symfony website-skeleton project with some additional tools to validate cod
     * PHP_CodeSniffer, PHPStan and PHPmd with same configuration as GrumPHP.
  
 
-## Getting Started for Students
+## Getting Started 
 
 ### Prerequisites
 
@@ -33,11 +31,19 @@ It's symfony website-skeleton project with some additional tools to validate cod
 2. Run `composer install`
 3. Run `yarn install`
 4. Run `yarn encore dev` to build assets
+5. Import the database by running php/bin console do:mi:mi
+6. Modify `.env` to connect to the database
 
 ### Working
 
 1. Run `symfony server:start` to launch your local php web server
 2. Run `yarn run dev --watch` to launch your local server for assets
+
+### Create a admin user
+
+1. Got to www.youraddress.com/register
+2. Create a user with a name and a password (do not loose it!) 
+3. You are redirected to the home page and can not create another user (only one user is permitted)
 
 ### Testing
 

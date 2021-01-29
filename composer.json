@@ -39,7 +39,8 @@
         "symfony/webpack-encore-bundle": "^1.8",
         "symfony/yaml": "5.1.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "vich/uploader-bundle": "^1.16"
     },
     "require-dev": {
         "phpmd/phpmd": "^2.9",
@@ -85,6 +86,13 @@
         "symfony/polyfill-php56": "*"
     },
     "scripts": {
+        "test": { 
+            "phpcs": "vendor/bin/phpcs",
+            "PHPStant": "vendor/bin/phpstan analyse src --level max",
+            "PHP Mess Detector": "vendor/bin/phpmd src text phpmd.xml",
+            "ESLint JS liter": "./node_modules/.bin/eslint assets/js",             
+            "Sass-lint SASS/CSS linter": "./node_modules/.bin/sass-lint -c sass-linter.yml -v"
+        },
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"

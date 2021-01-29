@@ -1,0 +1,446 @@
+main {
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+/**
+ * Carousel.sass
+ * @author: Dang Van Thanh
+ * @github: https://github.com/dangvanthanh/carousel.sass
+ * @description: A Simple Carousel Pure CSS Using Sass
+ * @version: 1.0.0
+ */
+
+* {
+  color: white;
+}
+.carousel > input[type=radio]:nth-child(5):checked ~ .carousel__next > label:nth-child(1), .carousel > input[type=radio]:nth-child(5):checked ~ .carousel__prev > label:nth-child(4), .carousel > input[type=radio]:nth-child(4):checked ~ .carousel__next > label:nth-child(5), .carousel > input[type=radio]:nth-child(4):checked ~ .carousel__prev > label:nth-child(3), .carousel > input[type=radio]:nth-child(3):checked ~ .carousel__next > label:nth-child(4), .carousel > input[type=radio]:nth-child(3):checked ~ .carousel__prev > label:nth-child(2), .carousel > input[type=radio]:nth-child(2):checked ~ .carousel__next > label:nth-child(3), .carousel > input[type=radio]:nth-child(2):checked ~ .carousel__prev > label:nth-child(1), .carousel > input[type=radio]:nth-child(1):checked ~ .carousel__next > label:nth-child(2), .carousel > input[type=radio]:nth-child(1):checked ~ .carousel__prev > label:nth-child(5) {
+  opacity: 1 !important;
+  z-index: 3;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.container {
+  width: 50%;
+  min-width: 50%x;
+  margin: 50px auto;
+}
+
+.carousel_actu {
+  z-index: 5;
+  position: relative;
+  margin:0;
+  width: 25%;
+  background-image: url("../images/silver-textured-background.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  color: black;
+  font-size: 2vh;
+}
+
+.carousel {
+  width: 100%;
+  position: relative;
+}
+.carousel > input[type=radio] {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  top: 0;
+}
+.carousel > input[type=radio]:checked ~ .carousel__items .carousel__item,
+.carousel > input[type=radio]:checked ~ .carousel__prev > label,
+.carousel > input[type=radio]:checked ~ .carousel__next > label {
+  opacity: 0;
+}
+.carousel > input[type=radio]:nth-child(1):checked ~ .carousel__items .carousel__item:nth-child(1) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(1):checked ~ .carousel__nav > label:nth-child(1) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel > input[type=radio]:nth-child(2):checked ~ .carousel__items .carousel__item:nth-child(2) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(2):checked ~ .carousel__nav > label:nth-child(2) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel > input[type=radio]:nth-child(3):checked ~ .carousel__items .carousel__item:nth-child(3) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(3):checked ~ .carousel__nav > label:nth-child(3) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel > input[type=radio]:nth-child(4):checked ~ .carousel__items .carousel__item:nth-child(4) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(4):checked ~ .carousel__nav > label:nth-child(4) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel > input[type=radio]:nth-child(5):checked ~ .carousel__items .carousel__item:nth-child(5) {
+  opacity: 1;
+}
+.carousel > input[type=radio]:nth-child(5):checked ~ .carousel__nav > label:nth-child(5) {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none;
+}
+.carousel__items {
+  z-index: 3;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  margin: 0;
+  border: 2px solid;
+  border-image: url("../images/silver-textured-background.jpeg") 2;
+  background-color: rgba(0, 0, 0, 0.247);
+
+}
+.carousel__item {
+  overflow: hidden;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 2s;
+  -webkit-transition: opacity 2s;
+}
+.carousel_title {
+  text-align: center;
+  z-index: 5;
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  margin:0;
+  width: 75%;
+  border-bottom-left-radius: 4px;
+  background-color:rgba(0, 0, 0, 0.5);
+  padding-right: 2%;
+}
+.carousel__item img {
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: content-box;
+  z-index: 1;
+}
+.carousel__prev > label, .carousel__next > label {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  opacity: 0;
+  z-index: 2;
+}
+.carousel__prev > label:hover, .carousel__prev > label:focus, .carousel__next > label:hover, .carousel__next > label:focus {
+  opacity: 0.5 !important;
+}
+.carousel__prev > label:before, .carousel__prev > label:after, .carousel__next > label:before, .carousel__next > label:after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+}
+.carousel__prev > label:before, .carousel__next > label:before {
+  background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%), linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+  width: 60%;
+  height: 60%;
+  top: 20%;
+}
+.carousel__prev > label {
+  left: 2%;
+}
+.carousel__prev > label:before {
+  left: 35%;
+  top: 20%;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.carousel__next > label {
+  right: 2%;
+}
+.carousel__next > label:before {
+  left: 10%;
+  transform: rotate(315deg);
+  -webkit-transform: rotate(315deg);
+}
+.carousel__nav {
+  position: absolute;
+  bottom: 3%;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 3;
+}
+.carousel__nav > label {
+  border: 1px solid #fff;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 0.125%;
+  width: 20px;
+  height: 20px;
+}
+/*end carousel*/
+
+
+/* Principal Title of the secret passage page */
+.design-title {
+  color: var(--main-color);
+  font-size: 2.5vw;
+  margin-bottom: 2%;
+  text-align: center;
+  text-decoration: var(--main-color) underline;
+}
+.intro{
+  font-size: 1.3vw;
+  text-align: center;
+  margin: 0 3%;
+}
+
+.left-column, .right-column {
+  display: flex;
+  flex-flow: column wrap;
+  width:45%;
+  clip-path: polygon(3% 0%, 97% 0%, 97% 100%, 3% 100%);
+  margin-bottom: 2em;
+}
+
+.left-column {
+  text-align: left;
+}
+
+.right-column {
+  text-align: right;
+}
+
+.left-column h2 {
+  padding: 2em 0em 0em 2em;
+}
+
+.right-column h2 {
+  padding: 2em 2em 0em 0em;
+}
+
+.accordion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-column .card {
+  flex: 1;
+  clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);;
+  transition: all 1s ease-in-out;
+  height: 27vmin;
+  position: relative;
+  margin: 0;
+}
+  
+.left-column .card:hover {
+  flex-grow: 4;
+  clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%);;
+}
+
+.right-column .card {
+  flex: 1;
+  clip-path: polygon(0% 0%, 92% 0%, 100% 100%, 8% 100%);;
+  transition: all 1s ease-in-out;
+  height: 27vmin;
+  position: relative;
+  margin: 0;
+}
+  
+.right-column .card:hover {
+  flex-grow: 4;
+  clip-path: polygon(0% 0%, 98% 0%, 100% 100%, 2% 100%);;
+}
+
+.card:hover img {
+  filter: grayscale(0);
+}
+  
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0);
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+  .left-column, .right-column {
+    width:50%;
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1200px) {
+  .design-title {
+    margin-top: 2%;
+    font-size: 1.5em;
+  }
+  .intro {
+    font-size: 1.1em;
+  }
+  .left-column, .right-column {
+    width:100%;
+  }
+  .right-column {
+    text-align: left;
+  }
+  .right-column h2 {
+    padding: 2em 0em 0em 2em;
+  }
+  .right-column .accordion {
+    transform: skew(-5deg);
+  }
+  .container {
+    width: 80%;
+    margin: 50px auto;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px) {
+  .intro {
+    font-size: 1.1em;
+  }
+  .design-title {
+    margin-top: 2%;
+    font-size: 1.5em;
+  }
+  .left-column, .right-column {
+    width:100%;
+  }
+  .right-column {
+    text-align: left;
+  }
+  .right-column h2 {
+    padding: 2em 0em 0em 2em;
+  }
+  .right-column .accordion {
+    transform: skew(-5deg);
+  }
+  .accordion .card:hover {
+    flex-grow: 1;
+  }
+  .accordion .card img {
+    filter: grayscale(0%);
+  }
+  .fourth-card {
+    display: none;
+  }
+
+  .container {
+    width: 95%;
+    margin: 50px auto;
+  }
+}
+
+@media screen and (min-width: 250px) and (max-width: 500px) {
+  .design-title {
+    margin-top: 5%;
+    font-size: 1.5em;
+  }
+  .intro {
+    font-size: 1.1em;
+    margin: 0 3%;
+    text-align: justify;
+  }
+  .left-column, .right-column {
+    width:100%;
+    align-items: center;
+  }
+  .right-column {
+    text-align: left;
+  }
+  .right-column h2, .left-column h2 {
+    text-align: center;
+    padding: 0 0;
+  }
+  .right-column .accordion, .left-column .accordion{
+    justify-content: space-evenly;
+    height: 75vmin;
+    width: 75vmin;
+    transform: skew(0deg);
+  }
+  .accordion .card {
+    height: 75vmin;
+  }
+  .accordion .card:not(:last-child) {
+    margin-right: 0em;
+  }
+  .accordion .card:hover {
+    flex-grow: 1;
+  }
+  .accordion .card img {
+    filter: grayscale(0%);
+  }
+  .second-card {
+    display: none;
+  }
+  .third-card {
+    display: none;
+  }
+  .fourth-card {
+    display: none;
+  }
+  .carousel_actu {
+    color: black;
+    font-size: 1.8vh;
+    width: 30%;
+  }
+  .carousel_title {
+    font-size: 2vh;
+  }
+
+  .container {
+    width: 95%;
+    margin: 30px auto;
+  }
+
+  .left-column .card, .right-column .card {
+    clip-path: none;
+  }
+
+  .left-column .card:hover, .right-column .card:hover {
+    clip-path: none;
+  }
+}
