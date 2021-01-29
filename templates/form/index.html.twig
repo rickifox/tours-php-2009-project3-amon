@@ -19,16 +19,6 @@
 {{ form_errors(imageForm.otherImages) }}
 {{ form_widget(imageForm.otherImages, {'attr': {'value': imageIds } }) }}
 
-<<<<<<< HEAD
-{{ form_widget(imageForm, {'attr': {'class': 'contenu-article'}}) }}
-
-<input type='submit' id='keep-on-adding' formaction='/form/' value='Ajouter une nouvelle image et revenir ici'>
-<p> OU </p>
-<input type='submit' id='go-to-article' formaction='/article_form/'
-value='Ajouter une nouvelle image et aller rédiger l&apos;article'
-onclick="return confirm('Attention vous ne pourrez plus ajouter ou supprimer d\'images pendant la rédaction d\'un article.\nVoulez-vous poursuivre ?');">
-
-=======
 {{ form_widget(imageForm) }}
 <br>
 <hr>
@@ -40,7 +30,6 @@ onclick="return confirm('Attention vous ne pourrez plus ajouter ou supprimer d\'
   value='Ajouter une nouvelle image et aller rédiger l&apos;article'
   onclick="return confirm('Attention vous ne pourrez plus ajouter ou supprimer d\'images pendant la rédaction d\'un article.\nVoulez-vous poursuivre ?');">
 </div>
->>>>>>> 38c2254f77ac228027d49e5761be53eff739e6b2
 {{ form_end(imageForm) }}
 
 <br>

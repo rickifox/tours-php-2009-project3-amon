@@ -228,8 +228,9 @@ main {
   text-decoration: var(--main-color) underline;
 }
 .intro{
-  font-size: 1.1vw;
+  font-size: 1.3vw;
   text-align: center;
+  margin: 0 3%;
 }
 
 .left-column, .right-column {
@@ -380,6 +381,8 @@ main {
   }
   .intro {
     font-size: 1.1em;
+    margin: 0 3%;
+    text-align: justify;
   }
   .left-column, .right-column {
     width:100%;
@@ -421,15 +424,16 @@ main {
   }
   .carousel_actu {
     color: black;
-    font-size: 1.4vh;
+    font-size: 1.8vh;
+    width: 30%;
   }
   .carousel_title {
-    font-size: 1.4vh;
+    font-size: 2vh;
   }
 
   .container {
     width: 95%;
-    margin: 50px auto;
+    margin: 30px auto;
   }
 
   .left-column .card, .right-column .card {
