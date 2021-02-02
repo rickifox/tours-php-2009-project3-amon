@@ -71,6 +71,7 @@
     width: 50vw;
     height: 12vw;
 }
+
 .images-miniature {
     width: 100%;
     height: 100%;
@@ -84,13 +85,16 @@
     margin-left: 50%;
 }
 .miniature2 {
-   margin-top: -10%;
+    margin-top: -10%;
 }
 
 .passage-miniature:hover, .passage-miniature2:hover {
     -ms-transform: scale(1.1); /* IE 9 */
     -webkit-transform: scale(1.1); /* Safari 3-8 */
     transform: scale(1.1); 
+}
+.no-hover:hover {
+    transform: none;
 }
 /* Title in miniature */
 .galery-title {
