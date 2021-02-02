@@ -33,8 +33,12 @@
 /* -- Sections texts -- */
 .passage-subtitle{
     margin-bottom: 2%;
-    font-size: 1.5vw;
-    margin-top: 0;
+    font-size: 1.8vw;
+    margin-top: -20px;
+}
+.passage-subtitle::first-letter {
+    font-size: 2.5vw;
+    color: var(--button-color);
 }
 .passage-description{
     font-size: 1.1vw;
@@ -57,7 +61,7 @@
     z-index: 1;
 }
 .passage-miniature {
-    margin-top: -15%;
+    margin-top: -8%;
     margin-left: 45%;
     z-index: 2;
     display: grid;
@@ -85,7 +89,7 @@
     margin-left: 50%;
 }
 .miniature2 {
-    margin-top: -10%;
+    margin-top: -8%;
 }
 
 .passage-miniature:hover, .passage-miniature2:hover {

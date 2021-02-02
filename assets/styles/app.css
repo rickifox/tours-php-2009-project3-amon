@@ -1,6 +1,8 @@
 /*Pour base.html.twig*/
 
 :root {
+    --button-color: rgba(255, 217, 0, 0.664);
+    --light-color: white;
     --main-font: 'Quicksand';
     --main-color: #ffffff;
     --secondary-color: #ff6c71;
