@@ -97,16 +97,20 @@
     border: none;
     cursor: pointer;
 }
-.lightbox__container img{
-    max-width: 100%;
-    height: auto;
-}
+
 .lightbox__container{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5%;
     min-height: 100vh;
+}
+
+.lightbox_container_img {
+    margin: 0;
+    max-height: 90vh;
+    max-width: 90vw;
+    border: 1px solid;
+    border-image: url("../images/silver-textured-background.jpeg") 2;
 }
 
 @keyframes lightboxIn {

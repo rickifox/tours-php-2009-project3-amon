@@ -1,9 +1,13 @@
 /*Pour base.html.twig*/
 
 :root {
+    --button-color: rgba(255, 217, 0, 0.664);
+    --light-color: white;
     --main-font: 'Quicksand';
     --main-color: #ffffff;
     --secondary-color: #ff6c71;
+    --navbar-height: calc(10vh + 1.5rem + 2px); /*navbar height : 10vh for ul height + 1rem ul's padding-top + 2px border-bottom from header.
+    Beware : box-sizing is set to border-box*/
 }
 
 html, body {
@@ -26,7 +30,7 @@ body {
 
 .content {
     flex: 1 0 auto;
-    margin-top: 15vh;
+    margin-top: var(--navbar-height);
 }
 
 header {
@@ -39,7 +43,7 @@ header {
     position : fixed;
     top:0;
     z-index: 10;
-    border-bottom: 3px solid;
+    border-bottom: 2px solid;
     border-image: url("../images/silver-textured-background.jpeg") 2;
 }
 
@@ -51,6 +55,15 @@ header {
     align-items: center;
     text-align: center;
     justify-content: space-around;
+}
+
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 .hyperlink {
@@ -76,7 +89,8 @@ a {
     list-style: none;
     padding: 0;
     margin-top: 0;
-    padding-top: 1em;
+    padding-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .navbar_right {
@@ -88,7 +102,8 @@ a {
     list-style: none;
     padding: 0;
     margin-top: 0;
-    padding-top: 1em;
+    padding-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .logo-navbar {
@@ -103,6 +118,7 @@ a {
 
 .logo-navbar img {
     width: 100%;
+    margin-top: 0.5rem;
 }
 
 .separator {
@@ -169,7 +185,7 @@ a {
         }
 
     .content {
-        margin-top: 11vh;
+        margin-top: var(--navbar-height);
     }
 
     .hyperlink {
@@ -180,7 +196,7 @@ a {
         font-size: small;
     }
     .content {
-        margin-top: 13vh;
+        margin-top: var(--navbar-height);
     }
     /* Form button only if user log on*/
     .form-button {

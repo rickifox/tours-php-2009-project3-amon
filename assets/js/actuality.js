@@ -75,7 +75,7 @@ class Lightbox {
         dom.classList.add('lightbox');
         dom.innerHTML = `<button class="lightbox__close"></button>
         <div class="lightbox__container">
-            <img src="${url}" alt"">
+            <img class="lightbox_container_img" src="${url}" alt"">
         </div>`;
         dom.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this));
         return dom;
