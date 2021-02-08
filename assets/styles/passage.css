@@ -1,28 +1,25 @@
-:root {
-    --main-font: Quicksand, arial;
-    --main-color: #ffffff;
-    --shadow-color: rgb(22, 22, 22) 5px 10px 10px;
-}
-
-body {
-    display: block;
-}
+/* ---- Secret Passage Page ---- */
 
 /* -- Principal Title of the secret passage page -- */
 .passage-title {
     color: var(--main-color);
-    font-size: 3vw;
-    margin-top: 0px;
-    margin-bottom: 7%;
-    padding-top: 5%;
+    font-size: 2.5vw;
+    margin-bottom: 2%;
     text-align: center;
     text-decoration: var(--main-color) underline;
+}
+.passage-intro {
+    margin: 3% 6% 5% 6%;
+}
+.intro{
+    font-size: 1.3vw;
+    text-align: center;
 }
 
 /* -- Sections Library, Mirror, Tailor-Made -- */
 .library, .tailor-made{
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 35% 65%;
     grid-template-rows: repeat(150px, auto);
     margin: 0 5% 8% 5%;
 }
@@ -36,10 +33,15 @@ body {
 /* -- Sections texts -- */
 .passage-subtitle{
     margin-bottom: 2%;
-    font-size: 2vw;
+    font-size: 1.8vw;
+    margin-top: -20px;
+}
+.passage-subtitle::first-letter {
+    font-size: 2.5vw;
+    color: var(--button-color);
 }
 .passage-description{
-    font-size: 1.6vw;
+    font-size: 1.1vw;
     text-align: justify;
 }
 
@@ -59,7 +61,7 @@ body {
     z-index: 1;
 }
 .passage-miniature {
-    margin-top: -15%;
+    margin-top: -8%;
     margin-left: 45%;
     z-index: 2;
     display: grid;
@@ -73,6 +75,7 @@ body {
     width: 50vw;
     height: 12vw;
 }
+
 .images-miniature {
     width: 100%;
     height: 100%;
@@ -86,13 +89,16 @@ body {
     margin-left: 50%;
 }
 .miniature2 {
-   margin-top: -10%;
+    margin-top: -8%;
 }
 
 .passage-miniature:hover, .passage-miniature2:hover {
     -ms-transform: scale(1.1); /* IE 9 */
     -webkit-transform: scale(1.1); /* Safari 3-8 */
     transform: scale(1.1); 
+}
+.no-hover:hover {
+    transform: none;
 }
 /* Title in miniature */
 .galery-title {
@@ -107,14 +113,18 @@ body {
 }
 
 /* -- Responsive -- */
-@media screen and (min-width: 250px) and (max-width: 900px) {
+@media screen and (min-width: 250px) and (max-width: 1200px) {
 
+    .passage-title {
+        margin-top: 2%;
+        font-size: 1.5em;
+      }
+    .intro {
+        font-size: 1.1em;
+    }
     .library, .mirror, .tailor-made{
         display: block;
         margin: 8% 8% 10% 8%;
-    }
-    .passage-title {
-        font-size: 1.5em;
     }
     .images-passage, .images-passage1 {
         display: none;
@@ -123,7 +133,7 @@ body {
         font-size: 1.3em;
     }
     .passage-description {
-        font-size: 1em;
+        font-size: 1.1em;
     }
     .galery-title {
         font-size: 2em;
@@ -142,6 +152,19 @@ body {
 }
 
 @media screen and (max-width: 500px) {
+    .passage-title {
+         margin-top: 5%;
+        font-size: 1.5em;
+    }
+    .intro {
+        font-size: 1em;
+    }
+    .passage-subtitle {
+        font-size: 1.1em;
+    }
+    .passage-description {
+        font-size: 1em;
+    }
     .passage-miniature {
         width: 80vw;
         height: 20vw;

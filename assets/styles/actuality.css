@@ -2,10 +2,10 @@
 
 /* -- Articles -- */
 #gallery-title {
-    font-size: 3vw;
     text-align: center;
     text-decoration: underline;
     width: 100%;
+    font-size: 2.5vw;
 }
 
 .article-container{
@@ -19,14 +19,18 @@
 .article-content{
     display: grid;
     grid-template-columns: 48% 48%;
-    grid-gap: 4%;
+    grid-gap: 2%;
+    align-items: center;
 }
 .article-title{
     margin-bottom: 5%;
 }
+
 .article-description{
     font-size: 1.3em;
-    text-align: justify;
+    text-align: left;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 .article-date{
     justify-content: center;
@@ -35,7 +39,7 @@
     background-repeat: no-repeat;
     background-image: url("../images/silver-textured-background.jpeg");
     margin-left: 3%;
-    margin-right: 87%;
+    margin-right: 85%;
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
 }
@@ -47,7 +51,6 @@
     justify-content: center;
     display:flex;
     flex-wrap: wrap;
-    height: 50%;
 }
 .article-image{
     display: flex;
@@ -83,8 +86,8 @@
 }
 
 .lightbox__close{
-    width: 3vw;
-    height: 3vw;
+    width: 5vh;
+    height: 5vh;
     background: url('../images/cross-mark.svg') center center / 100% 100% transparent;
     background-repeat: no-repeat;
     top: 5%;
@@ -94,16 +97,20 @@
     border: none;
     cursor: pointer;
 }
-.lightbox__container img{
-    max-width: 100%;
-    height: auto;
-}
+
 .lightbox__container{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5%;
     min-height: 100vh;
+}
+
+.lightbox_container_img {
+    margin: 0;
+    max-height: 90vh;
+    max-width: 90vw;
+    border: 1px solid;
+    border-image: url("../images/silver-textured-background.jpeg") 2;
 }
 
 @keyframes lightboxIn {
@@ -135,26 +142,35 @@
 }
 
 /* -- Responsive -- */
-@media screen and (min-width:200px) and (max-width: 900px) {
+@media screen and (min-width: 700px) and (max-width: 1200px) {
+    .article-date{
+        margin-right: 80%;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px) {
     #gallery-title{
-        font-size: 3vw;
+        font-size: 1.5em;
     }
     .article-content{
         display: block;
         padding: 2%;
     }
-    .article-text{
-        font-size: 2vw;
+    .article-title{
+        font-size: 1.2em;
+    }
+    .article-description{
+        font-size: 1.1em;
     }
     .article-image{
         width: 18vw;
         margin: 0 1% 1% 1%;
     }
     .article-date{
-        margin-right: 80%;
+        margin-right: 75%;
     }
     .date{
-        font-size: 2vw;
+        font-size: 1.3em;
     }
     .delete-article-button{
         width: 6vw;
@@ -167,6 +183,43 @@
     .article-button-container{
         width: 20%;
     }
-    
+}
 
+
+@media screen and (min-width:200px) and (max-width: 500px) {
+    #gallery-title{
+        font-size: 1.5em;
+    }
+    .article-content{
+        display: block;
+        padding: 2%;
+    }
+    .article-title{
+        font-size: 1.2em;
+    }
+    .article-description{
+        font-size: 1.1em;
+        text-align: justify;
+    }
+    .article-image{
+        width: 18vw;
+        margin: 0 1% 1% 1%;
+    }
+    .article-date{
+        margin-right: 75%;
+    }
+    .date{
+        font-size: 0.7em;
+    }
+    .delete-article-button{
+        width: 6vw;
+        height: 6vw;
+    }
+    .edit-article-button{
+        width: 6vw;
+        height: 6vw;
+    }
+    .article-button-container{
+        width: 20%;
+    }
 }

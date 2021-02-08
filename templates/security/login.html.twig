@@ -4,9 +4,7 @@
 
 {% block body %}
 <form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+
 
     <h1 class="h3 mb-3 font-weight-normal">Merci de vous connecter : </h1><br>
     <label for="inputUsername">Nom d'utilisateur</label><br>
@@ -29,6 +27,10 @@
             </label>
         </div>
     #}
+
+    {% if error %}
+    <b><div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div></b><br><br>
+{% endif %}
 
     <button class="btn btn-lg btn-primary" type="submit">
         Se connecter

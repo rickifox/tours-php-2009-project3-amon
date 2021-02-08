@@ -10,7 +10,6 @@ main {
 }
 
 #gallery-title {
-    font-size: 3vh;
     padding-top: 1%;
     text-align: center;
     text-decoration: underline;
@@ -142,11 +141,13 @@ main {
     }
     #categories-pop {
         width: 1.5em;
-        
     }
     .sidenav {
         margin-top: -2px; /*So the burger border-top is melted in the navbar border*/
         border-top:  2px solid rgb(243, 233, 233);
+    }
+    #gallery-title {
+        font-size: 1.5em;
     }
 }
 @media screen and (min-width:500px) and (max-width: 900px) {
@@ -167,5 +168,8 @@ main {
     .delete-button{
         width: 10vw;
         height: 10vw;
+    }
+    #gallery-title {
+        width: 75%;
     }
 }

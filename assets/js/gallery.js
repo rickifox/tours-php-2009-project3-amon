@@ -13,8 +13,10 @@ function toggleSideNav() {
     const sidenav = document.getElementById('mySidenav');
     if (sidenav.style.width === '14rem') {
         sidenav.style.width = '0';
+        sidenav.style.marginLeft = '-2px';
     } else {
         sidenav.style.width = '14rem';
+        sidenav.style.marginLeft = '0';
     }
 }
 

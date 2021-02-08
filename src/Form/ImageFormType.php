@@ -37,7 +37,7 @@ class ImageFormType extends AbstractType
             ->add('categorie', ChoiceType::class, [
                 'choices' => [
                     'Amenagement extérieur' => 'Amenagement extérieur',
-                    'Brise-vue Pare-soleil' => 'Brise-vue Pare-soleil',
+                    'Brise-vue et pare-soleil' => 'Brise-vue et pare-soleil',
                     'Décoration' => 'Décoration',
                     'Escaliers' => 'Escaliers',
                     'Garde-corps' => 'Garde-corps',
