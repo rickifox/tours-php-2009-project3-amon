@@ -22,7 +22,7 @@ class GalleryController extends AbstractController
     {
         $images = $imageRepository->findBy(
             ['categorie' => ['aménagement extérieur', 'brise-vue et pare-soleil', 'décoration', 'escalier',
-            'garde-corps', 'passages secrets', 'trappes vitrées', 'verrière']],
+            'garde-corps', 'passages secrets', 'trappes vitrées', 'verrières']],
             ['id' => 'DESC'],
         );
         return $this->render(
