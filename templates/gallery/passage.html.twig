@@ -24,7 +24,7 @@
     <h1 id="gallery-title">{{ categorie|capitalize }}</h1>
     {% for image in images %}
     <div class="image-container">
-        <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.texteAlternatif}}">
+        <img class="gallery-img" src="{{ vich_uploader_asset(image, 'urlFile') }}" alt="{{ image.texteAlternatif}}" loading="lazy">
         <div class="button-container">
             {% if app.user %}
             {{ include('form/_deletePassageImage.html.twig') }}
