@@ -33,7 +33,9 @@
     </div>
     {% endfor %}
 </main>
-
+<div class="paging">
+    {{ knp_pagination_render(images) }}
+</div>
 {% endblock %}
 
 {% block javascripts %}
