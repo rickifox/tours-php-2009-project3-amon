@@ -25,27 +25,6 @@ function toggleSideNav() {
 document.getElementById('categories-pop').addEventListener('click', toggleSideNav, false);
 document.getElementById('closebtn').addEventListener('click', toggleSideNav, false);
 
-/*
- * Article overlay on click maker
- */
-
-/*
-const images = document.getElementsByClassName('gallery-img');
-
-function overlayer() {
-    const imageId = this.id;
-
-    const request = new Request('/article/', imageId, { method: 'GET' });
-
-    fetch(request)
-        .then((response) => response.json());
-    // .then((data) => alert(data))
-    // .catch(() => alert('error'));
-}
-
-for (let i = 0; i < images.length; i += 1) {
-    images[i].addEventListener('click', overlayer, false);
-}*/
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
@@ -54,66 +33,44 @@ for (let i = 0; i < images.length; i += 1) {
  * Article overlay on click maker
  */
 
-function overlayer(imageId, currentSrc, images) {
+function overlayer(imageId, currentSrc, currentAlt) {
     const request = new Request('/article/' + imageId, { method: 'GET' });
     let articleStuff = [];
     fetch(request)
         .then(response => response.json())
         .then(articleStuffObj => {
             articleStuff.push(articleStuffObj);
-            new Lightbox(articleStuff[0], currentSrc, images);
+            new Lightbox(articleStuff[0], currentSrc, currentAlt);
         })
 }
 
 /**
  * @property {HTMLElement} element
- * @property {string[]} images Path of images in lightbox
  * @property {string} url Currently displayed image
  */
 
 class Lightbox{
 
     static init(){
-        const links = Array.from(document.getElementsByClassName('gallery-img'));
-        const images = links.map(link => link.getAttribute('src'));
-        links.forEach(link => link.addEventListener('click', e =>
-                {
-                    e.preventDefault();
-                    const currentSrc = e.currentTarget.getAttribute('src');
-                    const imageId = e.currentTarget.id;
-                    overlayer(imageId, currentSrc, images);
-                }))
+        document.body.addEventListener('click', e =>{
+            if (e.target && e.target.matches('.gallery-img')) {
+                e.preventDefault();
+                const currentSrc = e.target.src;
+                const currentAlt = e.target.alt;
+                const imageId = e.target.id;
+                overlayer(imageId, currentSrc, currentAlt);
+            }
+        }, false);
     }
 
     /**
      * @param {mixed[]} articleStuff content of the article associated to the clicked image
-     * @param {string} url Image URL
-     * @param {string[]} images Path of images in lightbox
+     * @param {string} currentSrc Image URL
+     * @param {string} currentAlt Image alternative text
      */
-    constructor (articleStuff, url, images){
-        this.element = this.buildDOM(articleStuff, url);
-        this.images = images;
+    constructor (articleStuff, currentSrc, currentAlt){
+        this.element = this.buildDOM(articleStuff, currentSrc, currentAlt);
         document.body.appendChild(this.element);
-    }
-
-    /**
-     * 
-     * @param {string} url Image URL
-     */
-    loadImage(url){
-        this.url = null;
-        const image = new Image();
-        const container = this.element.querySelector('.lightbox__container');
-        const loader = document.createElement('div');
-        loader.classList.add('lightbox__loader');
-        container.innerHTML = '';
-        container.appendChild(loader);
-        image.onload = ()=>{
-            container.removeChild(loader);
-            container.appendChild(image);
-            this.url = url;
-        }
-        image.src = url;
     }
 
     /**
@@ -122,23 +79,26 @@ class Lightbox{
      */
     close (e) {
         e.preventDefault();
-        this.element.classList.add('fadeOut');
-        window.setTimeout(()=>{
-            this.element.remove();
-        }, 500);
+        let lightboxes = document.getElementsByClassName('lightbox');
+        lightboxes.forEach(lightbox => {
+            lightbox.classList.add('fadeOut');
+            window.setTimeout(()=>{
+                lightbox.remove();
+            }, 500);
+        });
     }
 
     /**
      * @param {mixed[]} articleStuff content of the article associated to the clicked image
-     * @param {string} url URL de l'image
+     * @param {string} currentSrc url of the image
+     * @param {string} currentAlt image alternative text
      * @return {HTMLElement}
      */
-    buildDOM (articleStuff, url){
-        console.log(articleStuff);
+    buildDOM (articleStuff, currentSrc, currentAlt){
         let images = '';
         if (articleStuff['data']['images']) {
             for (let i = 0; i < articleStuff['data']['images'].length; i++) {
-                images = images + `<img class="lightbox_mini" src="${articleStuff['data']['images'][i]['url']}" alt="${articleStuff['data']['images'][i]['texteAltenatif']}"> `;
+                images = images + `<img id=${articleStuff['data']['images'][i]['id']} class="gallery-img lightbox_mini" src="${articleStuff['data']['images'][i]['url']}" alt="${articleStuff['data']['images'][i]['texteAltenatif']}"> `;
             };
         };
         const dom = document.createElement('div');
@@ -148,9 +108,9 @@ class Lightbox{
             <h2 id="article_title">${articleStuff["data"]["titre"]}</h2>
             <div class="lightbox_image-border">
                 <div class="lightbox_main-image-container">
-                    <img class="lightbox_image" src="${url}" alt="">
+                    <img class="lightbox_image" src="${currentSrc}" alt="${currentAlt}">
                 </div>
-                <div class="lightbox_image-list">` + images +` </div>
+                <div class="lightbox_image-list ">` + images +` </div>
             </div>
             <p class="lightbox_text">
                 ${articleStuff['data']['description']}   
@@ -161,8 +121,3 @@ class Lightbox{
     }
 }
 Lightbox.init()
-
-    /*fetch(request)
-        .then((response) => response.json())
-        .then((data) => console.log(data["images"][0]["url"]))
-        .catch(() => alert('error'));*/

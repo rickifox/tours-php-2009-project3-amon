@@ -36,8 +36,8 @@ class GalleryController extends AbstractController
     public function showImages(ImageRepository $imageRepository): Response
     {
         $images = $imageRepository->findBy(
-            ['categorie' => ['aménagement extérieur', 'brise-vue et pare-soleil', 'décoration', 'escalier',
-            'garde-corps', 'passages secrets', 'trappes vitrées', 'verrière']],
+            ['categorie' => ['aménagement extérieur', 'brise-vue et pare-soleil', 'décoration', 'escaliers',
+            'garde-corps', 'passages secrets', 'trappes vitrées', 'verrières']],
             ['id' => 'DESC'],
         );
         return $this->render(
@@ -56,13 +56,20 @@ class GalleryController extends AbstractController
             ['categorie' => $categorie],
             ['id' => 'DESC']
         );
+
         foreach ($allImages as $image) {
-            foreach ($image->getArticles() as $article) {
-                if ($article->getSection() === 'Galerie') {
-                    $images[] = $image;
+            $articles = $image->getArticles();
+            if (!empty($articles[0])) {
+                foreach ($articles as $article) {
+                    if ($article->getSection() != 'Actualité') {
+                        $images[] = $image;
+                    };
                 };
-            };
+            } else {
+                $images[] = $image;
+            }
         }
+
             return $this->render('gallery/design.html.twig', ['images' => $images, 'categorie' => $categorie]);
     }
 
@@ -103,11 +110,16 @@ class GalleryController extends AbstractController
             ['id' => 'DESC']
         );
         foreach ($allImages as $image) {
-            foreach ($image->getArticles() as $article) {
-                if ($article->getSection() === 'Galerie') {
-                    $images[] = $image;
+            $articles = $image->getArticles();
+            if (!empty($articles[0])) {
+                foreach ($articles as $article) {
+                    if ($article->getSection() != 'Actualité') {
+                        $images[] = $image;
+                    };
                 };
-            };
+            } else {
+                $images[] = $image;
+            }
         }
         return $this->render('gallery/passage.html.twig', ['images' => $images, 'categorie' => $categorie]);
     }
