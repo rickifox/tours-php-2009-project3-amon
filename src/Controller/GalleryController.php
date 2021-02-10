@@ -59,7 +59,11 @@ class GalleryController extends AbstractController
             $request->query->getInt('page', 1),
             15
         );
+        if (!empty($data)) {
             return $this->render('gallery/design.html.twig', ['images' => $images, 'categorie' => $categorie]);
+        } else {
+            return $this->redirectToRoute('design_gallery');
+        }
     }
 
     /**
@@ -83,7 +87,7 @@ class GalleryController extends AbstractController
         PaginatorInterface $paginator
     ): Response {
         $data = $imageRepository->findBy(
-            ['categorie' => ['miroirs', 'bibliotheques']]
+            ['categorie' => ['miroirs', 'bibliothèques']]
         );
 
         $images = $paginator->paginate(
@@ -106,16 +110,21 @@ class GalleryController extends AbstractController
         Request $request,
         PaginatorInterface $paginator
     ): Response {
-        $data = $imageRepository->findBy([
-            'categorie' => $categorie
-        ]);
+        $data = $imageRepository->findBy(
+            ['categorie' => $categorie],
+            ['id' => 'DESC']
+        );
 
         $images = $paginator->paginate(
             $data,
             $request->query->getInt('page', 1),
             15
         );
-        return $this->render('gallery/passage.html.twig', ['images' => $images, 'categorie' => $categorie]);
+        if (!empty($data)) {
+            return $this->render('gallery/passage.html.twig', ['images' => $images, 'categorie' => $categorie]);
+        } else {
+            return $this->redirectToRoute('passage_gallery');
+        }
     }
 
     /**
