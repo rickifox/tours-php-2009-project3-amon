@@ -24,12 +24,10 @@ class GalleryController extends AbstractController
         $articles = $image->getArticles();
         foreach ($articles as $article) {
             if ($article->getSection() === "Galerie") {
-                return new JsonResponse(['data' => json_encode(
-                    $article->getArray()
-                )]);
+                return new JsonResponse(['data' => $article->getArray()]);
             }
         }
-        return new JsonResponse(['data' => json_encode($image)]);
+        return new JsonResponse(['data' => $image]);
     }
 
     /**
@@ -53,10 +51,18 @@ class GalleryController extends AbstractController
      */
     public function showImagesByCategorie(string $categorie, ImageRepository $imageRepository): Response
     {
-        $images = $imageRepository->findBy(
+        $images = [];
+        $allImages = $imageRepository->findBy(
             ['categorie' => $categorie],
             ['id' => 'DESC']
         );
+        foreach ($allImages as $image) {
+            foreach ($image->getArticles() as $article) {
+                if ($article->getSection() === 'Galerie') {
+                    $images[] = $image;
+                };
+            };
+        }
             return $this->render('gallery/design.html.twig', ['images' => $images, 'categorie' => $categorie]);
     }
 
@@ -91,9 +97,18 @@ class GalleryController extends AbstractController
      */
     public function passageImagesByCategorie(string $categorie, ImageRepository $imageRepository): Response
     {
-        $images = $imageRepository->findBy([
-            'categorie' => $categorie
-        ]);
+        $images = [];
+        $allImages = $imageRepository->findBy(
+            ['categorie' => $categorie],
+            ['id' => 'DESC']
+        );
+        foreach ($allImages as $image) {
+            foreach ($image->getArticles() as $article) {
+                if ($article->getSection() === 'Galerie') {
+                    $images[] = $image;
+                };
+            };
+        }
         return $this->render('gallery/passage.html.twig', ['images' => $images, 'categorie' => $categorie]);
     }
 

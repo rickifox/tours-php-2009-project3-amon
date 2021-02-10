@@ -76,7 +76,7 @@ class Image
             'id' => $this->id,
             'nom' => $this->nom,
             'texteAltenatif' => $this->texteAlternatif,
-            'url' => $this->url
+            'url' => '/uploads/' . $this->url
         ];
     }
 
