@@ -25,7 +25,6 @@ function toggleSideNav() {
 document.getElementById('categories-pop').addEventListener('click', toggleSideNav, false);
 document.getElementById('closebtn').addEventListener('click', toggleSideNav, false);
 
-
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
 
@@ -34,14 +33,14 @@ document.getElementById('closebtn').addEventListener('click', toggleSideNav, fal
  */
 
 function overlayer(imageId, currentSrc, currentAlt) {
-    const request = new Request('/article/' + imageId, { method: 'GET' });
-    let articleStuff = [];
+    const request = new Request(`/article/${imageId}`, { method: 'GET' });
+    const articleStuff = [];
     fetch(request)
-        .then(response => response.json())
-        .then(articleStuffObj => {
+        .then((response) => response.json())
+        .then((articleStuffObj) => {
             articleStuff.push(articleStuffObj);
-            new Lightbox(articleStuff[0], currentSrc, currentAlt);
-        })
+            const lightbox = new Lightbox(articleStuff[0], currentSrc, currentAlt);
+        });
 }
 
 /**
@@ -49,10 +48,9 @@ function overlayer(imageId, currentSrc, currentAlt) {
  * @property {string} url Currently displayed image
  */
 
-class Lightbox{
-
-    static init(){
-        document.body.addEventListener('click', e =>{
+class Lightbox {
+    static init() {
+        document.body.addEventListener('click', (e) => {
             if (e.target && e.target.matches('.gallery-img')) {
                 e.preventDefault();
                 const currentSrc = e.target.src;
@@ -68,7 +66,7 @@ class Lightbox{
      * @param {string} currentSrc Image URL
      * @param {string} currentAlt Image alternative text
      */
-    constructor (articleStuff, currentSrc, currentAlt){
+    constructor(articleStuff, currentSrc, currentAlt) {
         this.element = this.buildDOM(articleStuff, currentSrc, currentAlt);
         document.body.appendChild(this.element);
     }
@@ -77,12 +75,12 @@ class Lightbox{
      * Close the lightbox
      * @param {MouseEvent} e
      */
-    close (e) {
+    close(e) {
         e.preventDefault();
-        let lightboxes = document.getElementsByClassName('lightbox');
-        lightboxes.forEach(lightbox => {
+        const lightboxes = document.getElementsByClassName('lightbox');
+        lightboxes.forEach((lightbox) => {
             lightbox.classList.add('fadeOut');
-            window.setTimeout(()=>{
+            window.setTimeout(() => {
                 lightbox.remove();
             }, 500);
         });
@@ -94,30 +92,30 @@ class Lightbox{
      * @param {string} currentAlt image alternative text
      * @return {HTMLElement}
      */
-    buildDOM (articleStuff, currentSrc, currentAlt){
+    buildDOM(articleStuff, currentSrc, currentAlt) {
         let images = '';
-        if (articleStuff['data']['images']) {
-            for (let i = 0; i < articleStuff['data']['images'].length; i++) {
-                images = images + `<img id=${articleStuff['data']['images'][i]['id']} class="gallery-img lightbox_mini" src="${articleStuff['data']['images'][i]['url']}" alt="${articleStuff['data']['images'][i]['texteAltenatif']}"> `;
-            };
-        };
+        if (articleStuff.data.images) {
+            for (let i = 0; i < articleStuff.data.images.length; i += 1) {
+                images += `<img id=${articleStuff.data.images[i].id} class="gallery-img lightbox_mini" src="${articleStuff.data.images[i].url}" alt="${articleStuff.data.images[i].texteAltenatif}"> `;
+            }
+        }
         const dom = document.createElement('div');
         dom.classList.add('lightbox');
         dom.innerHTML = `<button class="lightbox__close"></button>
         <div class="lightbox__container">
-            <h2 id="article_title">${articleStuff["data"]["titre"]}</h2>
+            <h2 id="article_title">${articleStuff.data.titre}</h2>
             <div class="lightbox_image-border">
                 <div class="lightbox_main-image-container">
                     <img class="lightbox_image" src="${currentSrc}" alt="${currentAlt}">
                 </div>
-                <div class="lightbox_image-list ">` + images +` </div>
+                <div class="lightbox_image-list ">${images} </div>
             </div>
             <p class="lightbox_text">
-                ${articleStuff['data']['description']}   
+                ${articleStuff.data.description}   
             </p>
         </div>`;
         dom.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this));
         return dom;
     }
 }
-Lightbox.init()
+Lightbox.init();
