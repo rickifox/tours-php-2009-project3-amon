@@ -61,7 +61,7 @@ class GalleryController extends AbstractController
             $articles = $image->getArticles();
             if (!empty($articles[0])) {
                 foreach ($articles as $article) {
-                    if ($article->getSection() != 'Actualité') {
+                    if ($article->getSection() != 'Actualités') {
                         $images[] = $image;
                     };
                 };
@@ -113,7 +113,7 @@ class GalleryController extends AbstractController
             $articles = $image->getArticles();
             if (!empty($articles[0])) {
                 foreach ($articles as $article) {
-                    if ($article->getSection() != 'Actualité') {
+                    if ($article->getSection() != 'Actualités') {
                         $images[] = $image;
                     };
                 };
