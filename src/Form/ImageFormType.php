@@ -37,15 +37,14 @@ class ImageFormType extends AbstractType
             ->add('categorie', ChoiceType::class, [
                 'choices' => [
                     'Amenagement extérieur' => 'Amenagement extérieur',
-                    'Brise-vue Pare-soleil' => 'Brise-vue Pare-soleil',
+                    'Brise-vue et pare-soleil' => 'Brise-vue et pare-soleil',
                     'Décoration' => 'Décoration',
                     'Escaliers' => 'Escaliers',
                     'Garde-corps' => 'Garde-corps',
                     'Trappes vitrées' => 'Trappes vitrées',
                     'Verrière' => 'Verrières',
                     'Bibliothèques' => 'Bibliothèques',
-                    'Miroirs' => 'Miroirs',
-                    'Sur-mesure' => 'Sur-mesure'
+                    'Miroirs' => 'Miroirs'
                 ]
             ])
             ->add('texte_alternatif', TextareaType::class, [

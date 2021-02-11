@@ -251,10 +251,16 @@ main {
 
 .left-column h2 {
   padding: 2em 0em 0em 2em;
+  font-size: 1.5rem;
+}
+
+h2::first-letter {
+  font-size: 2rem;
 }
 
 .right-column h2 {
   padding: 2em 2em 0em 0em;
+  font-size: 1.5rem;
 }
 
 .accordion {

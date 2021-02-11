@@ -1,8 +1,3 @@
-:root {
-    --button-color: rgba(255, 217, 0, 0.664);
-    --light-color: white;
-}
-
 body {
     display: block;
 }
@@ -133,7 +128,14 @@ a {
 /* End of Home Menu */
 
 /* Home Description */
-
+#societe:before {
+    content: '';
+    display: block;
+    position: relative; 
+    width: 0; 
+    height: 5em; 
+    margin-top: -5em 
+}
 .container_home-description {
     display: flex;
     flex-flow: row wrap;
@@ -148,6 +150,7 @@ a {
     text-align: center;
     width: 45vw;
     margin: 0 2%;
+    max-height: 50%;
 }
 
 .image-desc {
