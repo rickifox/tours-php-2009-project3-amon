@@ -42,7 +42,7 @@
             </ul>
             {% if app.user %}
                 <div class="mb-3">
-                    Connecté en tant que : {{ app.user.username }}, <br><a class="deconnection-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+                    <a class="deconnection-link" href="{{ path('app_logout') }}">Déconnexion</a>
                 </div>
         {% endif %}
         </nav>

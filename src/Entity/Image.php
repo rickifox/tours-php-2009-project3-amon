@@ -80,6 +80,19 @@ class Image
         $this->articles = new ArrayCollection();
     }
 
+    /**
+     * @return mixed[]
+     */
+    public function getArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'nom' => $this->nom,
+            'texteAltenatif' => $this->texteAlternatif,
+            'url' => '/uploads/' . $this->url
+        ];
+    }
+
     public function getId(): ?int
     {
         return $this->id;

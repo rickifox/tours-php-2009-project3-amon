@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Image;
@@ -17,6 +18,20 @@ use Knp\Component\Pager\PaginatorInterface;
 class GalleryController extends AbstractController
 {
     /**
+     * @Route("/article/{image}", name="article_by_image_id")
+     */
+    public function showArticle(Image $image): Response
+    {
+        $articles = $image->getArticles();
+        foreach ($articles as $article) {
+            if ($article->getSection() === "Galerie") {
+                return new JsonResponse(['data' => $article->getArray()]);
+            }
+        }
+        return new JsonResponse(['data' => $image]);
+    }
+
+    /**
      * @Route("/design-galerie/", name="design_gallery")
      */
     public function showImages(
@@ -25,7 +40,7 @@ class GalleryController extends AbstractController
         PaginatorInterface $paginator
     ): Response {
         $data = $imageRepository->findBy(
-            ['categorie' => ['aménagement extérieur', 'brise-vue et pare-soleil', 'décoration', 'escalier',
+            ['categorie' => ['aménagement extérieur', 'brise-vue et pare-soleil', 'décoration', 'escaliers',
             'garde-corps', 'passages secrets', 'trappes vitrées', 'verrières']],
             ['id' => 'DESC'],
         );
@@ -49,11 +64,25 @@ class GalleryController extends AbstractController
         string $categorie,
         ImageRepository $imageRepository
     ): Response {
-        $data = $imageRepository->findBy(
+        $images = [];
+        $allImages = $imageRepository->findBy(
             ['categorie' => $categorie],
             ['id' => 'DESC']
         );
 
+        foreach ($allImages as $image) {
+            $articles = $image->getArticles();
+            if (!empty($articles[0])) {
+                foreach ($articles as $article) {
+                    if ($article->getSection() != 'Actualités') {
+                        $images[] = $image;
+                    };
+                };
+            } else {
+                $images[] = $image;
+            }
+        }
+        $data = $images;
         $images = $paginator->paginate(
             $data,
             $request->query->getInt('page', 1),
@@ -110,11 +139,24 @@ class GalleryController extends AbstractController
         Request $request,
         PaginatorInterface $paginator
     ): Response {
-        $data = $imageRepository->findBy(
+        $images = [];
+        $allImages = $imageRepository->findBy(
             ['categorie' => $categorie],
             ['id' => 'DESC']
         );
-
+        foreach ($allImages as $image) {
+            $articles = $image->getArticles();
+            if (!empty($articles[0])) {
+                foreach ($articles as $article) {
+                    if ($article->getSection() != 'Actualités') {
+                        $images[] = $image;
+                    };
+                };
+            } else {
+                $images[] = $image;
+            }
+        }
+        $data = $images;
         $images = $paginator->paginate(
             $data,
             $request->query->getInt('page', 1),

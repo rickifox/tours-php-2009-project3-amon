@@ -29,7 +29,8 @@ main {
 .gallery-img {
     width: 100%;
     height: auto;
-    margin: 0; 
+    margin: 0;
+    cursor: pointer;
 }
 .button-container {
     position: absolute;
@@ -106,7 +107,6 @@ main {
     position: absolute;
     z-index: -1; 
     background:  url("../images/background-blue-90deg.png");
-
 }
 
   /* Position and style the close button (top right corner) */
@@ -125,7 +125,7 @@ main {
     align-items: center;
     margin: 0;
     padding: 0;
-    padding-top: 28px; /* Place content 38px from the top, to leave some space to the closing "x"*/
+    padding-top: 28px; /* Place content 28px from the top, to leave some space to the closing "x"*/
 }
 
 .sn-button {
@@ -147,19 +147,186 @@ main {
     font-size: 1.5em;
 }
 
+/* -- Lightbox Section -- */
+.lightbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 10;
+    overflow: auto;
+    animation: lightboxIn 0.5s;
+    transition: opacity 0.3s;
+}
+.lightbox.fadeOut{
+    opacity: 0;
+}
+
+.lightbox__close{
+    width: 4vh;
+    height: 4vh;
+    background: url('../images/cross-mark.svg') center center / 100% 100% transparent;
+    background-repeat: no-repeat;
+    top: 5vh;
+    right: 5vh;
+    position: fixed;
+    z-index: 12;
+    border: none;
+    cursor: pointer;
+}
+
+.lightbox__container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-image: url("../images/background-blue.png");
+    border: 2px solid transparent;
+    border-image: url("../images/silver-textured-background.jpeg") 2;
+    margin: 2%;
+    min-height: 92vh;
+}
+
+#article_title {
+    width: 80%;
+    text-align: center;
+}
+
+.lightbox_image {
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: content-box;
+    z-index: 1;
+    margin: auto 0;
+}
+
+.lightbox_text {
+    width: 30%;
+    height: 60%;
+    margin: 0 0 0 1rem;
+}
+
+.lightbox_image-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    max-width: 30%;
+    box-sizing: content-box;
+    height: auto;
+    padding: 0 0 0 1rem;
+}
+
+.lightbox_image-border {
+    z-index: 3;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    width: 60%;
+    height: 70vh;
+    position: relative;
+    margin: 0;
+    border: 2px solid;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-image: url(/build/images/silver-textured-background.1333bbe5.jpeg) 2;
+    background-color: rgba(0, 0, 0, 0.247);
+}
+
+.lightbox_main-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 70%;
+}
+
+.lightbox_mini {
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: content-box;
+    margin: 0 0 1rem 0;
+}
+
+@keyframes lightboxIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
 @media screen and (min-width:200px) and (max-width: 900px) {
     #media-hidden{
         display: none;
     }
+
     #categories-pop {
-        width: 1.5em;
+        width: 1.2em;
     }
+
     .sidenav {
         margin-top: -2px; /*So the burger border-top is melted in the navbar border*/
         border-top:  2px solid rgb(243, 233, 233);
     }
+
     #gallery-title {
         font-size: 1.5em;
+    }
+
+    .lightbox__container {
+        margin: 1vh;
+        max-height: 98vh;
+    }
+    #article_title {
+        display: flex;
+        justify-content: center;
+        height: 8vh;
+        margin: 0;
+        overflow-x: scroll;
+    }
+    .lightbox_image-border {
+        width: 90%;
+        height: 60vh;
+        flex-flow: row wrap;
+    }
+
+    .lightbox_main-image-container {
+        width: 100%;
+        height: 45vh;
+    }
+
+    .lightbox_image-list {
+        flex-direction: row;
+        overflow-x: scroll;
+        max-width: 100%;
+        max-height:15vh;
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    .lightbox_mini {
+
+        box-sizing: border-box;
+        max-width: calc(15vh - 0.5rem);
+        max-height: 100%;
+        padding: 0 0.5rem 0rem 0rem;
+        margin: 0;
+    }
+
+    .lightbox_mini:first-of-type {
+        padding: 0 0.5rem 0rem 0.5rem;
+    }
+
+    .lightbox_text {
+        width: 100%;
+        height: 20vh;
+        overflow-y: scroll;
+        padding: 1rem;
+    }
+    .lightbox__close {
+        top: 3vh;
+        right: 3vh;
     }
 }
 @media screen and (min-width:500px) and (max-width: 900px) {
@@ -167,10 +334,13 @@ main {
         width: 45.5%;
         margin:2.5% 0;
     }
+
     .delete-button{
         width: 6vw;
         height: 6vw;
     }
+
+  
 }
 @media screen and (min-width:200px) and (max-width: 500px) {
     .image-container {
