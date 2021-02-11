@@ -68,6 +68,18 @@ main {
     z-index: -1; 
 }
 
+/* Paging */
+.paging {
+    text-align: center;
+    font-size: 1.5em;
+}
+.pagination a{
+    color: lightgray;
+}
+.pagination .current{
+    font-size: 1.4em;
+}
+
 /* The side navigation menu */
 .sidenav {
     height: auto; /* 100% Full-height - header total height - button total height */
