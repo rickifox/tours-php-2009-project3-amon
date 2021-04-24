@@ -23,7 +23,7 @@ class ArticleCrudController extends AbstractCrudController
             DateField::new('date'),
             TextField::new('description'),
             CollectionField::new('image'),
-            TextField::new('section')   
+            TextField::new('section')
         ];
     }
 }
