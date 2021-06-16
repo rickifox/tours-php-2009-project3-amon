@@ -6,8 +6,6 @@ use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Image;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -19,61 +17,36 @@ class Article
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(
-     * min = 2,
-     * max = 255,
-     * minMessage = "Le titre doit faire au minimum {{ limit }} caractères.",
-     * maxMessage = "Le titre ne doit pas dépasser {{ limit }} caractères."
-     * )
+     * @ORM\Column(type="string", length=50)
      */
-    private string $titre;
+    private $title;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="date")
      */
-    private \DateTimeInterface $date;
+    private $date;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      */
-    private string $description;
+    private $content;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="boolean")
      */
-    private string $section;
+    private $isNews;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Image::class, inversedBy="articles")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="article", orphanRemoval=true)
      */
-    private Collection $image;
+    private $images;
 
     public function __construct()
     {
-        $this->image = new ArrayCollection();
-    }
-
-    /**
-     * @return mixed[]
-     */
-    public function getArray(): array
-    {
-        $images = [];
-        foreach ($this->image as $img) {
-            $images[] = $img->getArray();
-        }
-        return [
-            'id' => $this->id,
-            'titre' => $this->titre,
-            'description' => $this->description,
-            'date' => $this->date,
-            'images' => $images,
-        ];
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -81,14 +54,14 @@ class Article
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getTitle(): ?string
     {
-        return $this->titre;
+        return $this->title;
     }
 
-    public function setTitre(string $titre): self
+    public function setTitle(string $title): self
     {
-        $this->titre = $titre;
+        $this->title = $title;
 
         return $this;
     }
@@ -105,26 +78,26 @@ class Article
         return $this;
     }
 
-    public function getDescription(): string
+    public function getContent(): ?string
     {
-        return $this->description;
+        return $this->content;
     }
 
-    public function setDescription(string $description): self
+    public function setContent(string $content): self
     {
-        $this->description = $description;
+        $this->content = $content;
 
         return $this;
     }
 
-    public function getSection(): ?string
+    public function getIsNews(): ?bool
     {
-        return $this->section;
+        return $this->isNews;
     }
 
-    public function setSection(string $section): self
+    public function setIsNews(bool $isNews): self
     {
-        $this->section = $section;
+        $this->isNews = $isNews;
 
         return $this;
     }
@@ -132,15 +105,16 @@ class Article
     /**
      * @return Collection|Image[]
      */
-    public function getImage(): Collection
+    public function getImages(): Collection
     {
-        return $this->image;
+        return $this->images;
     }
 
     public function addImage(Image $image): self
     {
-        if (!$this->image->contains($image)) {
-            $this->image[] = $image;
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setArticle($this);
         }
 
         return $this;
@@ -148,7 +122,12 @@ class Article
 
     public function removeImage(Image $image): self
     {
-        $this->image->removeElement($image);
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getArticle() === $this) {
+                $image->setArticle(null);
+            }
+        }
 
         return $this;
     }

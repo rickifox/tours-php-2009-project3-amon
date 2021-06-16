@@ -3,18 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\ImageRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Article;
-use DateTime;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ImageRepository::class)
- * @Vich\Uploadable
  */
 class Image
 {
@@ -23,89 +15,52 @@ class Image
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(
-     * min = 2,
-     * max = 255,
-     * minMessage = "Le nom doit faire au minimum {{ limit }} caractères.",
-     * maxMessage = "Le nom ne doit pas dépasser {{ limit }} caractères."
-     * )
+     * @ORM\Column(type="string", length=50)
      */
-    private string $nom;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @var null|string
      */
     private $url;
 
     /**
-     * @Vich\UploadableField(mapping="url_file", fileNameProperty="url")
-     * @var File
+     * @ORM\Column(type="string", length=30)
      */
-    private $urlFile;
+    private $category;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $categorie;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(
-     * min = 2,
-     * max = 255,
-     * minMessage = "La description doit faire au minimum {{ limit }} caractères.",
-     * maxMessage = "La description ne doit pas dépasser {{ limit }} caractères."
-     * )
-     */
-    private string $texteAlternatif;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Article::class, mappedBy="image")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private collection $articles;
+    private $alternativeText;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private datetime $updatedAt;
-
-    public function __construct()
-    {
-        $this->articles = new ArrayCollection();
-    }
+    private $updatedAt;
 
     /**
-     * @return mixed[]
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="images")
+     * @ORM\JoinColumn(nullable=false)
      */
-    public function getArray(): array
-    {
-        return [
-            'id' => $this->id,
-            'nom' => $this->nom,
-            'texteAltenatif' => $this->texteAlternatif,
-            'url' => '/uploads/' . $this->url
-        ];
-    }
+    private $article;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getName(): ?string
     {
-        return $this->nom;
+        return $this->name;
     }
 
-    public function setNom(string $nom): self
+    public function setName(string $name): self
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }
@@ -115,74 +70,35 @@ class Image
         return $this->url;
     }
 
-    public function setUrl(?string $url): self
+    public function setUrl(string $url): self
     {
         $this->url = $url;
 
         return $this;
     }
 
-    public function getCategorie(): ?string
+    public function getCategory(): ?string
     {
-        return $this->categorie;
+        return $this->category;
     }
 
-    public function setCategorie(string $categorie): self
+    public function setCategory(string $category): self
     {
-        $this->categorie = $categorie;
+        $this->category = $category;
 
         return $this;
     }
 
-    public function getTexteAlternatif(): string
+    public function getAlternativeText(): ?string
     {
-        return $this->texteAlternatif;
+        return $this->alternativeText;
     }
 
-    public function setTexteAlternatif(string $texteAlternatif): self
+    public function setAlternativeText(string $alternativeText): self
     {
-        $this->texteAlternatif = $texteAlternatif;
+        $this->alternativeText = $alternativeText;
 
         return $this;
-    }
-
-    /**
-     * @return Collection|Article[]
-     */
-    public function getArticles(): Collection
-    {
-        return $this->articles;
-    }
-
-    public function addArticle(Article $article): self
-    {
-        if (!$this->articles->contains($article)) {
-            $this->articles[] = $article;
-            $article->addImage($this);
-        }
-
-        return $this;
-    }
-
-    public function removeArticle(Article $article): self
-    {
-        if ($this->articles->removeElement($article)) {
-            $article->removeImage($this);
-        }
-
-        return $this;
-    }
-
-    public function setUrlFile(File $image): self
-    {
-        $this->urlFile = $image;
-        $this->updatedAt = new DateTime('now');
-        return $this;
-    }
-
-    public function getUrlFile(): ?File
-    {
-        return $this->urlFile;
     }
 
     public function getUpdatedAt(): ?\DateTimeInterface
@@ -190,9 +106,21 @@ class Image
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTime $updatedAt): self
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
 
         return $this;
     }
