@@ -13,9 +13,6 @@
     <header id="header">
         <nav class="navbar">
             <ul class="navbar_left">
-                {% if app.user %}
-                <li class="hyperlink form-button"><a href="{{ path('form') }}" id="form-redirect">Formulaire</a></li>
-                {% endif %}
                 <li class="actu">
                     <a class="hyperlink" href="{{path('actuality') }}">Actualités</a>
                 </li>
@@ -23,11 +20,11 @@
                     <img src="{{asset('build/images/vertical-line.png') }}" alt="">
                 </li>
                 <li class="design">
-                    <a class="hyperlink" href="{{path('design_index') }}">Design métallique</a> 
+                    <a class="hyperlink" href="{{path('design_index') }}">Design métallique</a>
                 </li>
             </ul>
             <div class="logo-navbar">
-                <a href="{{path('home') }}"><img src="{{ asset('build/images/logo-navbar.png') }}" alt="Le logo de la société Amon" width="100%" title="Aller à l'accueil"></a> 
+                <a href="{{path('home') }}"><img src="{{ asset('build/images/logo-navbar.png') }}" alt="Le logo de la société Amon" width="100%" title="Aller à l'accueil"></a>
             </div>
             <ul class="navbar_right">
                 <li class="passages">
@@ -40,11 +37,6 @@
                     <a class="hyperlink" href="{{asset('home/contact') }}">Contact</a>
                 </li>
             </ul>
-            {% if app.user %}
-                <div class="mb-3">
-                    <a class="deconnection-link" href="{{ path('app_logout') }}">Déconnexion</a>
-                </div>
-        {% endif %}
         </nav>
     </header>
     <div class="content">
@@ -53,7 +45,10 @@
     <footer class="footer">
             <p>©2021-2022 Amon-creation.fr - Tous droits réservés</p>
             <p><a href="{{path('legal_notice') }}">Mentions légales</a></p>
-            <p class="login-button"><a href="{{path ('app_login') }}"><img src="{{ asset('build/images/padlock.png') }}" alt="Cadenas pour login"></a></p>
+            <p class="login-button"><a href="{{path ('admin') }}"><img src="{{ asset('build/images/padlock.png') }}" alt="Cadenas pour login"></a></p>
+            {% if app.user %}
+                <p><a class="deconnection-link" href="{{ path('app_logout') }}">Déconnexion</a></p>
+            {% endif %}
     </footer>
 
 {% block javascripts %}

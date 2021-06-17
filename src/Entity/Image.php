@@ -3,10 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\ImageRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ImageRepository::class)
+ * @Vich\Uploadable()
  */
 class Image
 {
@@ -19,34 +24,47 @@ class Image
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Length(
+     * min = 2,
+     * max = 50,
+     * minMessage = "Le nom doit faire au minimum {{ limit }} caractères.",
+     * maxMessage = "Le nom ne doit pas dépasser {{ limit }} caractères."
+     * )
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @var null|string
      */
-    private $url;
+    private ?string $url;
+
+    /**
+     * @Vich\UploadableField(mapping="url_file", fileNameProperty="url")
+     * @var File
+     */
+    private File $urlFile;
 
     /**
      * @ORM\Column(type="string", length=30)
      */
-    private $category;
+    private string $category;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $alternativeText;
+    private string $alternativeText;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $updatedAt;
+    private datetime $updatedAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="images")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $article;
+    private Article $article;
 
     public function getId(): ?int
     {
@@ -101,27 +119,43 @@ class Image
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?DateTime
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
-    public function getArticle(): ?Article
+    public function getArticle(): Article
     {
         return $this->article;
     }
 
-    public function setArticle(?Article $article): self
+    public function setArticle(Article $article): self
     {
         $this->article = $article;
 
         return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getUrlFile(): File
+    {
+        return $this->urlFile;
+    }
+
+    /**
+     * @param File $urlFile
+     */
+    public function setUrlFile(File $urlFile): void
+    {
+        $this->urlFile = $urlFile;
     }
 }
