@@ -37,13 +37,13 @@ class Image
      * @ORM\Column(type="string", length=255)
      * @var null|string
      */
-    private ?string $url;
+    private ?string $url = null;
 
     /**
      * @Vich\UploadableField(mapping="url_file", fileNameProperty="url")
-     * @var File
+     * @var null|File
      */
-    private File $urlFile;
+    private ?File $urlFile = null;
 
     /**
      * @ORM\Column(type="string", length=30)
@@ -88,7 +88,7 @@ class Image
         return $this->url;
     }
 
-    public function setUrl(string $url): self
+    public function setUrl(?string $url): self
     {
         $this->url = $url;
 
@@ -144,18 +144,23 @@ class Image
     }
 
     /**
-     * @return File
+     * @return ?File
      */
-    public function getUrlFile(): File
+    public function getUrlFile(): ?File
     {
         return $this->urlFile;
     }
 
     /**
-     * @param File $urlFile
+     * @param ?File $urlFile
+     * @return self
      */
-    public function setUrlFile(File $urlFile): void
+    public function setUrlFile(?File $urlFile): self
     {
         $this->urlFile = $urlFile;
+        if (null !== $urlFile) {
+            $this->updatedAt = new DateTime('now');
+        }
+        return $this;
     }
 }
