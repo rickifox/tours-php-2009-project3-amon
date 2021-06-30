@@ -22,27 +22,27 @@ class Article
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $title;
+    private string $title;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $date;
+    private \DateTimeInterface $date;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $content;
+    private string $content;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isNews;
+    private bool $isNews;
 
     /**
      * @ORM\OneToMany(targetEntity=Image::class, mappedBy="article", orphanRemoval=true)
      */
-    private $images;
+    private ArrayCollection $images;
 
     public function __construct()
     {
