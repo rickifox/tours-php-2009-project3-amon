@@ -62,9 +62,9 @@ class Image
 
     /**
      * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="images")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
-    private Article $article;
+    private ?Article $article;
 
     public function getId(): ?int
     {
@@ -136,7 +136,7 @@ class Image
         return $this->article;
     }
 
-    public function setArticle(Article $article): self
+    public function setArticle(?Article $article): ?self
     {
         $this->article = $article;
 

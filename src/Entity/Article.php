@@ -40,9 +40,9 @@ class Article
     private bool $isNews;
 
     /**
-     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="article", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="article", orphanRemoval=true, cascade={"persist"})
      */
-    private ArrayCollection $images;
+    private $images;
 
     public function __construct()
     {
