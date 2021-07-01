@@ -19,22 +19,26 @@ class Image
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Assert\Type("integer")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
      * @Assert\Length(
      * min = 2,
      * max = 50,
      * minMessage = "Le nom doit faire au minimum {{ limit }} caractères.",
      * maxMessage = "Le nom ne doit pas dépasser {{ limit }} caractères."
      * )
+     * @Assert\Type("string")
      */
     private string $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Type("string")
      * @var null|string
      */
     private ?string $url = null;
@@ -47,16 +51,28 @@ class Image
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\Type("string")
+     * @Assert\NotBlank
      */
     private string $category;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Type("string")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     min = 3,
+     *     max = 255,
+     *     minMessage = "La description doit faire au minimum {{ limit }} caractères.",
+     *     maxMessage = "La description ne doit pas dépasser {{ limit }} caractères."
+     * )
      */
     private string $alternativeText;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\DateTime
+     * @Assert\NotBlank
      */
     private datetime $updatedAt;
 

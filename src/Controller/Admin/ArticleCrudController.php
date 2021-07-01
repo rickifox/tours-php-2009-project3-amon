@@ -28,15 +28,19 @@ class ArticleCrudController extends AbstractCrudController
         return [
             IdField::new('id')
                 ->onlyOnIndex(),
-            TextField::new('title', 'Titre'),
+            TextField::new('title', 'Titre')
+                ->setRequired(true),
             DateField::new('date', 'Le')
-                ->setFormat('dd / MM / yyyy'),
-            TextEditorField::new('content', 'Contenu'),
+                ->setFormat('dd / MM / yyyy')
+                ->setRequired(true),
+            TextEditorField::new('content', 'Contenu')
+                ->setRequired(true),
             BooleanField::new('isNews', 'Actualité'),
             CollectionField::new('images', 'Image(s)')
                 ->allowAdd()
                 ->allowDelete()
-                ->setEntryType(ImageType::class),
+                ->setEntryType(ImageType::class)
+                ->setRequired(true),
             ];
     }
 }
