@@ -82,6 +82,19 @@ class Image
      */
     private ?Article $article;
 
+    /**
+     * @return array
+     */
+    public function getArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'alternativeText' => $this->alternativeText,
+            'url' => '/uploads/' . $this->url
+        ];
+    }
+
     public function getId(): ?int
     {
         return $this->id;

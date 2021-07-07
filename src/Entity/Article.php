@@ -74,6 +74,24 @@ class Article
         $this->images = new ArrayCollection();
     }
 
+    /**
+     * @return array
+     */
+    public function getArray(): array
+    {
+        $images = [];
+        foreach ($this->images as $img) {
+            $images[] = $img->getArray();
+        }
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'content' => $this->content,
+            'date' => $this->date,
+            'images' => $images,
+        ];
+    }
+
     public function getId(): ?int
     {
         return $this->id;

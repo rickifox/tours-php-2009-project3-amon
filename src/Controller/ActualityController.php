@@ -21,7 +21,7 @@ class ActualityController extends AbstractController
     public function showArticles(ArticleRepository $articleRepository): Response
     {
         $articles = $articleRepository->findBy(
-            ["section" => 'Actualites'],
+            ["isNews" => true],
             ['date' => 'DESC'],
         );
         return $this->render('actuality/index.html.twig', ['articles' => $articles]);
@@ -34,7 +34,7 @@ class ActualityController extends AbstractController
     public function showCarouselArticles(ArticleRepository $articleRepository): array
     {
         $articles = $articleRepository->findby(
-            ['section' => 'Actualites'],
+            ['isNews' => true],
             ['date' => 'DESC'],
             3,
             0,

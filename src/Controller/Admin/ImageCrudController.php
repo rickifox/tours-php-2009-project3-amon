@@ -31,9 +31,10 @@ class ImageCrudController extends AbstractCrudController
                     'Décoration' => 'decoration',
                     'Escaliers' => 'stairs',
                     'Garde-corps' => 'railing',
-                    'Passages secrets' => 'secret passage',
                     'Trappes vitrées' => 'glass trap',
                     'Verrières' => 'canopy',
+                    'Miroirs' => 'mirror',
+                    'Bibliothèque' => 'library',
                     'Autre' => 'other',
                 ])
                 ->allowMultipleChoices(false)

@@ -11,11 +11,11 @@ use App\Repository\ArticleRepository;
 class DesignController extends AbstractController
 {
     /**
-     * @Route("/design/", name="design_index")
+     * @Route("/design", name="design_index")
      */
     public function index(ActualityController $actualityController, ArticleRepository $articleRepository): Response
     {
-        $actus = $actualityController->showCarouselArticles($articleRepository);
-        return $this->render('design/index.html.twig', ['actus' => $actus]);
+        $news = $actualityController->showCarouselArticles($articleRepository);
+        return $this->render('design/index.html.twig', ['news' => $news]);
     }
 }

@@ -42,7 +42,8 @@
         "symfony/yaml": "5.1.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-        "vich/uploader-bundle": "^1.16"
+        "vich/uploader-bundle": "^1.16",
+      "ext-json": "*"
     },
     "require-dev": {
         "phpmd/phpmd": "^2.9",
