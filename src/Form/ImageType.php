@@ -3,17 +3,21 @@
 namespace App\Form;
 
 use App\Entity\Image;
+use http\Client\Request;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Vich\UploaderBundle\Form\Type\VichFileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ImageType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -21,13 +25,9 @@ class ImageType extends AbstractType
                 'label' => 'Nom',
                 'required' => true,
             ])
-            /*->add('url', TextType::class, [
-                'label' => 'url',
-                'required' => true,
-            ])*/
             ->add('urlFile', VichImageType::class, [
                 'label' => 'Image',
-                'required' => true,
+                'required' => !($_REQUEST['crudAction'] === 'edit'),
                 'allow_delete' => false,
             ])
             ->add('category', ChoiceType::class, [
@@ -50,8 +50,6 @@ class ImageType extends AbstractType
                 'label' => 'Description',
                 'required' => true,
             ])
-            /*->add('updatedAt')*/
-            /*->add('article')*/
         ;
     }
 
